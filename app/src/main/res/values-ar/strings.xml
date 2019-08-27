@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tamazuj</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_notifications">الاشعارات</string>
+    <string name="title_dashboard">الرئيسية</string>
+
+</resources>
