@@ -23,4 +23,12 @@
     <string name="DoYouNeedAnAdvisor">Do you need an advisor?</string>
     <string name="advisor">Advisor</string>
     <string name="consultYourBeneficiaries">Consult your beneficiaries</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_84_percent_of">84% percent of</string>
+    <string name="abu_dall_mohammed_omar">abu dall mohammed omar</string>
+    <string name="educational_consultant_holding_an_international_certificate_in_education">Educational consultant holding an international certificate in education</string>
+    <string name="ask_for_advice">Ask for advice</string>
+    <string name="Areas_of_Counseling">Areas of Counseling</string>
 </resources>

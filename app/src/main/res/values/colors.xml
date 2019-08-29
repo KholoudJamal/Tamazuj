@@ -11,5 +11,6 @@
     <color name="colorGray">#42000000</color>
     <color name="colorEditTextBack">#42000000</color>
     <color name="colorButtonBack">#7055C4CF</color>
+    <color name="black">#000000</color>
 
 </resources>
