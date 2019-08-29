@@ -5,6 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlue">#55C4CF</color>
+    <color name="colorPink">#D81B60</color>
+    <color name="colorGray">#42000000</color>
     <color name="colorEditTextBack">#42000000</color>
     <color name="colorButtonBack">#7055C4CF</color>
 

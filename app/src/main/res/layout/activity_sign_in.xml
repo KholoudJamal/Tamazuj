@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.SignInActivity"
-android:background="@drawable/loginbackground">
+android:background="@drawable/loginbackgroundwithouticon">
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
@@ -17,16 +17,18 @@ android:background="@drawable/loginbackground">
                   android:layout_marginEnd="@dimen/activity_horizontal_margin_large"
     android:background="#00000000">
 
-       <!-- <ImageView android:layout_width="wrap_content"
+       <ImageView android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-        />-->
+           android:src="@drawable/loginicon"
+           android:layout_gravity="center"
+        />
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:text="@string/signIn"
                   android:textSize="@dimen/text_header_size"
                   android:textStyle="bold"
-            android:layout_marginTop="@dimen/activity_horizontal_margin_xlarge"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_medium"
             />
 
         <EditText android:layout_width="match_parent"
@@ -62,7 +64,7 @@ android:background="@drawable/loginbackground">
                 android:layout_height="wrap_content"
                 android:padding="@dimen/activity_vertical_margin_medium"
                 android:layout_marginTop="@dimen/activity_vertical_margin_large"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin_large"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin_large"
                 android:textColor="@android:color/white"
                 android:text="@string/login"
                 android:background="@drawable/button_boarder"

@@ -18,4 +18,9 @@
     <string name="haveAccount">you have an account?</string>
     <string name="login">sign</string>
     <string name="clickHere">click here</string>
+    <string name="selectAccountType">Select account type</string>
+    <string name="beneficiary">Beneficiary</string>
+    <string name="DoYouNeedAnAdvisor">Do you need an advisor?</string>
+    <string name="advisor">Advisor</string>
+    <string name="consultYourBeneficiaries">Consult your beneficiaries</string>
 </resources>
