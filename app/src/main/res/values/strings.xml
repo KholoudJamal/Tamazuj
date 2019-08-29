@@ -31,4 +31,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="consultApplications">Consult applications</string>
+    <string name="clearAll">Clear all</string>
+    <string name="oldNotifications">Old notifications</string>
+    <string name="newNotifications">New notifications</string>
+    <string name="notificationTime">since 1 mint</string>
 </resources>

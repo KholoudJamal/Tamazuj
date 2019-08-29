@@ -1,4 +1,4 @@
-package com.Tamazj.TamazjApp.Fragments;
+package com.Tamazj.TamazjApp.AdvisorFragments;
 
 import android.content.Context;
 import android.net.Uri;

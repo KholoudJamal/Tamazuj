@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.HomeAdvisorFragment"
+    tools:context=".AdvisorFragments.HomeAdvisorFragment"
     android:orientation="vertical"
-    android:background="@drawable/editprofileback">
+    android:background="@drawable/home_advisor_back">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
