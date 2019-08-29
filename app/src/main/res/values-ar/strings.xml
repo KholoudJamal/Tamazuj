@@ -4,5 +4,20 @@
     <string name="title_home">الرئيسية</string>
     <string name="title_notifications">الاشعارات</string>
     <string name="title_dashboard">الرئيسية</string>
+    <string name="signIn">سجيل الدخول</string>
+    <string name="emailHint">email@email.email</string>
+    <string name="passwordHint">*************</string>
+    <string name="forgetPassword">نسيت كلمة المرور</string>
+    <string name="sign">دخول</string>
+    <string name="dontHaveAccount">ليس لديك حساب ؟</string>
+    <string name="signFromHere">التسجيل من هنا</string>
+    <string name="signUp">Sign up</string>
+    <string name="nameHint">Full name</string>
+    <string name="confirmPasswordHint">Confirm password</string>
+    <string name="phoneNumber">Phone number</string>
+    <string name="agreePrivecyPolicy">When you sign up in this program you must agree our privecy policy</string>
+    <string name="haveAccount">you have an account?</string>
+    <string name="login">sign</string>
+    <string name="clickHere">click here</string>
 
 </resources>
