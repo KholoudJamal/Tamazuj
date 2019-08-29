@@ -24,5 +24,10 @@
     <string name="DoYouNeedAnAdvisor">Do you need an advisor</string>
     <string name="advisor">Advisor</string>
     <string name="consultYourBeneficiaries">Consult your beneficiaries</string>
+    <string name="consultApplication">Consult application</string>
+    <string name="warning">warning</string>
+    <string name="completeProfile">Please complete your profile</string>
+    <string name="completeTheProfile">Complete profile</string>
+    <string name="consultApplications">Consult applications</string>
 
 </resources>
