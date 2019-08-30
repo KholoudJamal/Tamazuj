@@ -23,6 +23,15 @@
     <string name="DoYouNeedAnAdvisor">Do you need an advisor?</string>
     <string name="advisor">Advisor</string>
     <string name="consultYourBeneficiaries">Consult your beneficiaries</string>
+    <string name="consultApplication">Consult application</string>
+    <string name="warning">warning</string>
+    <string name="completeProfile">Please complete your profile</string>
+    <string name="completeTheProfile">Complete profile</string>
+    <string name="consultApplications">Consult applications</string>
+    <string name="clearAll">Clear all</string>
+    <string name="oldNotifications">Old notifications</string>
+    <string name="newNotifications">New notifications</string>
+    <string name="notificationTime">since 1 mint</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -33,6 +42,7 @@
     <string name="Areas_of_Counseling">Areas of Counseling</string>
     <string name="dist">Distinguished Advisors</string>
     <string name="asteshart_ame">My Consultancy</string>
+
 
 
 </resources>
