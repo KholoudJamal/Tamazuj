@@ -33,5 +33,12 @@
     <string name="oldNotifications">Old notifications</string>
     <string name="newNotifications">New notifications</string>
     <string name="notificationTime">since 1 mint</string>
+    <string name="finished">finished</string>
+    <string name="scheduled">scheduled</string>
+    <string name="myConsult">My consult</string>
+    <string name="myAccount">My account</string>
+    <string name="myConsultRecord">My consulting record</string>
+    <string name="aboutApp">About app</string>
+    <string name="settings">Settings</string>
 
 </resources>

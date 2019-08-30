@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:background="@color/colorWhite"
+            card_view:cardElevation="10dp"
+            android:elevation="8dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            card_view:cardPreventCornerOverlap="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/consultImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="@dimen/activity_horizontal_margin_medium"
+                    android:background="@drawable/gray_bacground"
+                    android:padding="@dimen/activity_horizontal_margin_xlarge"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvConsultName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_vertical_margin_medium"
+                    android:text="@string/nameHint"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_header_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/consultImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvConsultType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_vertical_margin_medium"
+                    android:background="@drawable/gray_bacground"
+                    android:padding="@dimen/activity_vertical_margin_medium"
+                    android:text="consult type"
+                    app:layout_constraintBottom_toTopOf="@id/tvConsultTime"
+                    app:layout_constraintStart_toEndOf="@+id/consultImage"
+                    app:layout_constraintTop_toBottomOf="@id/tvConsultName" />
+
+                <TextView
+                    android:id="@+id/tvConsultTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_vertical_margin_medium"
+                    android:drawableStart="@drawable/newtime"
+                    android:drawablePadding="@dimen/activity_vertical_margin_medium"
+                    android:gravity="center"
+                    android:text="consult time"
+                    app:layout_constraintStart_toEndOf="@+id/consultImage"
+                    app:layout_constraintTop_toBottomOf="@id/tvConsultType" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_bacground"
+                    android:drawableStart="@drawable/clock"
+                    android:drawablePadding="@dimen/activity_vertical_margin_medium"
+                    android:text="@string/finished"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="@dimen/activity_vertical_margin_small"/>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
