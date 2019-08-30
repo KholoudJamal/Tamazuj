@@ -49,5 +49,8 @@
     <string name="job">Job</string>
     <string name="socialState">Social state</string>
     <string name="approval">Approval</string>
+    <string name="changePassword">Change password</string>
+    <string name="oldPassword">oldPassword</string>
+    <string name="newPassword">New password</string>
 
 </resources>
