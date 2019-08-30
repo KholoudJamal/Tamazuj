@@ -15,7 +15,7 @@
         android:title="hhhh" />
 
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/navigation_astshat"
         android:icon="@drawable/menuitem2"
         android:title="@string/title_dashboard" />
 

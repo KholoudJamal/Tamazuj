@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/layout_marginTop_8"
         android:layout_gravity="center"
         android:background="@drawable/profile_image_style"
         android:gravity="center_horizontal"
@@ -24,14 +25,14 @@
 
     <TextView
         android:id="@+id/area_counseling_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/area_counseling_image"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-24dp"
         android:gravity="center"
-        android:drawableTop="@drawable/englishrequesticon"
+        android:drawableTop="@drawable/requesticon"
         android:text="ddddddddddddddd" />
 
     <TextView
