@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tamazuj</string>
+    <string name="app_name">تمازج</string>
     <string name="title_home">الرئيسية</string>
     <string name="title_notifications">الاشعارات</string>
     <string name="title_dashboard">الرئيسية</string>
@@ -25,7 +25,7 @@
     <string name="advisor">مستفيد</string>
     <string name="consultYourBeneficiaries">قدّم استشاراتك للمستفيدين</string>
     <string name="consultApplication">Consult application</string>
-    <string name="warning">warning</string>
+    <string name="warning">تنبيه</string>
     <string name="completeProfile">الرجاء اسكتمال الملف الشخصي</string>
     <string name="completeTheProfile">اسكتمال الملف الشخصي </string>
     <string name="consultApplications">Consult applications</string>
@@ -60,6 +60,11 @@
     <string name="oldPassword">كلمة المرور القديمة</string>
     <string name="newPassword">كلمة المرور الجديدة</string>
     <string name="date_dat">06/05/1989</string>
+    <string name="family_consultane">استشارات اسرية</string>
+    <string name="sudia">سعودي</string>
+    <string name="male">ذكر</string>
+    <string name="married">متزوج</string>
+    <string name="privacy_work">يعمل في القطاع الخاص</string>
 
 
 </resources>
