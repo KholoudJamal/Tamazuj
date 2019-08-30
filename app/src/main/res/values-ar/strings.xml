@@ -51,11 +51,14 @@
     <string name="editMyInformation">تعديل البيانات</string>
     <string name="educational_consultant_holding_an_international_certificate_in_education">"المستشار التربوي الحاصل على الشهادة الدولية في التربية "</string>
     <string name="job">المهنة</string>
-    <string name="learning">التعليم</string>
+    <string name="learning">مستوى التعليم</string>
     <string name="gender">الجنس</string>
     <string name="nationality">"الجنسية "</string>
     <string name="socialState">"الحالة الاجتماعية "</string>
     <string name="Areas_of_Counseling">مجالات الاستشارة </string>
+    <string name="changePassword">تغيير كلمة المرور</string>
+    <string name="oldPassword">كلمة المرور القديمة</string>
+    <string name="newPassword">كلمة المرور الجديدة</string>
 
 
 </resources>
