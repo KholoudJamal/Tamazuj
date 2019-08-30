@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent intent = new Intent(getBaseContext(), SwitchAccountTypeActivity.class);
                 startActivity(intent);
                 finish();
 
