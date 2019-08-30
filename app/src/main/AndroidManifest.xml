@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".Activity.AdvisorProfileActivity"></activity>
+        <activity android:name=".Activity.Avisor_aboutActivity"></activity>
+        <activity android:name=".Activity.UserprofileActivity" />
+        <activity android:name=".Activity.BeneficiaryActivity" />
+        <activity android:name=".Activity.AdvisorProfileActivity" />
         <activity
             android:name=".Activity.SplashActivity"
             android:screenOrientation="portrait"
@@ -27,9 +30,11 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity android:name=".Activity.SignInActivity" />
         <activity android:name=".Activity.SignUpActivity" />
+        <activity android:name=".Activity.SwitchAccountTypeActivity" />
+        <activity android:name=".Activity.AdvisorActivity" />
     </application>
 
 </manifest>

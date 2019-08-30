@@ -15,5 +15,7 @@
     <color name="nav_style_color">#EBEAEA</color>
     <color name="black">#000000</color>
     <color name="colorBlack">#000000</color>
+    <color name="bright_gray">#242D31</color>
+    <color name="gray_dark">#798489</color>
 
 </resources>

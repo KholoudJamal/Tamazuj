@@ -59,6 +59,7 @@
     <string name="changePassword">تغيير كلمة المرور</string>
     <string name="oldPassword">كلمة المرور القديمة</string>
     <string name="newPassword">كلمة المرور الجديدة</string>
+    <string name="date_dat">06/05/1989</string>
 
 
 </resources>

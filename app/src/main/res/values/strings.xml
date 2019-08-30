@@ -61,6 +61,12 @@
     <string name="changePassword">Change password</string>
     <string name="oldPassword">Old password</string>
     <string name="newPassword">New password</string>
+    <string name="male">male</string>
+    <string name="sudia">Sudia</string>
+    <string name="married">married</string>
+    <string name="privacy_work">Work in private sector</string>
+    <string name="date_dat">06/05/1989</string>
+    <string name="family_consultane">Family consultane</string>
 </resources>
 
 
