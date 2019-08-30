@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".advisorProfileFragment"
+    tools:context=".Activity.AdvisorProfileActivity"
     android:orientation="vertical"
     android:background="@drawable/home_advisor_back">
 
@@ -48,64 +48,64 @@
 
 
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/profileFrame"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginTop="@dimen/activity_vertical_margin_large"
-    >
-        <android.support.v7.widget.CardView
-            android:id="@+id/profileCardView"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0.0px"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/profileFrame"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="@dimen/activity_vertical_margin_large">
-
-            <android.support.constraint.ConstraintLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin_large"
+            >
+            <android.support.v7.widget.CardView
+                android:id="@+id/profileCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/activity_vertical_margin_large">
+                android:background="@color/colorWhite"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/activity_vertical_margin_large">
 
-
-                <TextView
-                    android:id="@+id/tvFullNameProfile"
-                    android:layout_width="wrap_content"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_vertical_margin_small"
-                    android:paddingStart="@dimen/activity_vertical_margin_medium"
-                    android:text="@string/nameHint"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/text_header_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="@dimen/activity_vertical_margin_large"/>
+                    android:padding="@dimen/activity_vertical_margin_large">
 
-                <TextView
-                    android:id="@+id/tvEmailProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/activity_vertical_margin_medium"
-                    android:paddingEnd="@dimen/activity_vertical_margin_small"
-                    android:paddingBottom="@dimen/activity_vertical_margin_small"
-                    android:text="@string/emailHint"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvFullNameProfile" />
 
-            </android.support.constraint.ConstraintLayout>
-        </android.support.v7.widget.CardView>
-</FrameLayout>
+                    <TextView
+                        android:id="@+id/tvFullNameProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/activity_vertical_margin_small"
+                        android:paddingStart="@dimen/activity_vertical_margin_medium"
+                        android:text="@string/nameHint"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_header_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="@dimen/activity_vertical_margin_large"/>
+
+                    <TextView
+                        android:id="@+id/tvEmailProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/activity_vertical_margin_medium"
+                        android:paddingEnd="@dimen/activity_vertical_margin_small"
+                        android:paddingBottom="@dimen/activity_vertical_margin_small"
+                        android:text="@string/emailHint"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvFullNameProfile" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+        </FrameLayout>
         <ImageView
             android:layout_width="@dimen/activity_vertical_margin_64"
             android:layout_height="@dimen/activity_vertical_margin_64"
@@ -126,95 +126,95 @@
             />
     </android.support.constraint.ConstraintLayout>
 
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-    <android.support.v7.widget.CardView
-        android:id="@+id/profileDescriptionCardView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0.0px"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-        android:layout_marginStart="@dimen/activity_vertical_margin_large"
-        android:layout_marginEnd="@dimen/activity_vertical_margin_large">
-
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/activity_vertical_margin_medium"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:id="@+id/profileDescriptionCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large">
 
-    </android.support.v7.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/activity_vertical_margin_medium"/>
+
+            </android.support.v7.widget.CardView>
 
 
-          <android.support.v7.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/colorWhite"
-              android:divider="@android:color/transparent"
-              android:dividerHeight="0.0px"
-              app:cardElevation="10dp"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-              android:layout_marginStart="@dimen/activity_vertical_margin_large"
-              android:layout_marginEnd="@dimen/activity_vertical_margin_large">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large">
 
-  <android.support.v7.widget.RecyclerView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/profileAttachments"/>
-          </android.support.v7.widget.CardView>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profileAttachments"/>
+            </android.support.v7.widget.CardView>
 
-          <android.support.v7.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/colorWhite"
-              android:divider="@android:color/transparent"
-              android:dividerHeight="0.0px"
-              app:cardElevation="10dp"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-              android:layout_marginStart="@dimen/activity_vertical_margin_large"
-              android:layout_marginEnd="@dimen/activity_vertical_margin_large">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large">
 
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical">
-                  <TextView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                      android:text="@string/attachments"
-                      android:padding="@dimen/activity_vertical_margin_medium"
-                      android:drawableStart="@drawable/files"
-                      android:drawablePadding="@dimen/activity_vertical_margin_medium"
-                  />
-                  <View
-                      android:layout_width="match_parent"
-                      android:layout_height="1dp"
-                      android:layout_marginStart="@dimen/activity_vertical_margin_medium"
-                      android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
-                      android:background="@color/colorLightGray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/attachments"
+                        android:padding="@dimen/activity_vertical_margin_medium"
+                        android:drawableStart="@drawable/files"
+                        android:drawablePadding="@dimen/activity_vertical_margin_medium"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+                        android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
+                        android:background="@color/colorLightGray"/>
 
-                  <android.support.v7.widget.RecyclerView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/profileInformation"
-                  /></LinearLayout>
-          </android.support.v7.widget.CardView>
-      </LinearLayout>
-</ScrollView>
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/profileInformation"
+                        /></LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

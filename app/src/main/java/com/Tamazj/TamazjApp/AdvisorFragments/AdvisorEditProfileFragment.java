@@ -1,4 +1,4 @@
-package com.Tamazj.TamazjApp;
+package com.Tamazj.TamazjApp.AdvisorFragments;
 
 
 import android.os.Bundle;
@@ -7,14 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Tamazj.TamazjApp.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class advisorProfileFragment extends Fragment {
+public class AdvisorEditProfileFragment extends Fragment {
 
 
-    public advisorProfileFragment() {
+    public AdvisorEditProfileFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +24,7 @@ public class advisorProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_advisor_profile, container, false);
+        return inflater.inflate(R.layout.fragment_advisor_edit_profile, container, false);
     }
 
 }
