@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.MenuFragment"
     android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
     android:background="@drawable/home_advisor_back">
 
     <android.support.v7.widget.Toolbar
@@ -17,16 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/activity_vertical_margin_large">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#00000000"
-                android:src="@drawable/personalprofile"
+                android:layout_alignBaseline="@+id/toolbarLogo"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:layout_alignBaseline="@+id/toolbarLogo"
+                android:layout_marginRight="339dp"
 
-                />
+                android:background="#00000000"
+                android:src="@drawable/search" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -40,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
-                android:src="@drawable/search"
+                android:src="@drawable/personalprofile"
                 android:layout_alignBaseline="@+id/toolbarLogo"
                 />
         </RelativeLayout>
@@ -68,6 +71,8 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
             android:layout_margin="@dimen/activity_vertical_margin_large">
 
             <ImageView
@@ -76,9 +81,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/menuiconmenu"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tvFullNameMenu"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tvFullNameMenu"
@@ -134,49 +139,49 @@
         android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
         android:background="@color/colorLightGray"/>
 
-   <android.support.constraint.ConstraintLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-       <TextView
-           android:id="@+id/textView"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:drawableStart="@drawable/notification"
-           android:drawableEnd="@drawable/sequaree"
-           android:drawablePadding="@dimen/activity_vertical_margin_medium"
-           android:gravity="center|start"
-           android:padding="@dimen/activity_vertical_margin_medium"
-           android:text="@string/title_notifications"
-           app:layout_constraintBottom_toBottomOf="parent"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/notification"
+            android:drawableEnd="@drawable/sequaree"
+            android:drawablePadding="@dimen/activity_vertical_margin_medium"
+            android:gravity="center|start"
+            android:padding="@dimen/activity_vertical_margin_medium"
+            android:text="@string/title_notifications"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-       <View
-           android:id="@+id/view"
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:background="@color/colorLightGray"
-           app:layout_constraintBottom_toTopOf="@+id/textView"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorLightGray"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-       <TextView
-           android:id="@+id/notiicationsCount"
-           android:layout_width="wrap_content"
-           android:layout_height="15dp"
-           android:layout_marginEnd="@dimen/activity_vertical_margin_xxxlarge"
-           android:background="@drawable/red_background"
-           android:paddingStart="@dimen/activity_vertical_margin_medium"
-           android:paddingEnd="@dimen/activity_vertical_margin_medium"
-           android:text="00"
-           android:textColor="@color/colorWhite"
-           app:layout_constraintBottom_toBottomOf="@+id/textView"
-           app:layout_constraintEnd_toEndOf="@+id/textView"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="@+id/textView" />
-   </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/notiicationsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginEnd="@dimen/activity_vertical_margin_xxxlarge"
+            android:background="@drawable/red_background"
+            android:paddingStart="@dimen/activity_vertical_margin_medium"
+            android:paddingEnd="@dimen/activity_vertical_margin_medium"
+            android:text="00"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+    </android.support.constraint.ConstraintLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

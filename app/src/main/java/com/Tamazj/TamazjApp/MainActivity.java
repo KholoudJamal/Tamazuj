@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Fragments.CategoriesFragment;
 import com.Tamazj.TamazjApp.Fragments.HomeFragment;
+import com.Tamazj.TamazjApp.Fragments.MenuFragment;
 import com.Tamazj.TamazjApp.Fragments.MyConsultationragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+                
                 case R.id.navigation_home:
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment(), "HomeFragment").commit();
 
@@ -29,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_menu:
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesFragment(), "HomeFragment").commit();
+
+                    return true;
+
+                case R.id.navigation_homeprofile:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new MenuFragment(), "HomeFragment").commit();
 
                     return true;
             }

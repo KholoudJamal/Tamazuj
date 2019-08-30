@@ -1,6 +1,5 @@
 package com.Tamazj.TamazjApp.Activity;
 
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

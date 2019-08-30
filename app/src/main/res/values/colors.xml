@@ -7,11 +7,13 @@
     <color name="colorBlue">#55C4CF</color>
     <color name="colorPink">#D81B60</color>
     <color name="colorGray">#42000000</color>
-    <color name="colorLightGray">#05000000</color>
+    <color name="colorLightGray">#07000000</color>
+    <color name="colorLightBlue">#5055C4CF</color>
     <color name="colorEditTextBack">#42000000</color>
     <color name="colorButtonBack">#7055C4CF</color>
-    <color name="colorBlack">#000000</color>
-    <color name="black">#000000</color>
+    <color name="colorRed">#FF5858</color>
     <color name="nav_style_color">#EBEAEA</color>
+    <color name="black">#000000</color>
+    <color name="colorBlack">#000000</color>
 
 </resources>

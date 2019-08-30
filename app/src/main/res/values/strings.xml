@@ -27,14 +27,22 @@
     <string name="warning">warning</string>
     <string name="completeProfile">Please complete your profile</string>
     <string name="completeTheProfile">Complete profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="consultApplications">Consult applications</string>
     <string name="clearAll">Clear all</string>
     <string name="oldNotifications">Old notifications</string>
     <string name="newNotifications">New notifications</string>
     <string name="notificationTime">since 1 mint</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="finished">finished</string>
+    <string name="scheduled">scheduled</string>
+    <string name="myConsult">My consult</string>
+    <string name="myAccount">My account</string>
+    <string name="myConsultRecord">My consulting record</string>
+    <string name="aboutApp">About app</string>
+    <string name="settings">Settings</string>
+    <string name="attachments">Attachments</string>
     <string name="_84_percent_of">84% percent of</string>
     <string name="abu_dall_mohammed_omar">abu dall mohammed omar</string>
     <string name="educational_consultant_holding_an_international_certificate_in_education">Educational consultant holding an international certificate in education</string>
@@ -42,7 +50,14 @@
     <string name="Areas_of_Counseling">Areas of Counseling</string>
     <string name="dist">Distinguished Advisors</string>
     <string name="asteshart_ame">My Consultancy</string>
-
-
-
+    <string name="editMyInformation">Edit my information</string>
+    <string name="gender">Gender</string>
+    <string name="nationality">Nationality</string>
+    <string name="birthDate">Birth date</string>
+    <string name="learning">Learning level</string>
+    <string name="job">Job</string>
+    <string name="socialState">Social state</string>
+    <string name="approval">Approval</string>
 </resources>
+
+

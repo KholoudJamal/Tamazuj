@@ -8,21 +8,21 @@
     <item
         android:id="@+id/navigation_menu"
         android:icon="@drawable/mnuitem3"
-        android:title="hhh" />
+        android:title="" />
 
     <item
         android:id="@+id/navigation_add"
-        android:title="hhhh" />
+        android:title="" />
 
     <item
         android:id="@+id/navigation_astshat"
         android:icon="@drawable/menuitem2"
-        android:title="@string/title_dashboard" />
+        android:title="" />
 
     <item
         android:id="@+id/navigation_homeprofile"
         android:icon="@drawable/menuicon"
-        android:title="@string/title_home" />
+        android:title="" />
 
 
 
