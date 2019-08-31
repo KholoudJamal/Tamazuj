@@ -65,6 +65,7 @@
     <string name="male">ذكر</string>
     <string name="married">متزوج</string>
     <string name="privacy_work">يعمل في القطاع الخاص</string>
+    <string name="connected">Connected</string>
 
 
 </resources>
