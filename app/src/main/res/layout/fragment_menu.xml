@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/account"
-        android:drawableEnd="@drawable/sequaree"
+        android:drawableEnd="@drawable/profilearrow"
         android:text="@string/myAccount"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
@@ -143,7 +143,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:drawableStart="@drawable/notification"
-           android:drawableEnd="@drawable/sequaree"
+           android:drawableEnd="@drawable/profilearrow"
            android:drawablePadding="@dimen/activity_vertical_margin_medium"
            android:gravity="center|start"
            android:padding="@dimen/activity_vertical_margin_medium"
@@ -182,7 +182,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/recordasteashart"
-        android:drawableEnd="@drawable/sequaree"
+        android:drawableEnd="@drawable/profilearrow"
         android:text="@string/myConsultRecord"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
@@ -199,7 +199,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/aboutapp"
-        android:drawableEnd="@drawable/sequaree"
+        android:drawableEnd="@drawable/profilearrow"
         android:text="@string/aboutApp"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
@@ -216,7 +216,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/setting"
-        android:drawableEnd="@drawable/sequaree"
+        android:drawableEnd="@drawable/profilearrow"
         android:text="@string/settings"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
