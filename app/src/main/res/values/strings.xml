@@ -69,6 +69,13 @@
     <string name="date_dat">06/05/1989</string>
     <string name="family_consultane">Family consultane</string>
     <string name="connected">Connected</string>
+    <string name="youAreAvailableToConsultNow">You are available to consult now</string>
+    <string name="fullNameRequired">Full name is required!</string>
+    <string name="emailRequired">Email is requied!</string>
+    <string name="passwordRequired">Password is required!</string>
+    <string name="confirmPasswordRequired">Confirm Password is required!</string>
+    <string name="confirmPasswordNotMatchesPassword">Please make sure the password matches confirm password</string>
+    <string name="phoneRequired">Phone number is required!</string>
 </resources>
 
 

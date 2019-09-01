@@ -28,7 +28,7 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
         mAdvisorcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SwitchAccountTypeActivity.this, MainActivity.class);
+                Intent intent=new Intent(SwitchAccountTypeActivity.this, AdvisorActivity.class);
                 startActivity(intent);
 
             }
@@ -37,7 +37,8 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
         mBeneficiarycard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(SwitchAccountTypeActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
