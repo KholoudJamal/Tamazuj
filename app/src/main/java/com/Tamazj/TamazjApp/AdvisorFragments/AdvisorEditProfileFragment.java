@@ -146,6 +146,7 @@ public class AdvisorEditProfileFragment extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
+
             }
         });
 
