@@ -83,6 +83,9 @@
     <string name="identity">Identity</string>
     <string name="qualification">Qualification</string>
     <string name="cv">Curriculum Vitae (CV)</string>
+    <string name="oldPasswordRequired">Old password is required !</string>
+    <string name="newPasswordRequired">New password is required !</string>
+    <string name="oldPasswordMatchesnewPassword">new password must be diffirent than old password</string>
 </resources>
 
 
