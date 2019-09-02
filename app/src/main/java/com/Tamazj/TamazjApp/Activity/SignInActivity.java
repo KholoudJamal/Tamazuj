@@ -39,8 +39,8 @@ public class SignInActivity extends AppCompatActivity {
         else {
             SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
             SharedPreferences.Editor editor_signUp = sharedPreferences.edit();
-            editor_signUp.putString(AppConstants.AUTHOR_EMAIL, email.toString());
-            editor_signUp.putString(AppConstants.AUTHOR_PASSWORD, password.toString());
+            editor_signUp.putString(AppConstants.EMAIL, email.toString());
+            editor_signUp.putString(AppConstants.PASSWORD, password.toString());
             //boolean isDone = editor.commit();
             //editor.apply();
             editor_signUp.apply();

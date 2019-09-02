@@ -28,20 +28,20 @@ public class AdvisorActivity extends AppCompatActivity {
             switch (item.getItemId()) {
 
                 case R.id.navigation_advisor_home:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeAdvisorFragment(), "HomeFragment").commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new HomeAdvisorFragment(), "HomeFragment").commit();
 
                     return true;
                 case R.id.navigation_advisor_notifications:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new AdvisorNotificationsFragment(), "HomeFragment").commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new AdvisorNotificationsFragment(), "HomeFragment").commit();
 
                     return true;
                 case R.id.navigation__advisor_consult:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ConsoultAdvisorFragment(), "HomeFragment").commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new ConsoultAdvisorFragment(), "HomeFragment").commit();
 
                     return true;
 
                 case R.id.navigation_advisor_menu:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new MenuFragment(), "HomeFragment").commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new MenuFragment(), "HomeFragment").commit();
 
                     return true;
             }
@@ -53,11 +53,11 @@ public class AdvisorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advisor);
+        getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new HomeAdvisorFragment(), "HomeFragment").commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
+        //mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setItemIconTintList(null);
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeAdvisorFragment(), "HomeFragment").commit();
 
     }
 }

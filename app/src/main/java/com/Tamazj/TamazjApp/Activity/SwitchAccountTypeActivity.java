@@ -1,6 +1,7 @@
 package com.Tamazj.TamazjApp.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.MainActivity;
+import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.R;
 
 public class SwitchAccountTypeActivity extends AppCompatActivity {
@@ -28,8 +30,16 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
         mAdvisorcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
+                SharedPreferences.Editor editor_signUp = sharedPreferences.edit();
+                editor_signUp.putString(AppConstants.ACCOUNT_TYPE, AppConstants.Advisor);
+                //boolean isDone = editor.commit();
+                //editor.apply();
+                editor_signUp.apply();
                 Intent intent=new Intent(SwitchAccountTypeActivity.this, AdvisorActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -37,8 +47,15 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
         mBeneficiarycard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SwitchAccountTypeActivity.this, MainActivity.class);
+                SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
+                SharedPreferences.Editor editor_signUp = sharedPreferences.edit();
+                editor_signUp.putString(AppConstants.ACCOUNT_TYPE, AppConstants.Beneficiary);
+                //boolean isDone = editor.commit();
+                //editor.apply();
+                editor_signUp.apply();
+                 Intent intent=new Intent(SwitchAccountTypeActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

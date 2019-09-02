@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.Tamazj.TamazjApp.MainActivity;
+import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -24,26 +25,45 @@ public class SplashActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        new CountDownTimer(SPLASH_TIME, 1000) {
 
-            @Override
-            public void onFinish() {
+        SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+        if (sharedPreferences.getString(AppConstants.EMAIL, null) != null && sharedPreferences.getString(AppConstants.PASSWORD, null) != null) {
 
-                Intent intent = new Intent(getBaseContext(), SwitchAccountTypeActivity.class);
-                startActivity(intent);
-                finish();
+            if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null) != null) {
+
+                if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null).equals(AppConstants.Advisor)) {
+                    Intent intent = new Intent(SplashActivity.this, AdvisorActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null).equals(AppConstants.Advisor)) {
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
 
             }
 
-            @Override
-            public void onTick(long millisUntilFinished) {
+        } else {
+            new CountDownTimer(SPLASH_TIME, 1000) {
 
-            }
-        }.start();
+                @Override
+                public void onFinish() {
+
+                    Intent intent = new Intent(getBaseContext(), SwitchAccountTypeActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+            }.start();
+
+        }
 
     }
-
-
 
 
 

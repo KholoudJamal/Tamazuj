@@ -108,6 +108,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/imSignOut"
                 android:background="#00000000"
                 android:src="@drawable/logout"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -120,6 +121,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/tvMenuMyAccount"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/account"
         android:drawableEnd="@drawable/profilearrow"
@@ -139,7 +141,7 @@
        android:layout_height="wrap_content">
 
        <TextView
-           android:id="@+id/textView"
+           android:id="@+id/tvMenuNotification"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:drawableStart="@drawable/notification"
@@ -158,7 +160,7 @@
            android:layout_width="match_parent"
            android:layout_height="1dp"
            android:background="@color/colorLightGray"
-           app:layout_constraintBottom_toTopOf="@+id/textView"
+           app:layout_constraintBottom_toTopOf="@+id/tvMenuNotification"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent" />
 
@@ -172,14 +174,15 @@
            android:paddingEnd="@dimen/activity_vertical_margin_medium"
            android:text="00"
            android:textColor="@color/colorWhite"
-           app:layout_constraintBottom_toBottomOf="@+id/textView"
-           app:layout_constraintEnd_toEndOf="@+id/textView"
+           app:layout_constraintBottom_toBottomOf="@+id/tvMenuNotification"
+           app:layout_constraintEnd_toEndOf="@+id/tvMenuNotification"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="@+id/textView" />
+           app:layout_constraintTop_toTopOf="@+id/tvMenuNotification" />
    </android.support.constraint.ConstraintLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/tvMenuMyConsultingRecord"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/recordasteashart"
         android:drawableEnd="@drawable/profilearrow"
@@ -197,6 +200,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/tvMenuAboutApp"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/aboutapp"
         android:drawableEnd="@drawable/profilearrow"
@@ -214,6 +218,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/tvMenuSettings"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/setting"
         android:drawableEnd="@drawable/profilearrow"

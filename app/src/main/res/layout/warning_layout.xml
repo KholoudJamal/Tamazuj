@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/tvW"/>
+        android:id="@+id/tvW"
+        android:visibility="gone"/>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

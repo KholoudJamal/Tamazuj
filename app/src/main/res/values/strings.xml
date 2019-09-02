@@ -64,8 +64,10 @@
     <string name="newPassword">New password</string>
     <string name="male">male</string>
     <string name="sudia">Sudia</string>
+    <string name="sudiaArabia">Sudia Arabia</string>
     <string name="married">married</string>
     <string name="privacy_work">Work in private sector</string>
+    <string name="language">Arabic-English</string>
     <string name="date_dat">06/05/1989</string>
     <string name="family_consultane">Family consultane</string>
     <string name="connected">Connected</string>
@@ -76,6 +78,11 @@
     <string name="confirmPasswordRequired">Confirm Password is required!</string>
     <string name="confirmPasswordNotMatchesPassword">Please make sure the password matches confirm password</string>
     <string name="phoneRequired">Phone number is required!</string>
+    <string name="notificationText">this text is an example to text maybe exchange in the same area</string>
+    <string name="BA">BA</string>
+    <string name="identity">Identity</string>
+    <string name="qualification">Qualification</string>
+    <string name="cv">Curriculum Vitae (CV)</string>
 </resources>
 
 

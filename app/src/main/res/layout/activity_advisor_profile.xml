@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AdvisorProfileActivity">
+    tools:context=".Activity.AdvisorProfileActivity"
+    android:id="@+id/advisorProfileContainer">
 
 </android.support.constraint.ConstraintLayout>
