@@ -15,26 +15,26 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
-                android:src="@drawable/filter"
+                android:text="@string/clearAll"
+                android:textColor="@color/colorBlue"
                 android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
-
-                />
+                android:textSize="@dimen/text_header_size"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/myConsult"
+                android:text="@string/title_notifications"
                 android:textSize="@dimen/text_header_size"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/blueBack"
                 android:background="#00000000"
                 android:src="@drawable/backblueicon"
                 android:layout_alignParentEnd="true"
@@ -45,11 +45,30 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin_large"
+        android:text="@string/oldNotifications"
+        android:textColor="@color/colorBlack"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvAdvisorConsult"/>
+        android:id="@+id/rvOldNotifications"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin_large"
+        android:text="@string/newNotifications"
+        android:textColor="@color/colorBlack"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rvNewNotifications"/>
 
 </LinearLayout>

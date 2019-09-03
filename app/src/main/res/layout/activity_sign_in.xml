@@ -31,7 +31,8 @@ android:background="@drawable/loginbackgroundwithouticon">
             android:layout_marginTop="@dimen/activity_horizontal_margin_medium"
             />
 
-        <EditText android:layout_width="match_parent"
+        <EditText android:id="@+id/etSignInEmail"
+            android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_marginTop="@dimen/activity_vertical_margin_xlarge"
                   android:background="@drawable/edit_text_boarder"
@@ -41,7 +42,8 @@ android:background="@drawable/loginbackgroundwithouticon">
         android:padding="@dimen/activity_vertical_margin_medium"
         android:inputType="textEmailAddress"/>
 
-        <EditText android:layout_width="match_parent"
+        <EditText android:id="@+id/etSignInPassword"
+            android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_marginTop="@dimen/activity_vertical_margin_medium"
                   android:background="@drawable/edit_text_boarder"
@@ -60,7 +62,8 @@ android:background="@drawable/loginbackgroundwithouticon">
                   android:layout_margin="@dimen/activity_vertical_margin_large"
         />
 
-        <Button android:layout_width="match_parent"
+        <Button android:id="@+id/buttonSignInSign"
+            android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/activity_vertical_margin_medium"
                 android:layout_marginTop="@dimen/activity_vertical_margin_large"
@@ -78,7 +81,8 @@ android:background="@drawable/loginbackgroundwithouticon">
                   android:layout_marginTop="@dimen/activity_vertical_margin_large"
         />
 
-        <Button android:layout_width="match_parent"
+        <Button android:id="@+id/buttonSignInSignUp"
+            android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/activity_vertical_margin_medium"
                 android:layout_marginTop="@dimen/activity_vertical_margin_small"

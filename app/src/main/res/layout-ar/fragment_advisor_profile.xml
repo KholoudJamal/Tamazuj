@@ -19,7 +19,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editProfileIcon"
+                android:id="@+id/blueBack"
                 android:background="#00000000"
                 android:src="@drawable/edit"
                 android:layout_alignParentStart="true"
@@ -29,7 +29,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/blueBackEN"
+                android:id="@+id/editProfileIcon"
                 android:background="#00000000"
                 android:src="@drawable/backblueicon"
                 android:layout_alignParentEnd="true"
@@ -131,9 +131,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <android.support.v7.widget.CardView
                 android:id="@+id/profileDescriptionCardView"
@@ -148,16 +148,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/activity_vertical_margin_medium"
                 android:layout_marginStart="@dimen/activity_vertical_margin_large"
-                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true">
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/activity_vertical_margin_medium"
-                    android:id="@+id/profileDescription"
-                    android:text="@string/notificationText"/>
+                    android:padding="@dimen/activity_vertical_margin_medium"/>
 
             </android.support.v7.widget.CardView>
 
@@ -165,7 +161,6 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/profileInformationCardView"
                 android:background="@color/colorWhite"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
@@ -175,20 +170,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/activity_vertical_margin_medium"
                 android:layout_marginStart="@dimen/activity_vertical_margin_large"
-                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/profileDescriptionCardView">
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large">
 
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/profileInformation"
-                    />
+                    android:id="@+id/profileAttachments"/>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
@@ -198,10 +190,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/activity_vertical_margin_medium"
                 android:layout_marginStart="@dimen/activity_vertical_margin_large"
-                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/profileInformationCardView">
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -224,10 +213,10 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/profileAttachments"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/profileInformation"
                         /></LinearLayout>
             </android.support.v7.widget.CardView>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>
