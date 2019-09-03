@@ -62,9 +62,26 @@
     <string name="date_dat">06/05/1989</string>
     <string name="family_consultane">استشارات اسرية</string>
     <string name="sudia">سعودي</string>
+    <string name="sudiaArabia">المملكة العربية السعودية</string>
     <string name="male">ذكر</string>
     <string name="married">متزوج</string>
     <string name="privacy_work">يعمل في القطاع الخاص</string>
-
+    <string name="language">العربية-الإنجليزية</string>
+    <string name="connected">Connected</string>
+    <string name="youAreAvailableToConsultNow">You are available to consult now</string>
+    <string name="fullNameRequired">Full name is required!</string>
+    <string name="emailRequired">Email is requied!</string>
+    <string name="passwordRequired">Password is required!</string>
+    <string name="confirmPasswordRequired">Confirm Password is required!</string>
+    <string name="confirmPasswordNotMatchesPassword">Please make sure the password matches confirm password</string>
+    <string name="phoneRequired">Phone number is required!</string>
+    <string name="notificationText">this text is an example to text maybe exchange in the same area</string>
+    <string name="BA">BA</string>
+    <string name="identity">إثبات الهوية</string>
+    <string name="qualification">المؤهلات</string>
+    <string name="cv">السيرة الذاتية</string>
+    <string name="oldPasswordRequired">Old password is required !</string>
+    <string name="newPasswordRequired">New password is required !</string>
+    <string name="oldPasswordMatchesnewPassword">new password must be diffirent than old password</string>
 
 </resources>
