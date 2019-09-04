@@ -75,7 +75,7 @@
     <string name="confirmPasswordRequired">Confirm Password is required!</string>
     <string name="confirmPasswordNotMatchesPassword">Please make sure the password matches confirm password</string>
     <string name="phoneRequired">Phone number is required!</string>
-    <string name="notificationText">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </string>
+    <string name="notificationText">this text is an example to text maybe exchange in the same area</string>
     <string name="BA">بكالوريوس</string>
     <string name="identity">إثبات الهوية</string>
     <string name="qualification">المؤهلات</string>
