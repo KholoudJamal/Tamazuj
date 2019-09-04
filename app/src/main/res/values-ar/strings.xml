@@ -24,11 +24,11 @@
     <string name="DoYouNeedAnAdvisor">هل تحتاج لمستشار ؟</string>
     <string name="advisor">مستشار</string>
     <string name="consultYourBeneficiaries">قدّم استشاراتك للمستفيدين</string>
-    <string name="consultApplication">Consult application</string>
+    <string name="consultApplication">طلب استشارة</string>
     <string name="warning">تنبيه</string>
     <string name="completeProfile">الرجاء اسكتمال الملف الشخصي</string>
     <string name="completeTheProfile">اسكتمال الملف الشخصي </string>
-    <string name="consultApplications">Consult applications</string>
+    <string name="consultApplications">طلبات الاستشارة</string>
     <string name="clearAll">مسح الكل </string>
     <string name="oldNotifications">التنبيهات القديمة </string>
     <string name="newNotifications">التنبيهات الجديدة </string>
@@ -67,7 +67,7 @@
     <string name="married">متزوج</string>
     <string name="privacy_work">يعمل في القطاع الخاص</string>
     <string name="language">العربية-الإنجليزية</string>
-    <string name="connected">Connected</string>
+    <string name="connected">متصل</string>
     <string name="youAreAvailableToConsultNow">You are available to consult now</string>
     <string name="fullNameRequired">Full name is required!</string>
     <string name="emailRequired">Email is requied!</string>
@@ -83,5 +83,16 @@
     <string name="oldPasswordRequired">Old password is required !</string>
     <string name="newPasswordRequired">New password is required !</string>
     <string name="oldPasswordMatchesnewPassword">new password must be diffirent than old password</string>
+    <string name="bill">الفاتورة</string>
+    <string name="payBill">ادفع الفاتورة</string>
+    <string name="consultType">نوع الإستشارة</string>
+    <string name="timePeriod">المدة الزمنية</string>
+    <string name="cost">التكلفة</string>
+    <string name="mint30">30 دقيقة  </string>
+    <string name="RS50"> 50 ر.س  </string>
+    <string name="payWay">Pay way</string>
+    <string name="startSession">Start session</string>
+    <string name="successPayed">Success payed</string>
+    <string name="success">success</string>
 
 </resources>

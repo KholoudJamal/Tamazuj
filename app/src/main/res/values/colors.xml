@@ -18,5 +18,6 @@
     <color name="colorBlack">#000000</color>
     <color name="bright_gray">#242D31</color>
     <color name="gray_dark">#798489</color>
+    <color name="colorToolbarGray">#f0f0f0</color>
 
 </resources>

@@ -13,7 +13,8 @@
     <dimen name="activity_vertical_margin_small">4dp</dimen>
     <dimen name="text_header_size">18sp</dimen>
     <dimen name="text_large_size">22sp</dimen>
-    <dimen name="text_xlarge_size">24dp</dimen>
+    <dimen name="text_xlarge_size">24sp</dimen>
+    <dimen name="text_xxlarge_size">26sp</dimen>
     <dimen name="activity_vertical_margin_minus_xlarge">-24dp</dimen>
     <dimen name="padding_image">8dp</dimen>
     <dimen name="layout_marginEnd">8dp</dimen>

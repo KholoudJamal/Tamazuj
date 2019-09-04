@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".Activity.Avisor_aboutActivity"></activity>
+        <activity android:name=".Activity.SessionActivity"></activity>
+        <activity android:name=".Activity.Avisor_aboutActivity" />
         <activity android:name=".Activity.UserprofileActivity" />
         <activity android:name=".Activity.BeneficiaryActivity" />
         <activity android:name=".Activity.AdvisorProfileActivity" />
