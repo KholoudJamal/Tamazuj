@@ -1,6 +1,7 @@
 package com.Tamazj.TamazjApp.AdvisorFragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.Tamazj.TamazjApp.Activity.AdvisorActivity;
 import com.Tamazj.TamazjApp.Adapter.ProfileAttachmentsAdapter;
 import com.Tamazj.TamazjApp.Adapter.ProfileInformationAdapter;
 import com.Tamazj.TamazjApp.Model.ProfileInformation;
@@ -47,7 +49,7 @@ public class AdvisorProfileFragment extends Fragment {
         blueBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new HomeAdvisorFragment(), "HomeFragment").commit();
+                getActivity().onBackPressed();
             }
         });
 
@@ -55,7 +57,7 @@ public class AdvisorProfileFragment extends Fragment {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new AdvisorEditProfileFragment(), "HomeFragment").commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.advisorProfileContainer, new AdvisorEditProfileFragment(), "HomeFragment").commit();
             }
         });
         profileImage = view.findViewById(R.id.profileImage);
@@ -63,11 +65,12 @@ public class AdvisorProfileFragment extends Fragment {
 
         name = view.findViewById(R.id.tvFullNameProfile);
         email = view.findViewById(R.id.tvEmailProfile);
-        description = view.findViewById(R.id.profileDescriptionCardView);
+        description = view.findViewById(R.id.profileDescription);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        profileInformationRecyclerView = view.findViewById(R.id.rvNewNotifications);
-        profileAttachmentsRecyclerView.setLayoutManager(layoutManager);
+        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        profileInformationRecyclerView = view.findViewById(R.id.profileInformation);
+        profileInformationRecyclerView.setLayoutManager(layoutManager);
 
         profileInformation = new ArrayList<>();
         profileInformation.add(new ProfileInformation(R.drawable.sex, getString(R.string.male)));
@@ -82,8 +85,8 @@ public class AdvisorProfileFragment extends Fragment {
         profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
         profileInformationRecyclerView.setAdapter(profileInformationAdapter);
 
-        profileAttachmentsRecyclerView = view.findViewById(R.id.rvOldNotifications);
-        profileAttachmentsRecyclerView.setLayoutManager(layoutManager);
+        profileAttachmentsRecyclerView = view.findViewById(R.id.profileAttachments);
+        profileAttachmentsRecyclerView.setLayoutManager(layoutManager2);
 
         profileAttachments = new ArrayList<>();
         profileAttachments.add(new ProfileInformation(getString(R.string.identity)));

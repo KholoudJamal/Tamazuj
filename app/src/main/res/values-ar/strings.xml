@@ -20,9 +20,9 @@
     <string name="login">دخول </string>
     <string name="clickHere">الدخول من هنا</string>
     <string name="selectAccountType">اختر نوع الحساب </string>
-    <string name="beneficiary"> مستشار</string>
+    <string name="beneficiary">مستفيد </string>
     <string name="DoYouNeedAnAdvisor">هل تحتاج لمستشار ؟</string>
-    <string name="advisor">مستفيد</string>
+    <string name="advisor">مستشار</string>
     <string name="consultYourBeneficiaries">قدّم استشاراتك للمستفيدين</string>
     <string name="consultApplication">Consult application</string>
     <string name="warning">تنبيه</string>
@@ -45,7 +45,7 @@
     <string name="ask_for_advice">"اطلب اسشترة "</string>
     <string name="asteshart_ame">استشاراتي</string>
     <string name="abu_dall_mohammed_omar">محمد عبد الله</string>
-    <string name="approval">مقبولة</string>
+    <string name="approval">اعتماد</string>
     <string name="birthDate">التاريخ</string>
     <string name="dist">المستشارون المميزون</string>
     <string name="editMyInformation">تعديل البيانات</string>
@@ -76,7 +76,7 @@
     <string name="confirmPasswordNotMatchesPassword">Please make sure the password matches confirm password</string>
     <string name="phoneRequired">Phone number is required!</string>
     <string name="notificationText">this text is an example to text maybe exchange in the same area</string>
-    <string name="BA">BA</string>
+    <string name="BA">بكالوريوس</string>
     <string name="identity">إثبات الهوية</string>
     <string name="qualification">المؤهلات</string>
     <string name="cv">السيرة الذاتية</string>

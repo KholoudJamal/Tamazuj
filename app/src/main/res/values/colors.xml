@@ -9,6 +9,7 @@
     <color name="colorGray">#42000000</color>
     <color name="colorLightGray">#07000000</color>
     <color name="colorLightBlue">#5055C4CF</color>
+    <color name="colorMoreLightBlue">#1555C4CF</color>
     <color name="colorEditTextBack">#42000000</color>
     <color name="colorButtonBack">#7055C4CF</color>
     <color name="colorRed">#FF5858</color>
