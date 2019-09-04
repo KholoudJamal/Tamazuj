@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:background="@drawable/profile_image_style"
+        android:background="@drawable/gray_bacground"
         android:gravity="center_horizontal"
         app:srcCompat="@drawable/image" />
 
@@ -40,7 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-
         android:layout_marginTop="148dp"
         android:text="ddddddddddddddd"
         android:textColor="@color/colorBlue"

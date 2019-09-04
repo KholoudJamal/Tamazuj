@@ -86,4 +86,15 @@
     <string name="oldPasswordRequired">Old password is required !</string>
     <string name="newPasswordRequired">New password is required !</string>
     <string name="oldPasswordMatchesnewPassword">new password must be diffirent than old password</string>
+    <string name="bill">Bill</string>
+    <string name="payBill">Pay</string>
+    <string name="consultType">Consult type</string>
+    <string name="timePeriod">Time period</string>
+    <string name="cost">Cost</string>
+    <string name="mint30">30 Mints</string>
+    <string name="RS50">50 R.S</string>
+    <string name="payWay">Pay way</string>
+    <string name="startSession">Start session</string>
+    <string name="successPayed">Success payed</string>
+    <string name="success">success</string>
 </resources>

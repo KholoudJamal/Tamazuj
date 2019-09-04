@@ -2,10 +2,15 @@ package com.Tamazj.TamazjApp.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.MainActivity;
@@ -22,10 +27,14 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_switch_account_type);
         mBeneficiary = findViewById(R.id.beneficiary);
         mBeneficiarycard = findViewById(R.id.beneficiarycard);
         mAdvisor = findViewById(R.id.advisor);
+
+
+
         mAdvisorcard = findViewById(R.id.advisorcard);
         mAdvisorcard.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,10 +1,18 @@
 package com.Tamazj.TamazjApp.Activity;
 
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorNotificationsFragment;
@@ -49,15 +57,28 @@ public class AdvisorActivity extends AppCompatActivity {
         }
     };
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint({"ResourceAsColor", "ResourceType"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advisor);
         getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new HomeAdvisorFragment(), "HomeFragment").commit();
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        //mTextMessage = findViewById(R.id.message);
+        BottomNavigationView navView = findViewById(R.id.nav_view_advisor);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setItemIconTintList(null);
+        navView.setBackgroundTintList(ColorStateList.valueOf(R.color.colorLightBlue));
+        View notificationBadge;
+        try {
+            BottomNavigationMenuView menuView = (BottomNavigationMenuView) navView.getChildAt(0);
+            BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(1);
+             notificationBadge = LayoutInflater.from(AdvisorActivity.this).inflate(R.layout.badge_layout, menuView, false);
+             itemView.addView(notificationBadge);
+             //notificationBadge.setVisibility(View.GONE);
+        }
+        catch (Exception e){
+
+        }
 
     }
 }

@@ -67,15 +67,16 @@ public class AdvisorNotificationsFragment extends Fragment {
         newRecyclerView.setAdapter(newAdapter);
 
         oldRecyclerView = view.findViewById(R.id.rvOldNotifications);
-        oldRecyclerView.setLayoutManager(layoutManager);
+        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        oldRecyclerView.setLayoutManager(layoutManager2);
 
         oldNotifications = new ArrayList<>();
 
-        newNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
-        newNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
-        newNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
-        newNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
-        newNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
+        oldNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
+        oldNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
+        oldNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
+        oldNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
+        oldNotifications.add(new Notification(getString(R.string.notificationText), getString(R.string.notificationTime),false));
 
         oldAdapter = new NotificationsAdapter(getContext(), oldNotifications);
         oldRecyclerView.setAdapter(oldAdapter);

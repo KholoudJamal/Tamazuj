@@ -20,15 +20,15 @@
     <string name="login">دخول </string>
     <string name="clickHere">الدخول من هنا</string>
     <string name="selectAccountType">اختر نوع الحساب </string>
-    <string name="beneficiary"> مستشار</string>
+    <string name="beneficiary">مستفيد </string>
     <string name="DoYouNeedAnAdvisor">هل تحتاج لمستشار ؟</string>
-    <string name="advisor">مستفيد</string>
+    <string name="advisor">مستشار</string>
     <string name="consultYourBeneficiaries">قدّم استشاراتك للمستفيدين</string>
-    <string name="consultApplication">Consult application</string>
+    <string name="consultApplication">طلب استشارة</string>
     <string name="warning">تنبيه</string>
     <string name="completeProfile">الرجاء اسكتمال الملف الشخصي</string>
     <string name="completeTheProfile">اسكتمال الملف الشخصي </string>
-    <string name="consultApplications">Consult applications</string>
+    <string name="consultApplications">طلبات الاستشارة</string>
     <string name="clearAll">مسح الكل </string>
     <string name="oldNotifications">التنبيهات القديمة </string>
     <string name="newNotifications">التنبيهات الجديدة </string>
@@ -45,7 +45,7 @@
     <string name="ask_for_advice">"اطلب اسشترة "</string>
     <string name="asteshart_ame">استشاراتي</string>
     <string name="abu_dall_mohammed_omar">محمد عبد الله</string>
-    <string name="approval">مقبولة</string>
+    <string name="approval">اعتماد</string>
     <string name="birthDate">التاريخ</string>
     <string name="dist">المستشارون المميزون</string>
     <string name="editMyInformation">تعديل البيانات</string>
@@ -67,7 +67,7 @@
     <string name="married">متزوج</string>
     <string name="privacy_work">يعمل في القطاع الخاص</string>
     <string name="language">العربية-الإنجليزية</string>
-    <string name="connected">Connected</string>
+    <string name="connected">متصل</string>
     <string name="youAreAvailableToConsultNow">You are available to consult now</string>
     <string name="fullNameRequired">Full name is required!</string>
     <string name="emailRequired">Email is requied!</string>
@@ -75,13 +75,24 @@
     <string name="confirmPasswordRequired">Confirm Password is required!</string>
     <string name="confirmPasswordNotMatchesPassword">Please make sure the password matches confirm password</string>
     <string name="phoneRequired">Phone number is required!</string>
-    <string name="notificationText">this text is an example to text maybe exchange in the same area</string>
-    <string name="BA">BA</string>
+    <string name="notificationText">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </string>
+    <string name="BA">بكالوريوس</string>
     <string name="identity">إثبات الهوية</string>
     <string name="qualification">المؤهلات</string>
     <string name="cv">السيرة الذاتية</string>
     <string name="oldPasswordRequired">Old password is required !</string>
     <string name="newPasswordRequired">New password is required !</string>
     <string name="oldPasswordMatchesnewPassword">new password must be diffirent than old password</string>
+    <string name="bill">الفاتورة</string>
+    <string name="payBill">ادفع الفاتورة</string>
+    <string name="consultType">نوع الإستشارة</string>
+    <string name="timePeriod">المدة الزمنية</string>
+    <string name="cost">التكلفة</string>
+    <string name="mint30">30 دقيقة  </string>
+    <string name="RS50"> 50 ر.س  </string>
+    <string name="payWay">Pay way</string>
+    <string name="startSession">Start session</string>
+    <string name="successPayed">Success payed</string>
+    <string name="success">success</string>
 
 </resources>

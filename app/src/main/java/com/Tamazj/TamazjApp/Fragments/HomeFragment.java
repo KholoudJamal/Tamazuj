@@ -1,5 +1,6 @@
 package com.Tamazj.TamazjApp.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -8,11 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
+import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
@@ -33,6 +35,7 @@ public class HomeFragment extends Fragment {
     private ImageView mImageView;
     private TextView mTextView;
     private ImageView mBack;
+    ImageButton personalprofile;
     private RecyclerView mAreasCounseling;
     private TextView mTextView2;
     private ImageView mAdvisorsBack;
@@ -57,7 +60,6 @@ public class HomeFragment extends Fragment {
         mDistinguishedAdvisorsmanager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mDistinguishedAdvisors.setLayoutManager(mDistinguishedAdvisorsmanager);
         mDistinguishedAdvisors.setHasFixedSize(true);
-
         mAreasCounselingmanager = new LinearLayoutManager(getContext());
         mAreasCounselingmanager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mAreasCounseling.setLayoutManager(mAreasCounselingmanager);
@@ -73,6 +75,13 @@ public class HomeFragment extends Fragment {
         distinguished_advisors_adapter=new Distinguished_Advisors_Adapter(getContext(),distinguished_advisors_models);
         mDistinguishedAdvisors.setAdapter(distinguished_advisors_adapter);
         mAreasCounseling.setAdapter(areas_counseling_adapter);
+        personalprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), UserprofileActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
 
 
@@ -98,5 +107,7 @@ public class HomeFragment extends Fragment {
         mTextView2 = view.findViewById(R.id.textView2);
         mAdvisorsBack = view.findViewById(R.id.Advisors_back);
         mDistinguishedAdvisors = view.findViewById(R.id.Distinguished_Advisors);
+        personalprofile=view.findViewById(R.id.personalprofile);
+
     }
 }

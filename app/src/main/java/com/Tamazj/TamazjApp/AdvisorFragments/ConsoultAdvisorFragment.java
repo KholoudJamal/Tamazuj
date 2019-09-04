@@ -41,7 +41,7 @@ public class ConsoultAdvisorFragment extends Fragment {
             }
         });
 
-        recyclerView = view.findViewById(R.id.rvConsultApplications);
+        recyclerView = view.findViewById(R.id.rvAdvisorConsult);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
 

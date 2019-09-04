@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AdvisorFragments.AdvisorEditProfileFragment"
     android:orientation="vertical"
-    android:background="@drawable/home_advisor_back">
+    android:background="@drawable/editprofileback">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/blueBackEN"
+                android:id="@+id/blueBack"
                 android:background="#00000000"
                 android:src="@drawable/backblueicon"
                 android:layout_alignParentEnd="true"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editProfileImage"
-            android:background="#0000000"
+            android:background="#00000000"
             android:src="@drawable/editprofille"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"

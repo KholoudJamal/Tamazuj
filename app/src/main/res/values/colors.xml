@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#F7F9FA</color>
+    <color name="colorPrimaryDark">#F7F9FA</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlue">#55C4CF</color>
@@ -9,6 +9,7 @@
     <color name="colorGray">#42000000</color>
     <color name="colorLightGray">#07000000</color>
     <color name="colorLightBlue">#5055C4CF</color>
+    <color name="colorMoreLightBlue">#1555C4CF</color>
     <color name="colorEditTextBack">#42000000</color>
     <color name="colorButtonBack">#7055C4CF</color>
     <color name="colorRed">#FF5858</color>
@@ -17,5 +18,6 @@
     <color name="colorBlack">#000000</color>
     <color name="bright_gray">#242D31</color>
     <color name="gray_dark">#798489</color>
+    <color name="colorToolbarGray">#f0f0f0</color>
 
 </resources>

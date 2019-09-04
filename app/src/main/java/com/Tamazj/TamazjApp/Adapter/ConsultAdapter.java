@@ -47,10 +47,11 @@ public class ConsultAdapter extends RecyclerView.Adapter<ConsultAdapter.MyHolder
             //holder.time.setText(consults.get(position).getConsultPeriod());
             //Picasso.with(context).load(consults.get(position).getConsultIcon()).into(holder.img);
             if(consults.get(position).isScheduled()){
-                holder.consultStatus.setText(context.getString(R.string.scheduled));
-                holder.consultStatus.setTextColor(R.color.colorBlue);
-                holder.consultStatus.setBackgroundColor(R.color.colorLightBlue);
-                //tint drawable or change it
+                holder.consultStatusFinished.setVisibility(View.GONE);
+                holder.consultStatusScheduled.setVisibility(View.VISIBLE);
+            } else {
+                holder.consultStatusScheduled.setVisibility(View.GONE);
+                holder.consultStatusFinished.setVisibility(View.VISIBLE);
             }
         }
     }
@@ -64,7 +65,7 @@ public String getURLForResource (int resourceId) {
     }
 
     static class MyHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
-        TextView name, type, time, consultStatus;
+        TextView name, type, time, consultStatusFinished ,consultStatusScheduled;
         ImageView img;
         ViewGroup container;
 
@@ -73,9 +74,10 @@ public String getURLForResource (int resourceId) {
             name = itemView.findViewById(R.id.tvConsultName);
             type = itemView.findViewById(R.id.tvConsultType);
             time = itemView.findViewById(R.id.tvConsultTime);
-            consultStatus = itemView.findViewById(R.id.tvConsultStatus);
+            consultStatusFinished = itemView.findViewById(R.id.tvConsultStatus);
+           // consultStatusScheduled = itemView.findViewById(R.id.tvConsultStatusScheduled);
             img = itemView.findViewById(R.id.consultImage);
-            container = itemView.findViewById(R.id.cardView);
+            //container = itemView.findViewById(R.id.cardViewConsult);
             container.setOnClickListener(this);
             this.setIsRecyclable(false);
         }

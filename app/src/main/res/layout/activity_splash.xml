@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/splash1" />
+        android:src="@drawable/englishsplash" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
@@ -26,6 +26,8 @@
         android:layout_centerHorizontal="true"
         android:visibility="visible"
         app:indicatorColor="#E65E90"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
         app:indicatorName="BallPulseIndicator" />
 
 </RelativeLayout>

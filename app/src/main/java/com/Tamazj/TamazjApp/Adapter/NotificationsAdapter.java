@@ -65,10 +65,10 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
 
         public MyHolder(View itemView) {
             super(itemView);
-            text = itemView.findViewById(R.id.tvConsultApplicationType);
-            time = itemView.findViewById(R.id.tvConsultApplicationTime);
-            img = itemView.findViewById(R.id.consultApplicationImage);
-            container = itemView.findViewById(R.id.cardView);
+            text = itemView.findViewById(R.id.tvNotificationBody);
+            time = itemView.findViewById(R.id.tvnotificationTime);
+            img = itemView.findViewById(R.id.notificationImage);
+            container = itemView.findViewById(R.id.cardViewNotification);
             container.setOnClickListener(this);
             this.setIsRecyclable(false);
         }

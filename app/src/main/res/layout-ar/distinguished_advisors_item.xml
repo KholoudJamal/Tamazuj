@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/layout_marginTop_8"
         android:layout_gravity="center"
-        android:background="@drawable/profile_image_style"
+        android:background="@drawable/gray_bacground"
         android:gravity="center_horizontal"
         app:srcCompat="@drawable/image" />
 

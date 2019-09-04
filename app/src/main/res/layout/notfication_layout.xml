@@ -9,15 +9,22 @@
     android:divider="@android:color/transparent"
     android:dividerHeight="0.0px"
     android:clipToPadding="false"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
     android:clipChildren="false"
     app:cardPreventCornerOverlap="false"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:id="@+id/cardViewNotification"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="@dimen/activity_vertical_margin_medium"
+    >
 
 <android.support.constraint.ConstraintLayout
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:id="@+id/constr"
     android:layout_margin="@dimen/activity_vertical_margin_medium">
 
     <ImageView
@@ -30,17 +37,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/tvNotificationBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_vertical_margin_large"
+        android:layout_margin="@dimen/activity_vertical_margin_large"
+        android:layout_marginStart="@dimen/layout_marginStart32"
+        android:layout_marginEnd="8dp"
         android:text="@string/title_notifications"
         android:textSize="@dimen/text_header_size"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvnotificationTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toEndOf="@+id/notificationImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
 
     <TextView
         android:id="@+id/tvnotificationTime"

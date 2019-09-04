@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
 import com.Tamazj.TamazjApp.R;
 import com.squareup.picasso.Picasso;
 
@@ -24,13 +25,13 @@ import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdvisorEditProfileFragment extends BottomSheetDialogFragment {
+public class AdvisorEditProfileFragment extends Fragment {
 
-    View view, viewDialog;
-    ImageButton blueBack, editProfileImage, profileImage, dialogButtonCancel;
+    View view;
+    ImageButton blueBack, editProfileImage, profileImage;
     TextView name, emailOriginal;
-    Button approvalButton, buttonEditPassword;
-    EditText fullName, email, phone, dialogOldPassword, dialogNewPassword, dialogConfirmPassword;
+    Button approvalButton;
+    EditText fullName, email, phone;
     TextView password, gender, nationality, birthDate, educationLevel, work, socialState;
 
 
@@ -43,7 +44,7 @@ public class AdvisorEditProfileFragment extends BottomSheetDialogFragment {
         blueBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.advisorFragmentsContainer, new AdvisorProfileFragment(), "HomeFragment").commit();
+                getActivity().onBackPressed();
             }
         });
 
@@ -68,14 +69,15 @@ public class AdvisorEditProfileFragment extends BottomSheetDialogFragment {
         password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                EditPasswordBottomDialog editPasswordBottomDialog = new EditPasswordBottomDialog();
+                editPasswordBottomDialog.show(getFragmentManager(), editPasswordBottomDialog.getTag());
             }
         });
         gender = view.findViewById(R.id.tvGenderAdvisorEditProfile);
-        password.setOnClickListener(new View.OnClickListener() {
+        gender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                show(getFragmentManager(), getTag());
+
             }
         });
         nationality = view.findViewById(R.id.tvNationalityAdvisorEditProfile);
@@ -128,48 +130,4 @@ public class AdvisorEditProfileFragment extends BottomSheetDialogFragment {
         return Uri.parse("android.resource://"+R.class.getPackage().getName()+"/" +resourceId).toString();
     }
 
-    @SuppressLint("RestrictedApi")
-    @Override
-    public void setupDialog(Dialog dialog, int style) {
-        super.setupDialog(dialog, style);
-
-        viewDialog = View.inflate(getContext(), R.layout.edit_password_layout, null);
-        dialog.setContentView(viewDialog);
-
-        dialogOldPassword = viewDialog.findViewById(R.id.oldPassword);
-        dialogNewPassword = viewDialog.findViewById(R.id.newPassword);
-        dialogConfirmPassword = viewDialog.findViewById(R.id.confirmPassword);
-        dialogButtonCancel =  viewDialog.findViewById(R.id.buttonCancel);
-        buttonEditPassword = viewDialog.findViewById(R.id.buttonEditPassword);
-
-        dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-
-            }
-        });
-
-        buttonEditPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-        if(dialogOldPassword.getText().equals(null) || dialogOldPassword.getText().equals("")){
-            Toast.makeText(getContext(), ""+getString(R.string.oldPasswordRequired), Toast.LENGTH_SHORT).show();
-        }  else if(dialogNewPassword.getText().equals(null) || dialogNewPassword.getText().equals("")){
-            Toast.makeText(getContext(), ""+getString(R.string.newPasswordRequired), Toast.LENGTH_SHORT).show();
-        }  else if(dialogNewPassword.getText().equals(null) || dialogNewPassword.getText().equals("")){
-            Toast.makeText(getContext(), ""+getString(R.string.confirmPasswordRequired), Toast.LENGTH_SHORT).show();
-        }  else if(!dialogOldPassword.getText().equals(dialogNewPassword.getText())){
-            Toast.makeText(getContext(), ""+getString(R.string.oldPasswordMatchesnewPassword), Toast.LENGTH_SHORT).show();
-        }  else if(!dialogConfirmPassword.getText().equals(dialogNewPassword.getText())){
-            Toast.makeText(getContext(), ""+getString(R.string.confirmPasswordNotMatchesPassword), Toast.LENGTH_SHORT).show();
-        } else {
-
-        }
-    }
-});
-
-
-    }
 }

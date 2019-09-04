@@ -30,7 +30,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-   >
+        app:cardCornerRadius="5dp"
+        android:layout_margin="@dimen/activity_vertical_margin_medium"
+
+        >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -67,7 +70,7 @@
                 android:layout_margin="@dimen/activity_vertical_margin_medium"
                 android:background="@drawable/gray_bacground"
                 android:padding="@dimen/activity_vertical_margin_medium"
-                android:text="consult type"
+                android:text="@string/family_consultane"
                 app:layout_constraintBottom_toTopOf="@id/tvConsultApplicationTime"
                 app:layout_constraintStart_toEndOf="@+id/consultApplicationImage"
                 app:layout_constraintTop_toBottomOf="@id/tvConsultApplication" />
@@ -80,7 +83,7 @@
                 android:drawableStart="@drawable/newtime"
                 android:drawablePadding="@dimen/activity_vertical_margin_medium"
                 android:gravity="center"
-                android:text="consult time"
+                android:text="@string/mint30"
                 app:layout_constraintStart_toEndOf="@+id/consultApplicationImage"
                 app:layout_constraintTop_toBottomOf="@id/tvConsultApplicationType" />
 
