@@ -97,4 +97,10 @@
     <string name="startSession">Start session</string>
     <string name="successPayed">Success payed</string>
     <string name="success">success</string>
+    <string name="sessionTime">Session time</string>
+    <string name="v30">30</string>
+    <string name="mint">mint</string>
+    <string name="writeYourMessageHere">Write your message here</string>
+    <string name="time">7:19 pm</string>
+    <string name="sessionExtension">Session extension</string>
 </resources>
