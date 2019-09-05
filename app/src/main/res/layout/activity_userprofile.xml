@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Activity.UserprofileActivity"
-    >
+>
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -146,23 +146,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:id="@+id/sextype"
-                android:layout_height="match_parent"
-                android:drawableLeft="@drawable/sex"
-                android:text="@string/male"
-                android:drawablePadding="@dimen/layout_marginTop_8"
-                android:padding="@dimen/activity_vertical_margin_medium"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:id="@+id/country"
-                android:layout_height="match_parent"
-                android:drawableLeft="@drawable/country"
-                android:text="@string/sudia"
-                android:layout_marginTop="@dimen/layout_marginTop_8"
-                android:drawablePadding="@dimen/layout_marginTop_8"
-                android:padding="@dimen/activity_vertical_margin_medium"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/sextype"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/sex"
+                    android:text="@string/male"
+                    android:drawablePadding="@dimen/layout_marginTop_8"
+                    android:padding="@dimen/activity_vertical_margin_medium"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/country"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/country"
+                    android:text="@string/sudia"
+                    android:layout_marginTop="@dimen/layout_marginTop_8"
+                    android:drawablePadding="@dimen/layout_marginTop_8"
+                    android:padding="@dimen/activity_vertical_margin_medium"/>
 
             <TextView
                 android:layout_width="match_parent"
