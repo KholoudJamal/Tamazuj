@@ -20,6 +20,7 @@
     <dimen name="layout_marginEnd">8dp</dimen>
     <dimen name="layout_marginStart">8dp</dimen>
     <dimen name="layout_marginTop_8">8dp</dimen>
+    <dimen name="font_ad">10sp</dimen>
 
 
 </resources>

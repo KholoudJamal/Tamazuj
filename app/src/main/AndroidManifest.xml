@@ -36,6 +36,7 @@
         <activity android:name=".Activity.SignUpActivity" />
         <activity android:name=".Activity.SwitchAccountTypeActivity" />
         <activity android:name=".Activity.AdvisorActivity" />
+        <activity android:name=".Activity.EditUserProfileActivity"></activity>
     </application>
 
 </manifest>
