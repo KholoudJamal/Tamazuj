@@ -24,6 +24,7 @@ public class MenuUserFragment extends Fragment {
     View view;
     ImageButton signOut,profile,search;
     TextView myAccount, notification, consultingRecord, aboutApp, settings;
+    ImageButton personalprofile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,12 +39,20 @@ public class MenuUserFragment extends Fragment {
         settings = view.findViewById(R.id.tvMenuSettings);
         profile=view.findViewById(R.id.personalprofile);
         search=view.findViewById(R.id.search);
+        personalprofile=view.findViewById(R.id.personalprofile);
 
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+        personalprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UserprofileActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 
