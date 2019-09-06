@@ -103,4 +103,19 @@
     <string name="writeYourMessageHere">Write your message here</string>
     <string name="time">7:19 pm</string>
     <string name="sessionExtension">Session extension</string>
+    <string name="firstSession">50 R.S   -   30 mint</string>
+    <string name="secondSession">100 R.S  -   60 mint</string>
+    <string name="thirdSession">200 R.S  -  120 mint</string>
+    <string name="specialSession">500 R.S - Special meeting</string>
+    <string name="beneficiariesFeedback">Beneficiaries feedback</string>
+    <string name="esaIbraheem">Esa Ibraheem</string>
+    <string name="FeedbackTime">4:00 pm</string>
+    <string name="happy">Happy</string>
+    <string name="beneficiarieSatisfaction">Beneficiarie satisfaction</string>
+    <string name="ratePercent">84%</string>
+    <string name="askConsult">Ask consult</string>
+    <string name="advisorAbout">About advisor</string>
+    <string name="advisorReviews">Advisor reviews</string>
+
+
 </resources>
