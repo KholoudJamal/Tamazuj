@@ -113,7 +113,7 @@
                 android:layout_marginBottom="@dimen/activity_horizontal_margin_large"
                 android:textColor="@android:color/white"
                 android:text="@string/sign"
-                android:background="@drawable/button_boarder"
+                android:background="@drawable/button_dark_boarder"
                 />
 
             <TextView android:layout_width="wrap_content"

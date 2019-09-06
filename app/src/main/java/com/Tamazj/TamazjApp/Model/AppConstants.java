@@ -8,5 +8,7 @@ public interface AppConstants {
     String Beneficiary = "Beneficiary";
     String Advisor = "Advisor";
 
-
+    String HAPPY = "HAPPY";
+    String SATISFIED = "SATISFIED";
+    String NOT_SATISFIED = "NOT_SATISFIED";
 }

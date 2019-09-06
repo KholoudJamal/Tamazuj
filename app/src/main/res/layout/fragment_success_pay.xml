@@ -136,7 +136,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonStartSession"
         android:layout_margin="@dimen/activity_vertical_margin_large"
-        android:background="@drawable/button_boarder"
+        android:background="@drawable/button_dark_boarder"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:text="@string/startSession"
         android:textColor="@android:color/white"

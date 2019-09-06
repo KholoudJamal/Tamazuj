@@ -48,9 +48,9 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
         recyclerView.setLayoutManager(layoutManager);
 
         list = new ArrayList<>();
-        list.add(new PayWayImage(R.drawable.astesharttrbwwi));
-        list.add(new PayWayImage(R.drawable.astesharttrbwwi));
-        list.add(new PayWayImage(R.drawable.astesharttrbwwi));
+        list.add(new PayWayImage(R.drawable.sadaapayment));
+        list.add(new PayWayImage(R.drawable.mada));
+        list.add(new PayWayImage(R.drawable.bank));
         list.add(new PayWayImage(R.drawable.astesharttrbwwi));
 
         adapter = new PayWayAdapter(getContext(), list);
