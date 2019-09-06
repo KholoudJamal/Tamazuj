@@ -11,18 +11,20 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_marginStart"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="@dimen/layout_marginEnd"
-        android:background="@drawable/home_profile_stlye"
-        app:cardBackgroundColor="@android:color/transparent"
-        app:cardCornerRadius="@dimen/padding_image"
+        android:background="@color/colorWhite"
+        android:divider="@android:color/transparent"
+        app:cardCornerRadius="@dimen/layout_marginTop_8"
+        android:dividerHeight="0.0px"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="@dimen/activity_horizontal_margin_medium">
 
-        <android.support.constraint.ConstraintLayout
+
+
+
+    <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"

@@ -97,4 +97,32 @@
     <string name="startSession">Start session</string>
     <string name="successPayed">Success payed</string>
     <string name="success">success</string>
+    <string name="sessionTime">وقت الجلسة</string>
+    <string name="mint">minutes </string>
+    <string name="v30">30</string>
+    <string name="sessionExtension">sessionExtension</string>
+    <string name="writeYourMessageHere">writeYourMessageHere</string>
+    <string name="beneficiariesFeedback">beneficiariesFeedback</string>
+    <string name="FeedbackTime">FeedbackTime</string>
+    <string name="happy">happy</string>
+    <string name="catogoryname">catogoryname</string>
+    <string name="ratePercent">ratePercent</string>
+    <string name="beneficiarieSatisfaction">beneficiarieSatisfaction</string>
+    <string name="advisorReviews">advisorReviews</string>
+    <string name="advisorAbout">advisorAbout</string>
+    <string name="askConsult">askConsult</string>
+    <string name="firstSession">firstSession</string>
+    <string name="specialSession">specialSession</string>
+    <string name="thirdSession">thirdSession</string>
+    <string name="secondSession">secondSession</string>
+    <string name="self">self</string>
+    <string name="time">time</string>
+    <string name="esaIbraheem">esaIbraheem</string>
+    <string name="filter">Filter</string>
+    <string name="save">save</string>
+    <string name="percent_satfication">Satisfaction  </string>
+    <string name="status">status </string>
+    <string name="choose_consultant_type">Select the consultation area
+</string>
+
 </resources>

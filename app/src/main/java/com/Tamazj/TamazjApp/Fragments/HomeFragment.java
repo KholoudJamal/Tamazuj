@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
     private ImageView mImageView;
     private TextView mTextView;
     private ImageView mBack;
-    ImageButton personalprofile;
+    ImageView personalprofile;
     private RecyclerView mAreasCounseling;
     private TextView mTextView2;
     private ImageView mAdvisorsBack;

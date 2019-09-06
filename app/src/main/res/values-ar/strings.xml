@@ -115,4 +115,11 @@
     <string name="self">self</string>
     <string name="time">time</string>
     <string name="esaIbraheem">عيسى ابراهيم</string>
+    <string name="filter">الفلتر</string>
+    <string name="save">حفظ </string>
+    <string name="percent_satfication">نسبة الرضى </string>
+    <string name="status">الحالة </string>
+    <string name="choose_consultant_type"> اختر مجال الاستشارة  </string>
+
+
 </resources>

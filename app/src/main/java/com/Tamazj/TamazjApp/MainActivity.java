@@ -5,9 +5,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Fragments.CategoriesFragment;
+import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
+import com.Tamazj.TamazjApp.Fragments.CategorySelectionFragment;
 import com.Tamazj.TamazjApp.Fragments.HomeFragment;
 import com.Tamazj.TamazjApp.Fragments.MenuFragment;
 import com.Tamazj.TamazjApp.Fragments.MenuUserFragment;
@@ -15,6 +19,7 @@ import com.Tamazj.TamazjApp.Fragments.MyConsultationragment;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
+    ImageView selectcatogory;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -50,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
+        selectcatogory=findViewById(R.id.selectcatogory);
+        selectcatogory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategorySelectionFragment(), "HomeFragment").commit();
+
+
+            }
+        });
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setItemIconTintList(null);
         getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment(), "HomeFragment").commit();

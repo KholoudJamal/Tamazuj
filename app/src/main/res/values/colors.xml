@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#F7F9FA</color>
-    <color name="colorPrimaryDark">#F7F9FA</color>
+    <color name="colorPrimaryDark">#D3D5D5</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlue">#55C4CF</color>
@@ -19,5 +19,9 @@
     <color name="bright_gray">#242D31</color>
     <color name="gray_dark">#798489</color>
     <color name="colorToolbarGray">#f0f0f0</color>
+    <color name="gray">#F7F9FA</color>
+    <color name="darkBlue">#55AECF</color>
+    <color name="darkkgray">#798489</color>
+    <color name="stausbarswitch">#55C3CF</color>
 
 </resources>
