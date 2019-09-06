@@ -29,8 +29,9 @@
     <dimen name="layout_margin16">16dp</dimen>
     <dimen name="layout_margin_4dp">4dp</dimen>
     <dimen name="med">4dp</dimen>
-    <dimen name="layout_height_area">105dp</dimen>
+    <dimen name="layout_height_area">116dp</dimen>
     <dimen name="smallraduis">4dp</dimen>
+    <dimen name="layout_width_area">105dp</dimen>
 
 
 </resources>
