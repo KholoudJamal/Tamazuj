@@ -41,4 +41,5 @@
         <activity android:name=".Activity.AdvisorActivity" />
     </application>
 
+    
 </manifest>

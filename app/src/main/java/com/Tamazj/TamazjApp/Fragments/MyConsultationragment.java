@@ -1,6 +1,7 @@
 package com.Tamazj.TamazjApp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,8 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
@@ -32,6 +35,9 @@ public class MyConsultationragment extends Fragment {
     private Toolbar mToolbar;
     private LinearLayout mLinaree;
     private RecyclerView mDistinguishedAdvisors;
+    ImageView blueBack;
+
+
 
 
     @Override
@@ -44,6 +50,15 @@ public class MyConsultationragment extends Fragment {
         gridLayoutManager = new GridLayoutManager(getContext(),3);
         mDistinguishedAdvisors.setLayoutManager(gridLayoutManager);
         mDistinguishedAdvisors.setHasFixedSize(true);
+        blueBack=view.findViewById(R.id.blueBack);
+        blueBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UserprofileActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
         distinguished_advisors_models.add(new Distinguished_Advisors_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","محمد حسن ","استشارات أسرية "));
         distinguished_advisors_models.add(new Distinguished_Advisors_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","محمد حسن ","استشارات أسرية "));
         distinguished_advisors_models.add(new Distinguished_Advisors_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","محمد حسن ","استشارات أسرية "));

@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.MenuFragment"
     android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
     android:background="@drawable/home_advisor_back">
 
     <android.support.v7.widget.Toolbar
@@ -24,9 +25,10 @@
                 android:layout_alignBaseline="@+id/toolbarLogo"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:layout_marginRight="17dp"
+                android:layout_marginRight="339dp"
+
                 android:background="#00000000"
-                android:src="@drawable/personalprofile" />
+                android:src="@drawable/search" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -40,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
-                android:src="@drawable/search"
+                android:src="@drawable/personalprofile"
                 android:layout_alignBaseline="@+id/toolbarLogo"
                 />
         </RelativeLayout>
@@ -68,6 +70,8 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
             android:layout_margin="@dimen/activity_vertical_margin_large">
 
             <ImageView
@@ -76,9 +80,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/menuiconmenu"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tvFullNameMenu"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tvFullNameMenu"
@@ -124,7 +128,7 @@
         android:id="@+id/tvMenuMyAccount"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/account"
-        android:drawableEnd="@drawable/profilearrow"
+        android:drawableEnd="@drawable/prfoliearraowenglish"
         android:text="@string/myAccount"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
@@ -136,57 +140,57 @@
         android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
         android:background="@color/colorLightGray"/>
 
-   <android.support.constraint.ConstraintLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-       <TextView
-           android:id="@+id/tvMenuNotification"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:drawableStart="@drawable/notification"
-           android:drawableEnd="@drawable/profilearrow"
-           android:drawablePadding="@dimen/activity_vertical_margin_medium"
-           android:gravity="center|start"
-           android:padding="@dimen/activity_vertical_margin_medium"
-           android:text="@string/title_notifications"
-           app:layout_constraintBottom_toBottomOf="parent"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvMenuNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/notification"
+            android:drawableEnd="@drawable/prfoliearraowenglish"
+            android:drawablePadding="@dimen/activity_vertical_margin_medium"
+            android:gravity="center|start"
+            android:padding="@dimen/activity_vertical_margin_medium"
+            android:text="@string/title_notifications"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-       <View
-           android:id="@+id/view"
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:background="@color/colorLightGray"
-           app:layout_constraintBottom_toTopOf="@+id/tvMenuNotification"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorLightGray"
+            app:layout_constraintBottom_toTopOf="@+id/tvMenuNotification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-       <TextView
-           android:id="@+id/notiicationsCount"
-           android:layout_width="wrap_content"
-           android:layout_height="20dp"
-           android:layout_marginEnd="@dimen/activity_vertical_margin_xxxlarge"
-           android:background="@drawable/red_background"
-           android:paddingStart="@dimen/activity_vertical_margin_medium"
-           android:paddingEnd="@dimen/activity_vertical_margin_medium"
-           android:text="00"
-           android:textColor="@color/colorWhite"
-           android:gravity="center"
-           app:layout_constraintBottom_toBottomOf="@+id/tvMenuNotification"
-           app:layout_constraintEnd_toEndOf="@+id/tvMenuNotification"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="@+id/tvMenuNotification" />
-   </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/notiicationsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginEnd="@dimen/activity_vertical_margin_xxxlarge"
+            android:background="@drawable/red_background"
+            android:paddingStart="@dimen/activity_vertical_margin_medium"
+            android:paddingEnd="@dimen/activity_vertical_margin_medium"
+            android:text="00"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMenuNotification"
+            app:layout_constraintEnd_toEndOf="@+id/tvMenuNotification"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvMenuNotification" />
+    </android.support.constraint.ConstraintLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvMenuMyConsultingRecord"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/recordasteashart"
-        android:drawableEnd="@drawable/profilearrow"
+        android:drawableEnd="@drawable/prfoliearraowenglish"
         android:text="@string/myConsultRecord"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
@@ -204,7 +208,7 @@
         android:id="@+id/tvMenuAboutApp"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/aboutapp"
-        android:drawableEnd="@drawable/profilearrow"
+        android:drawableEnd="@drawable/prfoliearraowenglish"
         android:text="@string/aboutApp"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>
@@ -222,7 +226,7 @@
         android:id="@+id/tvMenuSettings"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:drawableStart="@drawable/setting"
-        android:drawableEnd="@drawable/profilearrow"
+        android:drawableEnd="@drawable/prfoliearraowenglish"
         android:text="@string/settings"
         android:gravity="center|start"
         android:drawablePadding="@dimen/activity_vertical_margin_medium"/>

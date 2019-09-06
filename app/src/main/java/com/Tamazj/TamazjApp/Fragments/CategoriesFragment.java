@@ -1,6 +1,7 @@
 package com.Tamazj.TamazjApp.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,7 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
@@ -29,6 +32,8 @@ public class CategoriesFragment extends Fragment {
     GridLayoutManager mAreasCounselingmanager ;
     List<Areas_Counseling_Model> areas_counseling_models=new ArrayList<>();
     Areas_Counseling_adapter areas_counseling_adapter;
+    ImageView blueBack;
+
 
 
 
@@ -59,6 +64,15 @@ public class CategoriesFragment extends Fragment {
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","السمو بالنفس "));
         areas_counseling_adapter=new Areas_Counseling_adapter(getContext(),areas_counseling_models);
         mAreasCounseling.setAdapter(areas_counseling_adapter);
+
+        blueBack=view.findViewById(R.id.blueBack);
+        blueBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UserprofileActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         return view;
 
     }

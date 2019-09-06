@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
+import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorProfileFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.Model.Distinguished_Advisors_Model;
 import com.Tamazj.TamazjApp.R;
@@ -83,6 +84,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        mCardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesdetailsFragment(), "HomeFragment").commit();
+
+            }
+        });
 
 
 
