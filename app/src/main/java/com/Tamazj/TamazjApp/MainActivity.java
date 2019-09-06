@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.Tamazj.TamazjApp.Fragments.CategoriesFragment;
 import com.Tamazj.TamazjApp.Fragments.HomeFragment;
 import com.Tamazj.TamazjApp.Fragments.MenuFragment;
+import com.Tamazj.TamazjApp.Fragments.MenuUserFragment;
 import com.Tamazj.TamazjApp.Fragments.MyConsultationragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_homeprofile:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new MenuFragment(), "HomeFragment").commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new MenuUserFragment(), "HomeFragment").commit();
 
                     return true;
             }

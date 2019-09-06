@@ -142,25 +142,14 @@
                 android:id="@+id/askasteschar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/requestastehara"
+                android:src="@drawable/requestastaesh"
                 app:layout_constraintBottom_toTopOf="@id/profile_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/percent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="@string/ask_for_advice"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/font_ad"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.919"
-                app:layout_constraintStart_toEndOf="@+id/percent"
-                app:layout_constraintTop_toTopOf="parent" />
+
 
 
         </android.support.constraint.ConstraintLayout>
