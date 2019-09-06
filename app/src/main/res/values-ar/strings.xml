@@ -44,7 +44,7 @@
     <string name="_84_percent_of">"84 % نسبة رضي "</string>
     <string name="ask_for_advice">"اطلب اسشترة "</string>
     <string name="asteshart_ame">استشاراتي</string>
-    <string name="abu_dall_mohammed_omar">محمد عبد الله</string>
+    <string name="abu_dall_mohammed_omar">  عبد الله محمد عمر</string>
     <string name="approval">اعتماد</string>
     <string name="birthDate">التاريخ</string>
     <string name="dist">المستشارون المميزون</string>
@@ -94,5 +94,24 @@
     <string name="startSession">Start session</string>
     <string name="successPayed">Success payed</string>
     <string name="success">success</string>
+    <string name="sessionTime">وقت الجلسة</string>
+    <string name="v30">30</string>
+    <string name="mint">دقيقة</string>
+    <string name="writeYourMessageHere">اكتب رسالتك هنا</string>
+    <string name="time">7:19 pm</string>
+    <string name="sessionExtension">تمديد الجلسة</string>
+    <string name="firstSession">50 ر.س   -   30 دقيقة</string>
+    <string name="secondSession">100 ر.س  -   60 دقيقة</string>
+    <string name="thirdSession">200 ر.س  -  120 دقيقة</string>
+    <string name="specialSession">500 ر.س  - لقاء خاص</string>
+    <string name="beneficiariesFeedback">Beneficiaries feedback</string>
+    <string name="esaIbraheem">عيسى ابراهيم</string>
+    <string name="FeedbackTime">4:00 pm</string>
+    <string name="happy">سعيد</string>
+    <string name="beneficiarieSatisfaction">نسبة رضى المستفيدين</string>
+    <string name="ratePercent">84%</string>
+    <string name="askConsult">اطلب استشارتك</string>
+    <string name="advisorAbout">عن لمستشار</string>
+    <string name="advisorReviews">آراء المستفيدين</string>
 
 </resources>
