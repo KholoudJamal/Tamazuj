@@ -2,30 +2,31 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="105dp"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:layoutDirection="rtl"
-    android:textDirection="rtl"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
     android:layout_margin="4dp"
+    android:id="@+id/linearLayout"
     android:gravity="center_horizontal"
-    android:layout_height="wrap_content">
+    android:layout_height="105dp">
 
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/layout_height_area"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:gravity="center_horizontal"
         android:background="@drawable/area_counselling_style"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/layout_height_area">
         <ImageView
             android:id="@+id/area_counseling_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             app:srcCompat="@drawable/asteshartnafsi" />
         <TextView
             android:id="@+id/area_counseling"

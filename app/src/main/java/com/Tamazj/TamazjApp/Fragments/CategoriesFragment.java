@@ -32,7 +32,7 @@ public class CategoriesFragment extends Fragment {
     GridLayoutManager mAreasCounselingmanager ;
     List<Areas_Counseling_Model> areas_counseling_models=new ArrayList<>();
     Areas_Counseling_adapter areas_counseling_adapter;
-    ImageView blueBack;
+    ImageView personalprofile;
 
 
 
@@ -65,8 +65,8 @@ public class CategoriesFragment extends Fragment {
         areas_counseling_adapter=new Areas_Counseling_adapter(getContext(),areas_counseling_models);
         mAreasCounseling.setAdapter(areas_counseling_adapter);
 
-        blueBack=view.findViewById(R.id.blueBack);
-        blueBack.setOnClickListener(new View.OnClickListener() {
+        personalprofile=view.findViewById(R.id.personalprofile);
+        personalprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), UserprofileActivity.class);

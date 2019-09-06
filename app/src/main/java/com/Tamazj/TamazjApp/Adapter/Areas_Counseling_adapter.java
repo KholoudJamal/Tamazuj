@@ -4,16 +4,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.R;
 import com.squareup.picasso.Picasso;
@@ -59,6 +63,13 @@ public class Areas_Counseling_adapter  extends RecyclerView.Adapter<Areas_Counse
                .into(holder.area_counseling_image);
 
         holder.area_counseling_catogory.setText(areas_counseling_models.get(position).getArea_counseling_catogory());
+       holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesdetailsFragment(), "HomeFragment").commit();
+
+            }
+        });
 
 
     }
@@ -72,11 +83,13 @@ public class Areas_Counseling_adapter  extends RecyclerView.Adapter<Areas_Counse
 
         ImageView area_counseling_image;
         TextView area_counseling_catogory;
+        LinearLayout linearLayout;
 
         public MyHolder(View itemView) {
             super(itemView);
             area_counseling_image = itemView.findViewById(R.id.area_counseling_image);
             area_counseling_catogory = itemView.findViewById(R.id.area_counseling);
+           linearLayout=itemView.findViewById(R.id.linearLayout);
 
 
         }

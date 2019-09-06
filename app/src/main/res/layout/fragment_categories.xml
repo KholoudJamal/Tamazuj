@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:textDirection="ltr"
-    android:layoutDirection="ltr"
     android:background="@drawable/home_advisor_back"
     tools:context=".Fragments.HomeFragment">
 
@@ -15,47 +13,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00000000"
-        android:id="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/linaree"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/activity_vertical_margin_large">
 
-
-            <ImageView
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_alignBaseline="@+id/toolbarLogo"
+                android:layout_centerInParent="true"
+                android:background="#00000000"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/search" />
 
-            <TextView
+            <ImageView
+                android:id="@+id/toolbarLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/activity_vertical_margin_large"
-                   android:text="@string/Areas_of_Counseling"
-                android:layout_weight="1"
+                android:layout_centerInParent="true"
                 android:src="@drawable/logofortoolbar" />
-
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/blueBack"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:id="@+id/personalprofile"
+                android:layout_alignBaseline="@+id/toolbarLogo"
+                android:background="#00000000"
+                android:layout_alignParentRight="true"
                 android:src="@drawable/personalprofile" />
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
+
 
 
     <android.support.v7.widget.RecyclerView

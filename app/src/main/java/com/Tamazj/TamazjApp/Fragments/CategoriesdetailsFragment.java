@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.CategoriesAdapter;
+import com.Tamazj.TamazjApp.AdvisorFragments.HomeAdvisorFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.Model.Categories;
 import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
@@ -34,6 +35,7 @@ public class CategoriesdetailsFragment extends Fragment {
     CategoriesAdapter categoriesAdapter;
     ImageView blueBack;
     ImageView filter;
+    ImageView astesharticontoolbar;
 
 
 
@@ -52,7 +54,8 @@ public class CategoriesdetailsFragment extends Fragment {
         categoriesrecycler.setLayoutManager(linearLayout);
         categoriesrecycler.setHasFixedSize(true);
         filter=view.findViewById(R.id.filter);
-
+        blueBack=view.findViewById(R.id.blueBack);
+        astesharticontoolbar=view.findViewById(R.id.astesharticontoolbar);
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +63,24 @@ public class CategoriesdetailsFragment extends Fragment {
                 filterBottomDialog.show(getFragmentManager(), filterBottomDialog.getTag());
             }
         });
+
+        blueBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment(), "HomeFragment").commit();
+
+
+            }
+        });
+        astesharticontoolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new MyConsultationragment(), "HomeFragment").commit();
+
+
+            }
+        });
+
         categories.add(new Categories(getResources().getString(R.string._84_percent_of)," https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file ",getResources().getString(R.string.abu_dall_mohammed_omar),getResources().getString(R.string.educational_consultant_holding_an_international_certificate_in_education),getResources().getString(R.string.consultType)));
         categories.add(new Categories(getResources().getString(R.string._84_percent_of)," https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file ",getResources().getString(R.string.abu_dall_mohammed_omar),getResources().getString(R.string.educational_consultant_holding_an_international_certificate_in_education),getResources().getString(R.string.consultType)));
         categories.add(new Categories(getResources().getString(R.string._84_percent_of)," https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file ",getResources().getString(R.string.abu_dall_mohammed_omar),getResources().getString(R.string.educational_consultant_holding_an_international_certificate_in_education),getResources().getString(R.string.consultType)));
