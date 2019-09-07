@@ -16,13 +16,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Adapter.ReviewAdapter;
+import com.Tamazj.TamazjApp.Adapter.TextViewAdapter;
+import com.Tamazj.TamazjApp.Model.AdvisoeDeailsBottomDialog;
 import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.Review;
 import com.Tamazj.TamazjApp.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,9 +34,10 @@ public class ShowAdvisorInformationFragment extends Fragment {
     ImageButton blueBack, profileImage;
     TextView tvAdvisorName, tvRatePercent, tvAskConsult, tvAdvisorAbout, tvAdvisorReviews, tvAboutAdvisorText;
     FrameLayout showAdvisorInformationFrameLayout;
-    RecyclerView rvBeneficiariesFeedback;
+    RecyclerView rvShowAdvisorInf ,rvBeneficiariesFeedback;
     LayoutInflater inf;
-
+    List<String> listShowAdvisorInf;
+    TextViewAdapter textViewAdapter;
     List<Review> list;
     ReviewAdapter adapter;
 
@@ -57,15 +59,28 @@ public class ShowAdvisorInformationFragment extends Fragment {
         profileImage = view.findViewById(R.id.profileImage);
         tvAdvisorName = view.findViewById(R.id.tvAdvisorName);
         tvRatePercent = view.findViewById(R.id.tvRatePercent);
+        rvShowAdvisorInf = view.findViewById(R.id.rvShowAdvisorInf);
         tvAskConsult = view.findViewById(R.id.tvAskConsult);
         tvAdvisorAbout = view.findViewById(R.id.tvAdvisorAbout);
         tvAdvisorReviews = view.findViewById(R.id.tvAdvisorReviews);
         showAdvisorInformationFrameLayout = view.findViewById(R.id.showAdvisorInformationFrameLayout);
 
+        listShowAdvisorInf = new ArrayList<>();
+        listShowAdvisorInf.add(getString(R.string.family_consultane));
+        listShowAdvisorInf.add(getString(R.string.family_consultane));
+        listShowAdvisorInf.add(getString(R.string.family_consultane));
+        textViewAdapter = new TextViewAdapter(getContext(), listShowAdvisorInf);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        rvShowAdvisorInf.setLayoutManager(layoutManager);
+        rvShowAdvisorInf.setAdapter(textViewAdapter);
+
         tvAskConsult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                     }
+                AdvisoeDeailsBottomDialog advisoeDeailsBottomDialog = new AdvisoeDeailsBottomDialog();
+                advisoeDeailsBottomDialog.show(getFragmentManager(), advisoeDeailsBottomDialog.getTag());
+
+            }
         });
 
         tvAdvisorAbout.setOnClickListener(new View.OnClickListener() {

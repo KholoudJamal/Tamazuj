@@ -53,11 +53,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyHolder> 
                     break;
 
                 case AppConstants.SATISFIED :
-                    holder.feedbackIcon.setImageResource(R.drawable.smiling);
+                    holder.feedbackIcon.setImageResource(R.drawable.radi);
                     break;
 
                 case AppConstants.NOT_SATISFIED :
-                    holder.feedbackIcon.setImageResource(R.drawable.confused);
+                    holder.feedbackIcon.setImageResource(R.drawable.notradi);
                     break;
 
                 default:
