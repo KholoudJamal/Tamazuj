@@ -44,15 +44,16 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin_minus_xlarge"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
             <FrameLayout
                 android:id="@+id/advisorProfileFrame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin_large"
+                android:layout_marginTop="@dimen/activity_vertical_margin_xxlarge"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -81,7 +82,7 @@
                             android:id="@+id/tvAdvisorName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/activity_vertical_margin_large"
+                            android:layout_marginTop="@dimen/activity_vertical_margin_xlarge"
                             android:padding="@dimen/activity_vertical_margin_small"
                             android:text="@string/abu_dall_mohammed_omar"
                             android:textColor="@color/colorBlack"
@@ -94,7 +95,7 @@
                             android:id="@+id/tvRatePercent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+                            android:layout_marginStart="@dimen/activity_vertical_margin_xlarge"
                             android:layout_marginTop="@dimen/activity_vertical_margin_medium"
                             android:drawableStart="@drawable/percent"
                             android:drawablePadding="@dimen/activity_vertical_margin_medium"
@@ -108,7 +109,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-                            android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
+                            android:layout_marginEnd="@dimen/activity_vertical_margin_xlarge"
                             android:text="@string/beneficiarieSatisfaction"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/tvRatePercent"
@@ -118,6 +119,7 @@
                             android:id="@+id/rvShowAdvisorInf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin_small"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/tvBeneficiarieSatisfaction" />
@@ -128,8 +130,8 @@
 
             <ImageButton
                 android:id="@+id/profileImage"
-                android:layout_width="@dimen/activity_vertical_margin_64"
-                android:layout_height="@dimen/activity_vertical_margin_64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="#00000000"
                 android:src="@drawable/image"
                 app:layout_constraintEnd_toEndOf="parent"

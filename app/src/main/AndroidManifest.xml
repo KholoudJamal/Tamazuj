@@ -39,6 +39,7 @@
         <activity android:name=".Activity.SignUpActivity" />
         <activity android:name=".Activity.SwitchAccountTypeActivity" />
         <activity android:name=".Activity.AdvisorActivity" />
+        <activity android:name=".Activity.BillActivity" />
     </application>
 
 

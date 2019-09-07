@@ -18,6 +18,16 @@ import java.util.List;
 
 public class TextViewAdapter extends RecyclerView.Adapter<TextViewAdapter.MyHolder> {
 
+
+    public interface IClickListener{
+        void onItemClick(int position,String text);
+    }
+
+    IClickListener iClickListener;
+    public void setiClickListener(IClickListener iClickListener) {
+        this.iClickListener = iClickListener;
+    }
+
     MyHolder holder;
 
     private final List<String> list;
@@ -42,6 +52,15 @@ public class TextViewAdapter extends RecyclerView.Adapter<TextViewAdapter.MyHold
         if (!(list.isEmpty())) {
             holder.text.setText(list.get(position));
         }
+
+        holder.text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(iClickListener !=null){
+                    iClickListener.onItemClick(position,list.get(position));
+                }
+            }
+        });
     }
 
     @Override
@@ -49,21 +68,22 @@ public class TextViewAdapter extends RecyclerView.Adapter<TextViewAdapter.MyHold
         return list.size();
     }
 
-    static class MyHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
+    static class MyHolder extends RecyclerView.ViewHolder {
+      // implements  View.OnClickListener
         TextView text;
         public MyHolder(View itemView) {
             super(itemView);
             text = itemView.findViewById(R.id.text);
-            text.setOnClickListener(this);
+           // text.setOnClickListener(this);
             this.setIsRecyclable(false);
         }
 
-        @Override
-        public void onClick(View v) {
-            if(v == text) {
-
-            }
-        }
+//        @Override
+//        public void onClick(View v) {
+//            if(v == text) {
+//
+//            }
+//        }
 
     }
 

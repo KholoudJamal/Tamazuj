@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.BillFragment"
+    tools:context=".Activity.BillActivity"
     android:background="@drawable/home_advisor_back">
 
     <android.support.v7.widget.Toolbar
@@ -15,7 +15,8 @@
         android:background="@color/colorToolbarGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+       >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,29 +43,38 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvBill"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_vertical_margin_large"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="match_parent"
+        android:id="@+id/billContainer"
+        android:layout_marginTop="@dimen/activity_vertical_margin_xxxlarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarBill" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarBill">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonPayBill"
-        android:layout_margin="@dimen/activity_vertical_margin_large"
-        android:background="@drawable/button_dark_boarder"
-        android:padding="@dimen/activity_vertical_margin_medium"
-        android:text="@string/payBill"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvBill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin_large"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/buttonPayBill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin_large"
+            android:background="@drawable/button_dark_boarder"
+            android:padding="@dimen/activity_vertical_margin_medium"
+            android:text="@string/payBill"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

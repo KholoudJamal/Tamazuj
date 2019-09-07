@@ -2,6 +2,8 @@ package com.Tamazj.TamazjApp.Model;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Adapter.PayWayAdapter;
+import com.Tamazj.TamazjApp.Fragments.SuccessPayFragment;
 import com.Tamazj.TamazjApp.R;
 
 import java.util.ArrayList;
@@ -25,6 +28,7 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
     RecyclerView recyclerView;
     PayWayAdapter adapter;
     List<PayWayImage> list;
+    String sessionType, cost;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -39,9 +43,28 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
-
             }
         });
+
+        Bundle bundle = getArguments();
+        if(bundle!= null && bundle.getString(AppConstants.SESSION_TYPE) != null){
+            sessionType = bundle.getString(AppConstants.SESSION_TYPE);
+        }
+
+        switch (sessionType){
+            case AppConstants.FIRST_SESSION:
+                cost = getString(R.string.RS50);
+                break;
+            case AppConstants.SECOND_SESSION:
+                cost = getString(R.string.RS100);
+                break;
+            case AppConstants.THIRD_SESSION:
+                cost = getString(R.string.RS200);
+                break;
+            case AppConstants.SPECIAL_SESSION:
+                cost = getString(R.string.RS500);
+                break;
+        }
 
         recyclerView = viewDialog.findViewById(R.id.rvPayWay);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),2);
@@ -54,6 +77,14 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
         list.add(new PayWayImage(R.drawable.astesharttrbwwi));
 
         adapter = new PayWayAdapter(getContext(), list);
+        adapter.setiClickListener(new PayWayAdapter.IClickListener() {
+            @Override
+            public void onItemClick(int position, PayWayImage payWayImage) {
+                Bundle bundle = new Bundle();
+                bundle.putString(AppConstants.SESSION_TYPE, sessionType);
+                getFragmentManager().beginTransaction().replace(R.id.billContainer, new SuccessPayFragment(), "SuccessPayFragment").commit();
+            }
+        });
         recyclerView.setAdapter(adapter);
 
     }

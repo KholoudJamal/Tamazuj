@@ -93,6 +93,11 @@
     <string name="cost">Cost</string>
     <string name="mint30">30 Mints</string>
     <string name="RS50">50 R.S</string>
+    <string name="mint60">60 Mints</string>
+    <string name="RS100">100 R.S</string>
+    <string name="mint120">120 Mints</string>
+    <string name="RS200">200 R.S</string>
+    <string name="RS500">500 R.S</string>
     <string name="payWay">Pay way</string>
     <string name="startSession">Start session</string>
     <string name="successPayed">Success payed</string>
@@ -118,4 +123,5 @@
     <string name="self">self</string>
     <string name="time">time</string>
     <string name="esaIbraheem">Esa Ibraheem</string>
+    <string name="advisorDescription">المستشار التربوي الحاصل على الشهادة الدولية في التربية</string>
 </resources>

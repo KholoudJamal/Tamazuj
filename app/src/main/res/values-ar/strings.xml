@@ -90,6 +90,11 @@
     <string name="cost">التكلفة</string>
     <string name="mint30">30 دقيقة  </string>
     <string name="RS50"> 50 ر.س  </string>
+    <string name="mint60">60 دقيقة</string>
+    <string name="RS100">100 ر.س </string>
+    <string name="mint120">120 دقيقة</string>
+    <string name="RS200">200 ر.س </string>
+    <string name="RS500">500 ر.س </string>
     <string name="payWay">Pay way</string>
     <string name="startSession">Start session</string>
     <string name="successPayed">Success payed</string>
@@ -115,4 +120,5 @@
     <string name="self">self</string>
     <string name="time">time</string>
     <string name="esaIbraheem">عيسى ابراهيم</string>
+    <string name="advisorDescription">المستشار التربوي الحاصل على الشهادة الدولية في التربية</string>
 </resources>

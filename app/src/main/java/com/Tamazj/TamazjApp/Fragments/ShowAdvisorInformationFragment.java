@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Adapter.ReviewAdapter;
 import com.Tamazj.TamazjApp.Adapter.TextViewAdapter;
+import com.Tamazj.TamazjApp.Model.AdvisoeDeailsBottomDialog;
 import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.Review;
 import com.Tamazj.TamazjApp.R;
@@ -64,7 +65,7 @@ public class ShowAdvisorInformationFragment extends Fragment {
         tvAdvisorReviews = view.findViewById(R.id.tvAdvisorReviews);
         showAdvisorInformationFrameLayout = view.findViewById(R.id.showAdvisorInformationFrameLayout);
 
-        listShowAdvisorInf = new ArrayList<String>();
+        listShowAdvisorInf = new ArrayList<>();
         listShowAdvisorInf.add(getString(R.string.family_consultane));
         listShowAdvisorInf.add(getString(R.string.family_consultane));
         listShowAdvisorInf.add(getString(R.string.family_consultane));
@@ -76,7 +77,10 @@ public class ShowAdvisorInformationFragment extends Fragment {
         tvAskConsult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                     }
+                AdvisoeDeailsBottomDialog advisoeDeailsBottomDialog = new AdvisoeDeailsBottomDialog();
+                advisoeDeailsBottomDialog.show(getFragmentManager(), advisoeDeailsBottomDialog.getTag());
+
+            }
         });
 
         tvAdvisorAbout.setOnClickListener(new View.OnClickListener() {
