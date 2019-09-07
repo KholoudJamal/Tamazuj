@@ -10,7 +10,7 @@
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/imageView2"
+        android:layout_alignTop="@id/selectcatogory"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -21,7 +21,7 @@
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/selectcatogory"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_alignParentStart="true"

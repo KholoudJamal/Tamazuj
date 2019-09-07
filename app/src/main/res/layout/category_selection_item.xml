@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    card_view:cardElevation="10dp"
+    android:elevation="8dp"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0.0px"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    card_view:cardPreventCornerOverlap="false"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="@dimen/activity_vertical_margin_medium"
+    android:id="@+id/cardViewConsult"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/area_counseling_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/activity_horizontal_margin_medium"
+            android:src="@drawable/asteshartosari"
+            android:padding="@dimen/activity_horizontal_margin_xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/area_counseling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin_medium"
+            android:text="@string/asteshart_ame"
+            android:textColor="@color/gray_dark"
+            android:textSize="@dimen/text_header_size"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/consultImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+

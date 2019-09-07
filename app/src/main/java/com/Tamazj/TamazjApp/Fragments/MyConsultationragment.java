@@ -21,6 +21,7 @@ import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.Model.Distinguished_Advisors_Model;
+import com.Tamazj.TamazjApp.Model.FilterBottomDialog;
 import com.Tamazj.TamazjApp.R;
 
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ public class MyConsultationragment extends Fragment {
     private RecyclerView mDistinguishedAdvisors;
     ImageView blueBack;
 
+    ImageView personalprofile;
+    ImageView filter;
+    ImageView astesharticontoolbar;
 
 
 
@@ -50,14 +54,36 @@ public class MyConsultationragment extends Fragment {
         gridLayoutManager = new GridLayoutManager(getContext(),3);
         mDistinguishedAdvisors.setLayoutManager(gridLayoutManager);
         mDistinguishedAdvisors.setHasFixedSize(true);
-        blueBack=view.findViewById(R.id.blueBack);
-        blueBack.setOnClickListener(new View.OnClickListener() {
+        personalprofile=view.findViewById(R.id.personalprofile);
+        personalprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), UserprofileActivity.class);
                 getActivity().startActivity(intent);
             }
         });
+
+
+        filter=view.findViewById(R.id.filter);
+        astesharticontoolbar=view.findViewById(R.id.astesharticontoolbar);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FilterBottomDialog filterBottomDialog = new FilterBottomDialog();
+                filterBottomDialog.show(getFragmentManager(), filterBottomDialog.getTag());
+            }
+        });
+
+
+        astesharticontoolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new MyConsultationragment(), "HomeFragment").commit();
+
+
+            }
+        });
+
 
         distinguished_advisors_models.add(new Distinguished_Advisors_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","محمد حسن ","استشارات أسرية "));
         distinguished_advisors_models.add(new Distinguished_Advisors_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","محمد حسن ","استشارات أسرية "));

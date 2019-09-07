@@ -94,5 +94,25 @@
     <string name="startSession">Start session</string>
     <string name="successPayed">Success payed</string>
     <string name="success">success</string>
-
+    <string name="sessionTime">وقت الجلسة</string>
+    <string name="mint">دقيقة </string>
+    <string name="v30">30</string>
+    <string name="sessionExtension">تمديد الجلسة </string>
+    <string name="writeYourMessageHere">اكتب رسالتك هنا</string>
+    <string name="beneficiariesFeedback">تقييمك للخدمة</string>
+    <string name="FeedbackTime">FeedbackTime</string>
+    <string name="happy">happy</string>
+    <string name="catogoryname">catogoryname</string>
+    <string name="ratePercent">84% نسبة رضى المستفيدين</string>
+    <string name="beneficiarieSatisfaction">beneficiarieSatisfaction</string>
+    <string name="advisorReviews">آراء المستفيدين </string>
+    <string name="advisorAbout">عن المستشار</string>
+    <string name="askConsult">اطلب استشارتك</string>
+    <string name="firstSession">firstSession</string>
+    <string name="specialSession">specialSession</string>
+    <string name="thirdSession">thirdSession</string>
+    <string name="secondSession">secondSession</string>
+    <string name="self">self</string>
+    <string name="time">time</string>
+    <string name="esaIbraheem">عيسى ابراهيم</string>
 </resources>

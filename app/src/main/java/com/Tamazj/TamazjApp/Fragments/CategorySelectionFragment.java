@@ -3,8 +3,6 @@ package com.Tamazj.TamazjApp.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,7 +14,7 @@ import android.widget.ImageView;
 
 import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
-import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
+import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_selection_adapter;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.R;
 
@@ -26,29 +24,30 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoriesFragment extends Fragment {
+public class CategorySelectionFragment extends Fragment {
     View view;
     private RecyclerView mAreasCounseling;
-    GridLayoutManager mAreasCounselingmanager ;
+    LinearLayoutManager linearLayoutManager ;
     List<Areas_Counseling_Model> areas_counseling_models=new ArrayList<>();
-    Areas_Counseling_adapter areas_counseling_adapter;
-    ImageView personalprofile;
+    Areas_Counseling_selection_adapter areas_counseling_selection_adapter;
+    ImageView blueBack;
 
 
 
-
-    public CategoriesFragment() {
+    public CategorySelectionFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-                view=inflater.inflate(R.layout.fragment_categories, container, false);
-        mAreasCounseling = view.findViewById(R.id.Areas_Counseling);
+        // Inflate the layout for this fragment
 
-        mAreasCounselingmanager = new GridLayoutManager(getContext(),3);
-        mAreasCounseling.setLayoutManager(mAreasCounselingmanager);
+        view=inflater.inflate(R.layout.fragment_category_selection, container, false);
+        mAreasCounseling = view.findViewById(R.id.categoriesrecycler);
+
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        mAreasCounseling.setLayoutManager(linearLayoutManager);
         mAreasCounseling.setHasFixedSize(true);
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","استشارات أسرية "));
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","استشارات نفسية "));
@@ -62,23 +61,11 @@ public class CategoriesFragment extends Fragment {
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","استشارات أسرية "));
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","استشارات نفسية "));
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","السمو بالنفس "));
-        areas_counseling_adapter=new Areas_Counseling_adapter(getContext(),areas_counseling_models);
-        mAreasCounseling.setAdapter(areas_counseling_adapter);
+        areas_counseling_selection_adapter=new Areas_Counseling_selection_adapter(getContext(),areas_counseling_models);
+        mAreasCounseling.setAdapter(areas_counseling_selection_adapter);
 
-        personalprofile=view.findViewById(R.id.personalprofile);
-        personalprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UserprofileActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
+
         return view;
-
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        mAreasCounseling = view.findViewById(R.id.Areas_Counseling);
-    }
 }
