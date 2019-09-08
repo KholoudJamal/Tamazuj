@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.Tamazj.TamazjApp.Adapter.BillDetailsAdapter;
 import com.Tamazj.TamazjApp.Model.AppConstants;
@@ -29,7 +30,8 @@ import java.util.List;
  */
 public class BillActivity extends AppCompatActivity {
 
-    Button buttonCancel, pay;
+    ImageButton buttonCancel;
+    Button pay;
     RecyclerView recyclerView;
     List<BillDetails> billDetails;
     BillDetailsAdapter adapter;
@@ -47,6 +49,7 @@ public class BillActivity extends AppCompatActivity {
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });
