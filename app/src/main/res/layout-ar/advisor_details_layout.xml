@@ -35,8 +35,7 @@
             android:layout_marginStart="@dimen/activity_vertical_margin_medium"
             android:text="@string/beneficiarieSatisfaction"
             app:layout_constraintStart_toEndOf="@+id/tvRatePercent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/profileImage"
@@ -94,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/firstSessionButton"
-        android:background="@drawable/englishrequesticon"
+        android:background="@drawable/requesticon"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:baseline="@+id/firstSession"
@@ -119,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/secondSessionButton"
-        android:background="@drawable/englishrequesticon"
+        android:background="@drawable/requesticon"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/firstSession"
         android:baseline="@+id/secondSession"
@@ -145,12 +144,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/thirdSessionButton"
-        android:background="@drawable/englishrequesticon"
+        android:background="@drawable/requesticon"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/secondSession"
         android:baseline="@+id/thirdSession"
-
         android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+
 
         />
 
@@ -172,7 +171,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/specialSessionButton"
-        android:background="@drawable/englishrequesticon"
+        android:background="@drawable/requesticon"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/thirdSession"
         android:baseline="@+id/secondSession"

@@ -57,7 +57,7 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
                 consultType = text;
             }
         });
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         rvConsults.setLayoutManager(layoutManager);
         rvConsults.setAdapter(textViewAdapter);
 

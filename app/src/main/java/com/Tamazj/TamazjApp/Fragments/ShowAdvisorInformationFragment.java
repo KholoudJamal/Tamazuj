@@ -70,7 +70,7 @@ public class ShowAdvisorInformationFragment extends Fragment {
         listShowAdvisorInf.add(getString(R.string.family_consultane));
         listShowAdvisorInf.add(getString(R.string.family_consultane));
         textViewAdapter = new TextViewAdapter(getContext(), listShowAdvisorInf);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         rvShowAdvisorInf.setLayoutManager(layoutManager);
         rvShowAdvisorInf.setAdapter(textViewAdapter);
 
