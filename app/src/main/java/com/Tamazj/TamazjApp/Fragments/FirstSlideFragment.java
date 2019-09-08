@@ -57,6 +57,8 @@ public class FirstSlideFragment extends Fragment {
         cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesdetailsFragment(), "HomeFragment").commit();
+
 
             }
         });
