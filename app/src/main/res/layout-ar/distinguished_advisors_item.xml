@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layoutDirection="ltr"
     android:textDirection="ltr"
+    android:id="@+id/cardView"
     android:layout_margin="8dp"
     android:gravity="center_horizontal"
     android:layout_height="wrap_content">
