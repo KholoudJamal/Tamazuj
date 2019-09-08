@@ -13,7 +13,7 @@
         android:id="@+id/cancelButton"
         android:layout_marginEnd="8dp"
         android:background="#00000000"
-        android:src="@drawable/cancle"
+        android:src="@drawable/closegrayicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
