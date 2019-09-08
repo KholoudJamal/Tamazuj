@@ -2,15 +2,19 @@ package com.Tamazj.TamazjApp.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-
+import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
+import com.Tamazj.TamazjApp.Fragments.HomeFragment;
+import com.Tamazj.TamazjApp.Fragments.ShowAdvisorInformationFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.Model.Distinguished_Advisors_Model;
 import com.Tamazj.TamazjApp.R;
@@ -54,6 +58,13 @@ public class Distinguished_Advisors_Adapter  extends RecyclerView.Adapter<Distin
                 .into(holder.area_counseling_image);
         holder.area_counseling_catogory.setText(distinguished_advisors_models.get(position).getArea_counseling_catogory());
         holder.area_counseling_name.setText(distinguished_advisors_models.get(position).getArea_counseling_name());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ShowAdvisorInformationFragment(), "HomeFragment").commit();
+
+            }
+        });
 
 
     }
@@ -68,6 +79,7 @@ public class Distinguished_Advisors_Adapter  extends RecyclerView.Adapter<Distin
         ImageView area_counseling_image;
         TextView area_counseling_name;
         TextView area_counseling_catogory;
+        RelativeLayout cardView;
 
 
         public MyHolder(View itemView) {
@@ -75,6 +87,7 @@ public class Distinguished_Advisors_Adapter  extends RecyclerView.Adapter<Distin
             area_counseling_image = itemView.findViewById(R.id.area_counseling_image);
             area_counseling_catogory = itemView.findViewById(R.id.area_counseling_catogory);
             area_counseling_name = itemView.findViewById(R.id.area_counseling_name);
+            cardView=itemView.findViewById(R.id.cardView);
 
 
         }
