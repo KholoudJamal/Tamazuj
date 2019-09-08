@@ -44,8 +44,15 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
         tvAdvisorName =  viewDialog.findViewById(R.id.tvAdvisorName);
         tvAdvisorDescription =  viewDialog.findViewById(R.id.tvAdvisorDescription);
         profileImage =  viewDialog.findViewById(R.id.profileImage);
-
         rvConsults =  viewDialog.findViewById(R.id.rvConsults);
+        firstSession = viewDialog.findViewById(R.id.firstSession);
+        secondSession = viewDialog.findViewById(R.id.secondSession);
+        thirdSession = viewDialog.findViewById(R.id.thirdSession);
+        specialSession = viewDialog.findViewById(R.id.specialSession);
+        firstSessionButton = viewDialog.findViewById(R.id.firstSessionButton);
+        secondSessionButton = viewDialog.findViewById(R.id.secondSessionButton);
+        thirdSessionButton = viewDialog.findViewById(R.id.thirdSessionButton);
+        specialSessionButton = viewDialog.findViewById(R.id.specialSessionButton);
         list = new ArrayList<String>();
         list.add(getString(R.string.family_consultane));
         list.add(getString(R.string.family_consultane));
@@ -62,14 +69,7 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
         rvConsults.setAdapter(textViewAdapter);
 
 
-        firstSession = viewDialog.findViewById(R.id.firstSession);
-        secondSession = viewDialog.findViewById(R.id.secondSession);
-        thirdSession = viewDialog.findViewById(R.id.thirdSession);
-        specialSession = viewDialog.findViewById(R.id.specialSession);
-        firstSessionButton = viewDialog.findViewById(R.id.firstSessionButton);
-        secondSessionButton = viewDialog.findViewById(R.id.secondSessionButton);
-        thirdSessionButton = viewDialog.findViewById(R.id.thirdSessionButton);
-        specialSessionButton = viewDialog.findViewById(R.id.specialSessionButton);
+
 
         final Intent intent = new Intent(getActivity(), BillActivity.class);
 

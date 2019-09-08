@@ -2,7 +2,10 @@ package com.Tamazj.TamazjApp.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
 import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
+import com.Tamazj.TamazjApp.Adapter.CustomViewPagerAdapter;
 import com.Tamazj.TamazjApp.Adapter.Distinguished_Advisors_Adapter;
 import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorProfileFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
@@ -48,6 +52,24 @@ public class HomeFragment extends Fragment {
 
     List<Distinguished_Advisors_Model> distinguished_advisors_models=new ArrayList<>();
     Distinguished_Advisors_Adapter distinguished_advisors_adapter;
+    private static final long SLIDER_TIMER = 2000; // change slider interval
+    private int currentPage = 0; // this will tell us the current page available on the view pager
+    // please see ViewPager Listener on the onPageSelected method to see how we are updating
+    // currentPage variable
+    private boolean isCountDownTimerActive = false; // let the timer start if and only if it has completed previous task
+    private Handler handler;
+    private ViewPager viewPager;
+    private final Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (!isCountDownTimerActive) {
+                automateSlider();
+            }
+            handler.postDelayed(runnable, 1000);
+            // our runnable should keep running for every 1000 milliseconds (1 seconds)
+        }
+    };
+
 
 
 
@@ -57,6 +79,32 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         initView();
+        handler = new Handler();
+        handler.postDelayed(runnable, 1000);
+        runnable.run();
+        viewPager = view.findViewById(R.id.view_pager_slider);
+        CustomViewPagerAdapter viewPagerAdapter = new CustomViewPagerAdapter(getActivity().getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+        // now it's time to think about our sliders
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    currentPage = 0;
+                } else if (position == 1) {
+                    currentPage = 1;
+                } else {
+                    currentPage = 2;
+                }
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
         mDistinguishedAdvisorsmanager = new LinearLayoutManager(getContext());
         mDistinguishedAdvisorsmanager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mDistinguishedAdvisors.setLayoutManager(mDistinguishedAdvisorsmanager);
@@ -89,13 +137,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        mCardview.setOnClickListener(new View.OnClickListener() {
+      /*  mCardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesdetailsFragment(), "HomeFragment").commit();
 
             }
-        });
+        });*/
 
 
 
@@ -122,5 +170,30 @@ public class HomeFragment extends Fragment {
         mDistinguishedAdvisors = view.findViewById(R.id.Distinguished_Advisors);
         personalprofile=view.findViewById(R.id.personalprofile);
 
+    }
+
+    private void automateSlider() {
+        isCountDownTimerActive = true;
+        new CountDownTimer(SLIDER_TIMER, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+            @Override
+            public void onFinish() {
+                int nextSlider = currentPage + 1;
+
+                if (nextSlider == 3) {
+                    nextSlider = 0; // if it's last Image, let it go to the first image
+                }
+                viewPager.setCurrentItem(nextSlider);
+                isCountDownTimerActive = false;
+            }
+        }.start();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        handler.removeCallbacks(runnable);
     }
 }

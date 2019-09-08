@@ -18,24 +18,25 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-        <TextView
-            android:id="@+id/tvRatePercent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/percent"
-            android:drawablePadding="@dimen/activity_vertical_margin_medium"
-            android:text="@string/ratePercent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvRatePercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/percent"
+        android:drawablePadding="@dimen/activity_vertical_margin_medium"
+        android:text="@string/ratePercent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvBeneficiarieSatisfaction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_vertical_margin_medium"
-            android:text="@string/beneficiarieSatisfaction"
-            app:layout_constraintStart_toEndOf="@+id/tvRatePercent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvBeneficiarieSatisfaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+        android:text="@string/beneficiarieSatisfaction"
+        app:layout_constraintStart_toEndOf="@+id/tvRatePercent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageButton
         android:id="@+id/profileImage"
@@ -89,108 +90,113 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvConsults" >
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/firstSessionButton"
-        android:background="@drawable/requesticon"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:baseline="@+id/firstSession"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstSessionButton"
+            android:background="@drawable/requesticon"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/requesticon"
+            android:baseline="@+id/firstSession"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
 
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/firstSession"
-        android:background="@drawable/gray_bacground"
-        android:padding="@dimen/activity_vertical_margin_large"
-        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
-        android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-        android:text="@string/firstSession"
-        android:layout_toStartOf="@+id/firstSessionButton"
-        android:layout_alignParentTop="true"
-        />
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstSession"
+            android:background="@drawable/gray_bacground"
+            android:padding="@dimen/activity_vertical_margin_large"
+            android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+            android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+            android:text="@string/firstSession"
+            android:layout_toStartOf="@+id/firstSessionButton"
+            android:layout_alignParentTop="true"
+            />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/secondSessionButton"
-        android:background="@drawable/requesticon"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/firstSession"
-        android:baseline="@+id/secondSession"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/secondSessionButton"
+            android:background="@drawable/requesticon"
+            android:src="@drawable/requesticon"
 
-        />
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/firstSession"
+            android:baseline="@+id/secondSession"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/secondSession"
-        android:background="@drawable/edit_text_boarder"
-        android:padding="@dimen/activity_vertical_margin_large"
-        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
-        android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-        android:text="@string/secondSession"
-        android:layout_toStartOf="@+id/secondSessionButton"
-        android:layout_below="@+id/firstSession"
-        />
+            />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/thirdSessionButton"
-        android:background="@drawable/requesticon"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/secondSession"
-        android:baseline="@+id/thirdSession"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/secondSession"
+            android:background="@drawable/edit_text_boarder"
+            android:padding="@dimen/activity_vertical_margin_large"
+            android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+            android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+            android:text="@string/secondSession"
+            android:layout_toStartOf="@+id/secondSessionButton"
+            android:layout_below="@+id/firstSession"
+            />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/thirdSessionButton"
+            android:background="@drawable/requesticon"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/secondSession"
+            android:baseline="@+id/thirdSession"
+            android:src="@drawable/requesticon"
 
-        />
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/thirdSession"
-        android:background="@drawable/gray_bacground"
-        android:padding="@dimen/activity_vertical_margin_large"
-        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
-        android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-        android:text="@string/thirdSession"
-        android:layout_toStartOf="@+id/thirdSessionButton"
-        android:layout_below="@+id/secondSession"
-        />
+            />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/specialSessionButton"
-        android:background="@drawable/requesticon"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/thirdSession"
-        android:baseline="@+id/secondSession"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/thirdSession"
+            android:background="@drawable/gray_bacground"
+            android:padding="@dimen/activity_vertical_margin_large"
+            android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+            android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+            android:text="@string/thirdSession"
+            android:layout_toStartOf="@+id/thirdSessionButton"
+            android:layout_below="@+id/secondSession"
+            />
 
-        />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/specialSessionButton"
+            android:background="@drawable/requesticon"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/thirdSession"
+            android:src="@drawable/requesticon"
+            android:baseline="@+id/secondSession"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/specialSession"
-        android:background="@drawable/edit_text_boarder"
-        android:padding="@dimen/activity_vertical_margin_large"
-        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
-        android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
-        android:layout_marginTop="@dimen/activity_vertical_margin_medium"
-        android:text="@string/specialSession"
-        android:layout_toStartOf="@+id/specialSessionButton"
-        android:layout_below="@+id/thirdSession"
-        />
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/specialSession"
+            android:background="@drawable/edit_text_boarder"
+            android:padding="@dimen/activity_vertical_margin_large"
+            android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+            android:layout_marginEnd="@dimen/activity_vertical_margin_medium"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+            android:text="@string/specialSession"
+            android:layout_toStartOf="@+id/specialSessionButton"
+            android:layout_below="@+id/thirdSession"
+            />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

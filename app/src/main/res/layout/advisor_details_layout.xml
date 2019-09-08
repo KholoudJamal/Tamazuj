@@ -95,10 +95,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/firstSessionButton"
             android:background="@drawable/englishrequesticon"
+            android:src="@drawable/englishrequesticon"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:baseline="@+id/firstSession"
-            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
 
             />
         <TextView
@@ -122,6 +122,8 @@
             android:background="@drawable/englishrequesticon"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/firstSession"
+            android:src="@drawable/englishrequesticon"
+
             android:baseline="@+id/secondSession"
             android:layout_marginTop="@dimen/activity_vertical_margin_medium"
 
@@ -148,6 +150,8 @@
             android:background="@drawable/englishrequesticon"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/secondSession"
+            android:src="@drawable/englishrequesticon"
+
             android:baseline="@+id/thirdSession"
 
             android:layout_marginTop="@dimen/activity_vertical_margin_medium"
@@ -174,6 +178,8 @@
             android:id="@+id/specialSessionButton"
             android:background="@drawable/englishrequesticon"
             android:layout_alignParentEnd="true"
+            android:src="@drawable/englishrequesticon"
+
             android:layout_below="@+id/thirdSession"
             android:baseline="@+id/secondSession"
             android:layout_marginTop="@dimen/activity_vertical_margin_medium"

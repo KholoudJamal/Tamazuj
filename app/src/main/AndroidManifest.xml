@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".Activity.EditUserProfileActivity"></activity>
+        <activity android:name=".Activity.SliderActivity"></activity>
+        <activity android:name=".Activity.EditUserProfileActivity" />
         <activity
             android:name=".Activity.SessionActivity"
-            android:theme="@style/MyActionBar"></activity>
+            android:theme="@style/MyActionBar" />
         <activity android:name=".Activity.Avisor_aboutActivity" />
         <activity android:name=".Activity.UserprofileActivity" />
         <activity android:name=".Activity.BeneficiaryActivity" />
@@ -41,6 +42,5 @@
         <activity android:name=".Activity.AdvisorActivity" />
         <activity android:name=".Activity.BillActivity" />
     </application>
-
 
 </manifest>
