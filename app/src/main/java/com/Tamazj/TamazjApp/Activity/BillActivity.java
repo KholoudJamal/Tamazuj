@@ -33,7 +33,7 @@ public class BillActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<BillDetails> billDetails;
     BillDetailsAdapter adapter;
-    String sessionType = AppConstants.FIRST_SESSION, consultType = getString(R.string.family_consultane), timePeriod, cost;
+    String sessionType = AppConstants.FIRST_SESSION, consultType, timePeriod, cost;
 
 
 
@@ -51,6 +51,7 @@ public class BillActivity extends AppCompatActivity {
             }
         });
 
+        consultType = getString(R.string.family_consultane);
 
         recyclerView = findViewById(R.id.rvBill);
 

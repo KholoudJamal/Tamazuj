@@ -39,7 +39,7 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
         viewDialog = View.inflate(getContext(), R.layout.advisor_details_layout, null);
         dialog.setContentView(viewDialog);
 
-        dialogButtonCancel =  viewDialog.findViewById(R.id.buttonCancel);
+        dialogButtonCancel =  viewDialog.findViewById(R.id.cancelButton);
         tvRatePercent =  viewDialog.findViewById(R.id.tvRatePercent);
         tvAdvisorName =  viewDialog.findViewById(R.id.tvAdvisorName);
         tvAdvisorDescription =  viewDialog.findViewById(R.id.tvAdvisorDescription);
