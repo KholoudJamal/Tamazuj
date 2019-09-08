@@ -113,12 +113,17 @@
     <string name="advisorReviews">آراء المستفيدين </string>
     <string name="advisorAbout">عن المستشار</string>
     <string name="askConsult">اطلب استشارتك</string>
-    <string name="firstSession">firstSession</string>
-    <string name="specialSession">specialSession</string>
-    <string name="thirdSession">thirdSession</string>
-    <string name="secondSession">secondSession</string>
+    <string name="firstSession">50 ر.س  30 دقيقة </string>
+    <string name="specialSession">500 ر.س  لقاء خاص </string>
+    <string name="thirdSession">200 ر.س - 120 دقيقة </string>
+    <string name="secondSession">100 ر.س - 60 دقيقة </string>
     <string name="self">self</string>
     <string name="time">time</string>
     <string name="esaIbraheem">عيسى ابراهيم</string>
     <string name="advisorDescription">المستشار التربوي الحاصل على الشهادة الدولية في التربية</string>
+    <string name="filter">الفلتر</string>
+    <string name="save">حفظ</string>
+    <string name="percent_satfication">نسبة رضى المستفيدين </string>
+    <string name="status">الحالة</string>
+    <string name="choose_consultant_type">اختر المتشار </string>
 </resources>
