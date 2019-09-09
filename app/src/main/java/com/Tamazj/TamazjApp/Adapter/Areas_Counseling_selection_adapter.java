@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorSelectionFragment;
 import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
 import com.Tamazj.TamazjApp.Fragments.CategorySelectionFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
@@ -60,7 +61,7 @@ public class Areas_Counseling_selection_adapter extends RecyclerView.Adapter<Are
     @Override
     public void onClick(View v) {
 
-        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesdetailsFragment(), "HomeFragment").commit();
+        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new AdvisorSelectionFragment(), "HomeFragment").commit();
 
 
 

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.Tamazj.TamazjApp.Activity.UserprofileActivity;
@@ -31,6 +32,7 @@ public class CategorySelectionFragment extends Fragment {
     List<Areas_Counseling_Model> areas_counseling_models=new ArrayList<>();
     Areas_Counseling_selection_adapter areas_counseling_selection_adapter;
     ImageView blueBack;
+    ImageButton buttonCancel;
 
 
 
@@ -63,6 +65,15 @@ public class CategorySelectionFragment extends Fragment {
         areas_counseling_models.add(new Areas_Counseling_Model("https://www.mediafire.com/view/yyfa6yue2aaqkhs/asteshartosari.png/file","السمو بالنفس "));
         areas_counseling_selection_adapter=new Areas_Counseling_selection_adapter(getContext(),areas_counseling_models);
         mAreasCounseling.setAdapter(areas_counseling_selection_adapter);
+        buttonCancel=view.findViewById(R.id.buttonCancel);
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment(), "HomeFragment").commit();
+
+
+            }
+        });
 
 
         return view;

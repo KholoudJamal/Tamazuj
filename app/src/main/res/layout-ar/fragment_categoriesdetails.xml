@@ -44,8 +44,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/catogoryname"
+                android:text="@string/catogory_name"
                 android:layout_weight="1"
+                android:id="@+id/toolbartiltle"
                 android:src="@drawable/logofortoolbar"
                 android:gravity="center"/>
 

@@ -17,4 +17,5 @@ public interface AppConstants {
     String SECOND_SESSION = "SECOND_SESSION";
     String THIRD_SESSION = "THIRD_SESSION";
     String SPECIAL_SESSION = "SPECIAL_SESSION";
+    String toolbartiltle="toolbartiltle";
 }

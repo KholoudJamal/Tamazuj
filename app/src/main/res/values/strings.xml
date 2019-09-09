@@ -110,7 +110,7 @@
     <string name="beneficiariesFeedback">تقييمك للخدمة</string>
     <string name="FeedbackTime">FeedbackTime</string>
     <string name="happy">happy</string>
-    <string name="catogoryname">catogoryname</string>
+    <string name="catogoryname">Select the advisor</string>
     <string name="ratePercent">84% </string>
     <string name="beneficiarieSatisfaction">Beneficiaries satisfaction</string>
     <string name="advisorReviews"> Beneficiaries reviews </string>
@@ -129,4 +129,6 @@
     <string name="percent_satfication">percent_satfication</string>
     <string name="status">status</string>
     <string name="choose_consultant_type">choose_consultant_type</string>
+    <string name="choose_advivsor">choose advisor </string>
+    <string name="catogory_name">تطوير الذات</string>
 </resources>

@@ -37,7 +37,7 @@
     <string name="scheduled">مجدولة </string>
     <string name="myConsult">استشاراتي </string>
     <string name="myAccount">حسابي </string>
-    <string name="myConsultRecord">My consulting record</string>
+    <string name="myConsultRecord">سجل استشاراتي </string>
     <string name="aboutApp">عن التطبيق </string>
     <string name="settings">الاعدادات </string>
     <string name="attachments">المرفقات </string>
@@ -107,7 +107,7 @@
     <string name="beneficiariesFeedback">تقييمك للخدمة</string>
     <string name="FeedbackTime">FeedbackTime</string>
     <string name="happy">سعيد</string>
-    <string name="catogoryname">catogoryname</string>
+    <string name="catogoryname">اختر المستشار </string>
     <string name="ratePercent">84%</string>
     <string name="beneficiarieSatisfaction"> نسبة رضى المستفيدين</string>
     <string name="advisorReviews">آراء المستفيدين </string>
@@ -125,5 +125,8 @@
     <string name="save">حفظ</string>
     <string name="percent_satfication">نسبة رضى المستفيدين </string>
     <string name="status">الحالة</string>
-    <string name="choose_consultant_type">اختر المتشار </string>
+    <string name="choose_consultant_type">اختر مجال الاستشارة   </string>
+    <string name="choose_advivsor">اختر المستشار </string>
+    <string name="catogory_name">تطوير الذات  </string>
+
 </resources>
