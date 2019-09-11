@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+<android.support.constraint.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:id="@+id/reviewContainer">
 
     <ImageView
@@ -42,7 +44,7 @@
         android:src="@drawable/love"
         app:layout_constraintBottom_toBottomOf="@+id/beneficiarieName"
         app:layout_constraintStart_toEndOf="@+id/beneficiarieName"
-        app:layout_constraintTop_toBottomOf="@+id/beneficiarieFeedbackTime"
+        app:layout_constraintTop_toTopOf="@+id/beneficiarieName"
         android:layout_marginStart="@dimen/activity_vertical_margin_large"/>
 
     <TextView
@@ -53,9 +55,10 @@
         android:text="@string/happy"
         app:layout_constraintBottom_toBottomOf="@+id/beneficiarieName"
         app:layout_constraintStart_toEndOf="@+id/feedbackIcon"
-        app:layout_constraintTop_toBottomOf="@+id/beneficiarieFeedbackTime"
+        app:layout_constraintTop_toTopOf="@+id/beneficiarieName"
         android:layout_marginStart="@dimen/activity_vertical_margin_medium"/>
 
+</android.support.constraint.ConstraintLayout>
 
     <TextView
         android:id="@+id/feedbackBody"
@@ -64,15 +67,12 @@
         android:gravity="start"
         android:padding="@dimen/activity_vertical_margin_medium"
         android:text="@string/notificationText"
-        app:layout_constraintStart_toStartOf="@+id/beneficiarieName"
-        app:layout_constraintTop_toBottomOf="@+id/beneficiarieName" />
+        />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorLightGray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feedbackBody" />
+        />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

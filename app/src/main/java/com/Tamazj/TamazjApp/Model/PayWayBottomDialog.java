@@ -83,6 +83,7 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
                 Bundle bundle = new Bundle();
                 bundle.putString(AppConstants.SESSION_TYPE, sessionType);
                 getFragmentManager().beginTransaction().replace(R.id.billContainer, new SuccessPayFragment(), "SuccessPayFragment").commit();
+                dismiss();
             }
         });
         recyclerView.setAdapter(adapter);

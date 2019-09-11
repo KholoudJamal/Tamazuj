@@ -32,7 +32,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyHolder> 
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.profile_information_recycler_layout,parent,false);
+        View view = inflater.inflate(R.layout.beneficiaries_feedback_layout,parent,false);
         MyHolder holder = new MyHolder(view);
         return holder;
     }
@@ -45,7 +45,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyHolder> 
             holder.name.setText(reviews.get(position).getName());
             holder.rate.setText(reviews.get(position).getRate());
             holder.body.setText(reviews.get(position).getReviewBody());
-            Picasso.with(context).load(getURLForResource(R.drawable.image)).into(holder.img);
+            Picasso.with(context).load(reviews.get(position).getImgUrl()).into(holder.img);
 
             switch (reviews.get(position).getRate()){
                 case AppConstants.HAPPY :

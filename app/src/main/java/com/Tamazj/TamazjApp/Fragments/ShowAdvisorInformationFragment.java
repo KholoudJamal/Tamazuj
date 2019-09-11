@@ -2,6 +2,7 @@ package com.Tamazj.TamazjApp.Fragments;
 
 
 import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -74,6 +75,10 @@ public class ShowAdvisorInformationFragment extends Fragment {
         rvShowAdvisorInf.setLayoutManager(layoutManager);
         rvShowAdvisorInf.setAdapter(textViewAdapter);
 
+        aboutReviewsView = inf.inflate(R.layout.advisor_about_layout,null);
+        showAdvisorInformationFrameLayout.addView(aboutReviewsView);
+        tvAboutAdvisorText = aboutReviewsView.findViewById(R.id.tvAboutAdvisorText);
+
         tvAskConsult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +99,7 @@ public class ShowAdvisorInformationFragment extends Fragment {
                 tvAdvisorReviews.setTextColor(R.color.colorBlack);
 
                 aboutReviewsView = inf.inflate(R.layout.advisor_about_layout,null);
+                showAdvisorInformationFrameLayout.removeAllViews();
                 showAdvisorInformationFrameLayout.addView(aboutReviewsView);
                 tvAboutAdvisorText = aboutReviewsView.findViewById(R.id.tvAboutAdvisorText);
 
@@ -111,13 +117,14 @@ public class ShowAdvisorInformationFragment extends Fragment {
                 tvAdvisorAbout.setTextColor(R.color.colorBlack);
 
                 aboutReviewsView = inf.inflate(R.layout.advisor_reviews_layout,null);
+                showAdvisorInformationFrameLayout.removeAllViews();
                 showAdvisorInformationFrameLayout.addView(aboutReviewsView);
                 rvBeneficiariesFeedback = aboutReviewsView.findViewById(R.id.rvBeneficiariesFeedback);
 
                 list = new ArrayList<>();
-                list.add(new Review(AppConstants.HAPPY));
-                list.add(new Review(AppConstants.SATISFIED));
-                list.add(new Review(AppConstants.NOT_SATISFIED));
+                list.add(new Review(getURLForResource(R.drawable.advisorreview),getString(R.string.FeedbackTime),getString(R.string.esaIbraheem),AppConstants.HAPPY,getString(R.string.notificationText)));
+                list.add(new Review(getURLForResource(R.drawable.advisorreview),getString(R.string.FeedbackTime),getString(R.string.esaIbraheem),AppConstants.SATISFIED,getString(R.string.notificationText)));
+                list.add(new Review(getURLForResource(R.drawable.advisorreview),getString(R.string.FeedbackTime),getString(R.string.esaIbraheem),AppConstants.NOT_SATISFIED,getString(R.string.notificationText)));
                 adapter = new ReviewAdapter(getContext(), list);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
                 rvBeneficiariesFeedback.setLayoutManager(layoutManager);
@@ -129,6 +136,11 @@ public class ShowAdvisorInformationFragment extends Fragment {
 
 
         return view;
+    }
+
+
+    public String getURLForResource (int resourceId) {
+        return Uri.parse("android.resource://"+R.class.getPackage().getName()+"/" +resourceId).toString();
     }
 
 }
