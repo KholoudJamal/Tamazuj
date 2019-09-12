@@ -35,7 +35,7 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
     public void setupDialog(Dialog dialog, int style) {
         super.setupDialog(dialog, style);
 
-        viewDialog = View.inflate(getContext(), R.layout.edit_password_layout, null);
+        viewDialog = View.inflate(getContext(), R.layout.pay_way_layout, null);
         dialog.setContentView(viewDialog);
 
         dialogButtonCancel =  viewDialog.findViewById(R.id.buttonCancel);

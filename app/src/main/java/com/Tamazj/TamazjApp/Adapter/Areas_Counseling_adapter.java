@@ -3,6 +3,7 @@ package com.Tamazj.TamazjApp.Adapter;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.CardView;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
+import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.R;
 import com.squareup.picasso.Picasso;
@@ -66,7 +68,11 @@ public class Areas_Counseling_adapter  extends RecyclerView.Adapter<Areas_Counse
        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CategoriesdetailsFragment(), "HomeFragment").commit();
+                Bundle bundle=new Bundle();
+                bundle.putString(AppConstants.toolbartiltle, areas_counseling_models.get(position).getArea_counseling_catogory());
+                CategoriesdetailsFragment categoriesdetailsFragment=new CategoriesdetailsFragment();
+                categoriesdetailsFragment.setArguments(bundle);
+                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, categoriesdetailsFragment, "HomeFragment").commit();
 
             }
         });
