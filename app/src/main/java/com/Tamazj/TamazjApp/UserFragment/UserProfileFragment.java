@@ -133,7 +133,7 @@ public class UserProfileFragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.USER_PROFILE, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e("HZM", response);
+                Log.e("Wafaa", response);
 
                 try {
                     JSONObject task_respnse = new JSONObject(response);
@@ -162,18 +162,7 @@ public class UserProfileFragment extends Fragment {
                     profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
                     profileInformationRecyclerView.setAdapter(profileInformationAdapter);
                    // hideDialog();
-
-
-
-
-
-
-
-
-
-
-
-
+                    
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 // hideDialog();
