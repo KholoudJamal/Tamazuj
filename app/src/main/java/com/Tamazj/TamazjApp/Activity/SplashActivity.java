@@ -27,18 +27,23 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
-        if (sharedPreferences.getString(AppConstants.EMAIL, null) != null && sharedPreferences.getString(AppConstants.PASSWORD, null) != null) {
+        if (sharedPreferences.getString(AppConstants.EMAIL, null) != null &&
+                sharedPreferences.getString(AppConstants.PASSWORD, null) != null) {
 
             if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null) != null) {
 
-                if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null).equals(AppConstants.Advisor)) {
-                    Intent intent = new Intent(SplashActivity.this, AdvisorActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null).equals(AppConstants.Advisor)) {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                if(sharedPreferences.getBoolean(AppConstants.ISLOGIN,false)) {
+
+                    if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null).equals(AppConstants.Advisor)) {
+                        Intent intent = new Intent(SplashActivity.this, AdvisorActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else if (sharedPreferences.getString(AppConstants.ACCOUNT_TYPE, null).equals(AppConstants.Beneficiary)) {
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 }
 
             }

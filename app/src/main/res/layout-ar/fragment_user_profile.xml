@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
     android:background="@drawable/home_advisor_back">
 
     <android.support.v7.widget.Toolbar

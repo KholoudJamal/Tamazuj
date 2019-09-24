@@ -1,26 +1,48 @@
 package com.Tamazj.TamazjApp.UserFragment;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.Tamazj.TamazjApp.Activity.ResetPassActivity;
 import com.Tamazj.TamazjApp.Adapter.ProfileAttachmentsAdapter;
 import com.Tamazj.TamazjApp.Adapter.ProfileInformationAdapter;
+import com.Tamazj.TamazjApp.Api.MyApplication;
+import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.ProfileInformation;
 import com.Tamazj.TamazjApp.R;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class UserProfileFragment extends Fragment {
@@ -32,6 +54,12 @@ public class UserProfileFragment extends Fragment {
     RecyclerView profileAttachmentsRecyclerView;
     List<ProfileInformation> profileInformation;
     ProfileInformationAdapter profileInformationAdapter;
+    ProgressDialog progressDialog;
+    String token;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor_signUp;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +74,29 @@ public class UserProfileFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+        sharedPreferences = getActivity().getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+        if (sharedPreferences != null) {
+            token = sharedPreferences.getString(AppConstants.token, "default value");
+            ConnectivityManager conMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
+
+            if (networkInfo != null && networkInfo.isConnected()) {
+                getUserProfile(token);
+
+            }
+            else {
+                Toast.makeText(getActivity(), ""+getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
+
+        }
 
         editProfile = view.findViewById(R.id.editProfileIcon);
+        progressDialog = new ProgressDialog(getActivity());
+
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +104,6 @@ public class UserProfileFragment extends Fragment {
             }
         });
         profileImage = view.findViewById(R.id.profileImage);
-        Picasso.with(getContext()).load(getURLForResource(R.drawable.imageprofile)).transform(new CropCircleTransformation()).into(profileImage);
 
         name = view.findViewById(R.id.tvFullNameProfile);
         email = view.findViewById(R.id.tvEmailProfile);
@@ -66,16 +114,8 @@ public class UserProfileFragment extends Fragment {
         profileInformationRecyclerView.setLayoutManager(layoutManager);
 
         profileInformation = new ArrayList<>();
-        profileInformation.add(new ProfileInformation(R.drawable.sex, getString(R.string.male)));
-        profileInformation.add(new ProfileInformation(R.drawable.country, getString(R.string.sudia)));
-        profileInformation.add(new ProfileInformation(R.drawable.calander, getString(R.string.date_dat)));
-        profileInformation.add(new ProfileInformation(R.drawable.university, getString(R.string.BA)));
-        profileInformation.add(new ProfileInformation(R.drawable.freework, getString(R.string.privacy_work)));
-        profileInformation.add(new ProfileInformation(R.drawable.married, getString(R.string.married)));
 
 
-        profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
-        profileInformationRecyclerView.setAdapter(profileInformationAdapter);
 
 
         return view;
@@ -84,5 +124,113 @@ public class UserProfileFragment extends Fragment {
     public String getURLForResource (int resourceId) {
         return Uri.parse("android.resource://"+R.class.getPackage().getName()+"/" +resourceId).toString();
     }
+
+
+    public void getUserProfile(final String token) {
+
+     // showDialog();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.USER_PROFILE, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("HZM", response);
+
+                try {
+                    JSONObject task_respnse = new JSONObject(response);
+                    JSONObject taskarray = task_respnse.getJSONObject("data");
+                    String username = taskarray.getString("name");
+                    String useremail = taskarray.getString("email");
+                    String gender = taskarray.getString("gender");
+                    String nationality = taskarray.getString("nationality");
+                    String work_status = taskarray.getString("work_status");
+                    String educational_status = taskarray.getString("educational_status");
+                    String photo = taskarray.getString("photo");
+                   String social_status = taskarray.getString("social_status");
+                    String status = taskarray.getString("status");
+                    name.setText(username);
+                    email.setText(useremail);
+                    Picasso.with(getContext()).
+                            load(photo)
+                            .transform(new CropCircleTransformation()).into(profileImage);
+
+                    profileInformation.add(new ProfileInformation(R.drawable.sex, gender));
+                    profileInformation.add(new ProfileInformation(R.drawable.country, nationality));
+                    profileInformation.add(new ProfileInformation(R.drawable.calander, getString(R.string.date_dat)));
+                    profileInformation.add(new ProfileInformation(R.drawable.university, educational_status));
+                    profileInformation.add(new ProfileInformation(R.drawable.freework, work_status));
+                    profileInformation.add(new ProfileInformation(R.drawable.married, social_status));
+                    profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
+                    profileInformationRecyclerView.setAdapter(profileInformationAdapter);
+                   // hideDialog();
+
+
+
+
+
+
+
+
+
+
+
+
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                // hideDialog();
+
+                }
+
+
+            // hideDialog();
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+               hideDialog();
+
+
+            }
+        })
+
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + token);
+
+                return headers;
+
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + token);
+
+                return headers;
+            };
+        };
+
+        MyApplication.getInstance().addToRequestQueue(stringRequest);
+
+    }
+
+
+    public void showDialog() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(getString(R.string.load_data));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    public void hideDialog() {
+
+        if (progressDialog.isShowing()) progressDialog.dismiss();
+    }
+
 
 }

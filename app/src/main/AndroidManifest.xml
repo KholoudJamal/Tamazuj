@@ -5,19 +5,28 @@
     <!-- Add permissions here -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".Api.MyApplication"
         android:allowBackup="true"
         android:appComponentFactory="whateverString"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
-
-        android:name=".Api.MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".Activity.SliderActivity"></activity>
+        <activity android:name=".Activity.ResetPassActivity"></activity>
+        <activity android:name=".Activity.ActivateCodeActivity">
+
+
+        </activity>
+
+
+        <activity android:name=".Activity.SliderActivity" />
         <activity android:name=".Activity.EditUserProfileActivity" />
         <activity
             android:name=".Activity.SessionActivity"
@@ -46,6 +55,16 @@
         <activity android:name=".Activity.SwitchAccountTypeActivity" />
         <activity android:name=".Activity.AdvisorActivity" />
         <activity android:name=".Activity.BillActivity" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picker_provider_paths" />
+        </provider>
     </application>
 
 </manifest>

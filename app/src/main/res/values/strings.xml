@@ -131,4 +131,18 @@
     <string name="choose_consultant_type">choose_consultant_type</string>
     <string name="choose_advivsor">choose advisor </string>
     <string name="catogory_name">تطوير الذات</string>
+    <string name="load_login">please wait  to verify the data.....</string>
+    <string name="enter__correct_email">please enter correct email</string>
+    <string name="code">Activation Code</string>
+    <string name="activate_account">Activate The Account</string>
+    <string name="codeRequired">Activation Code Required</string>
+    <string name="exist_message">Exist successfully</string>
+    <string name="not_exist_message">failed to  exist!</string>
+    <string name="no">no</string>
+    <string name="yes">yes</string>
+    <string name="exist_message_tiltle">do you want to exist?</string>
+    <string name="resetpass">Reset Password</string>
+    <string name="not_update">the data not updated</string>
+    <string name="load_data">please wait .....the data is loading</string>
+    <string name="no_internet">No Internet Connection </string>
 </resources>

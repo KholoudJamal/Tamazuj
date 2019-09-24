@@ -51,7 +51,7 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
                 //boolean isDone = editor.commit();
                 //editor.apply();
                 editor_signUp.apply();
-                Intent intent=new Intent(SwitchAccountTypeActivity.this, AdvisorActivity.class);
+                Intent intent=new Intent(SwitchAccountTypeActivity.this, SignInActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -67,7 +67,7 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
                 //boolean isDone = editor.commit();
                 //editor.apply();
                 editor_signUp.apply();
-                 Intent intent=new Intent(SwitchAccountTypeActivity.this, MainActivity.class);
+                 Intent intent=new Intent(SwitchAccountTypeActivity.this, SignInActivity.class);
                 startActivity(intent);
                 finish();
             }
