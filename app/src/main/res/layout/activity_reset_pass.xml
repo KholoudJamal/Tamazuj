@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:layout_gravity="center"
+    android:layout_marginTop="50dp"
+    android:layout_marginStart="@dimen/layout_margin16"
+    android:layout_marginEnd="@dimen/layout_margin16"
+    tools:context=".Activity.ResetPassActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/resetpass"
+        android:layout_height="wrap_content" />
+
+
+<EditText
+    android:id="@+id/editPhone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="number"
+    android:layout_marginTop="@dimen/layout_margin16"
+    android:hint="@string/phoneNumber" />
+
+
+<Button
+    android:id="@+id/resetpass"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@android:color/white"
+    android:textStyle="bold"
+    android:layout_marginTop="@dimen/layout_margin16"
+    android:background="@drawable/button_dark_boarder"
+    android:inputType="number"
+    android:text="@string/resetpass" />
+</LinearLayout>
