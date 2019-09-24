@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.BillActivity"
-    android:background="@drawable/home_advisor_back">
+    android:background="@drawable/home_advisor_back"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarBill"
@@ -43,11 +44,16 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.constraint.ConstraintLayout
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/billContainer"
-        android:layout_marginTop="@dimen/activity_vertical_margin_xxxlarge"
+        >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarBill">
@@ -77,4 +83,6 @@
             app:layout_constraintStart_toStartOf="parent"
             />
     </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+
+</LinearLayout>

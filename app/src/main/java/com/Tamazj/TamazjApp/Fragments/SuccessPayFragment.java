@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Activity.SessionActivity;
 import com.Tamazj.TamazjApp.Model.AppConstants;
@@ -35,38 +36,44 @@ public class SuccessPayFragment extends Fragment {
         tvBillSupDetails = view.findViewById(R.id.tvBillSupDetails);
 
         Bundle bundle = getArguments();
-        if(bundle != null && bundle.getString(AppConstants.SESSION_TYPE) != null){
+        if (bundle != null && bundle.getString(AppConstants.SESSION_TYPE) != null) {
             sessionType = bundle.getString(AppConstants.SESSION_TYPE);
         }
 
-            switch (sessionType){
-                case AppConstants.FIRST_SESSION:
-                    cost = getString(R.string.RS50);
-                    break;
-                case AppConstants.SECOND_SESSION:
-                    cost = getString(R.string.RS100);
-                    break;
-                case AppConstants.THIRD_SESSION:
-                    cost = getString(R.string.RS200);
-                    break;
-                case AppConstants.SPECIAL_SESSION:
-                    cost = getString(R.string.RS500);
-                    break;
-            }
+        switch (sessionType) {
+            case AppConstants.FIRST_SESSION:
+                cost = getString(R.string.RS50);
+                tvBillSupDetails.setText(cost);
+                break;
+            case AppConstants.SECOND_SESSION:
+                cost = getString(R.string.RS100);
+                tvBillSupDetails.setText(cost);
+                break;
+            case AppConstants.THIRD_SESSION:
+                cost = getString(R.string.RS200);
+                tvBillSupDetails.setText(cost);
+                break;
+            case AppConstants.SPECIAL_SESSION:
+                cost = getString(R.string.RS500);
+                tvBillSupDetails.setText(cost);
+                break;
+        }
 
+
+        Toast.makeText(getContext(), "" + cost, Toast.LENGTH_SHORT).show();
         tvBillSupDetails.setText(cost);
+
 
         buttonStartSession = view.findViewById(R.id.buttonStartSession);
         buttonStartSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SessionActivity.class);
-                intent.putExtra(AppConstants.SESSION_TYPE, sessionType)    ;
+                intent.putExtra(AppConstants.SESSION_TYPE, sessionType);
                 getActivity().startActivity(intent);
                 getActivity().finish();
             }
         });
         return view;
     }
-
 }

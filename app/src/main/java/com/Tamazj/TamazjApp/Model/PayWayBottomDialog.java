@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -82,7 +83,9 @@ public class PayWayBottomDialog extends BottomSheetDialogFragment {
             public void onItemClick(int position, PayWayImage payWayImage) {
                 Bundle bundle = new Bundle();
                 bundle.putString(AppConstants.SESSION_TYPE, sessionType);
-                getFragmentManager().beginTransaction().replace(R.id.billContainer, new SuccessPayFragment(), "SuccessPayFragment").commit();
+                Fragment fragment = new SuccessPayFragment();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.billContainer, fragment, "SuccessPayFragment").commit();
                 dismiss();
             }
         });

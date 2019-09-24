@@ -95,8 +95,8 @@
     <string name="mint120">120 دقيقة</string>
     <string name="RS200">200 ر.س </string>
     <string name="RS500">500 ر.س </string>
-    <string name="payWay">Pay way</string>
-    <string name="startSession">Start session</string>
+    <string name="payWay">طريقة الدفع</string>
+    <string name="startSession">ابدأ الجلسة  </string>
     <string name="successPayed">Success payed</string>
     <string name="success">success</string>
     <string name="sessionTime">وقت الجلسة</string>
