@@ -162,7 +162,7 @@ public class UserProfileFragment extends Fragment {
                     profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
                     profileInformationRecyclerView.setAdapter(profileInformationAdapter);
                    // hideDialog();
-                    
+
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 // hideDialog();
