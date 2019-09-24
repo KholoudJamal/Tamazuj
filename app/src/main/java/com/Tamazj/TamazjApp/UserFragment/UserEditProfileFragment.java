@@ -163,7 +163,9 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                uploadcookimagee();
+
+                                //uploadcookimagee();
+                                uploadcookimageename=COOKERIMAGEfile.getName();
                             }
                         }, 1000);
 
@@ -257,7 +259,7 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
 
                     UpdateUserProfile(token,fullName.getText().toString(),phone.getText().toString(),gender.getText().toString(),
                             nationality.getText().toString(),work.getText().toString(),educationLevel.getText().toString(),
-                            socialState.getText().toString(),COOKERIMAGEfile.getName());
+                            socialState.getText().toString(),uploadcookimageename);
 
 
                 }
@@ -461,6 +463,7 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
         progressDialog.show();
 
         final String id = "1";
+        //        "photo": "http://salahalimohamed.website/tmajog/public/admin/img/user/test.png",
         String url = "http://salahalimohamed.website/tmajog/api/v1/user/updateProfile";
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {
             @Override
