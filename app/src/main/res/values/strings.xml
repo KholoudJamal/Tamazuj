@@ -145,4 +145,17 @@
     <string name="not_update">the data not updated</string>
     <string name="load_data">please wait .....the data is loading</string>
     <string name="no_internet">No Internet Connection </string>
+    <string name="female">female</string>
+    <string name="Married">Married</string>
+    <string name="Divorced">Divorced</string>
+    <string name="single">single</string>
+    <string name="widow">widow</string>
+    <string name="high_schoole">    ثانوية عامة</string>
+    <string name="ba">بكالوريوس</string>
+    <string name="ma">ماجستير</string>
+    <string name="phd">دكتوراه</string>
+
+
+
+
 </resources>

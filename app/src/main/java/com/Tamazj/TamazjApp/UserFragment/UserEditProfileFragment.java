@@ -1,8 +1,11 @@
 package com.Tamazj.TamazjApp.UserFragment;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -16,13 +19,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Activity.ActivateCodeActivity;
+import com.Tamazj.TamazjApp.Activity.SignInActivity;
 import com.Tamazj.TamazjApp.Activity.SignUpActivity;
 import com.Tamazj.TamazjApp.Adapter.ProfileInformationAdapter;
 import com.Tamazj.TamazjApp.Api.MyApplication;
@@ -30,6 +39,7 @@ import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.AppHelper;
 import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
 import com.Tamazj.TamazjApp.Model.ProfileInformation;
+import com.Tamazj.TamazjApp.Model.SpinnerDialog;
 import com.Tamazj.TamazjApp.Model.VolleyMultipartRequest;
 import com.Tamazj.TamazjApp.R;
 import com.android.volley.AuthFailureError;
@@ -46,12 +56,18 @@ import com.vansuita.pickimage.dialog.PickImageDialog;
 import com.vansuita.pickimage.listeners.IPickCancel;
 import com.vansuita.pickimage.listeners.IPickResult;
 
+import org.angmarch.views.NiceSpinner;
+import org.angmarch.views.OnSpinnerItemSelectedListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import id.zelory.compressor.Compressor;
@@ -76,7 +92,17 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor_signUp;
     boolean updateuserImage = false;
+    Dialog dialog;
     String uploadcookimageename = "";
+    ArrayAdapter<String> eduication_adapter;
+    ArrayAdapter<String> soical_staus_adapter;
+    String[] Soical_statuslist;
+    String[] EducationList;
+
+    SpinnerDialog mSpinnerDialog;
+    private boolean firstExecutionSoical = true;
+    private boolean firstExecutionEducation = true;
+
 
 
 
@@ -209,7 +235,37 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
         gender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.gender_spinner_dialog);
+                final NiceSpinner niceSpinner =  dialog.findViewById(R.id.nice_spinner);
+                final List<String> dataset = new LinkedList<>(Arrays.asList(getActivity().getString(R.string.female), getActivity().getString(R.string.male)));
+                niceSpinner.attachDataSource(dataset);
+                Window window = dialog.getWindow();
+                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.setCancelable(true);
+                niceSpinner.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                        // This example uses String, but your type can be any
 
+                        String usergender = String.valueOf(parent.getItemAtPosition(position));
+                        gender.setText(usergender);
+                        dialog.dismiss();
+
+
+                    }
+
+
+
+
+
+
+
+
+                });
+
+
+                dialog.show();
             }
         });
         nationality = view.findViewById(R.id.tvNationalityAdvisorEditProfile);
@@ -231,6 +287,70 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
             @Override
             public void onClick(View v) {
 
+               // final List<String> dataset = {getActivity().getString(R.string.high_schoole), getActivity().getString(R.string.ba),
+                      //  getActivity().getString(R.string.ma),getActivity().getString(R.string.phd) };
+
+                /* ArrayList<String> mList= new ArrayList<String>();
+                mList.add("one");
+                mList.add("two");
+                mList.add("one");
+                mList.add("two");
+                mList.add("one");
+                mList.add("two");
+
+                mSpinnerDialog = new SpinnerDialog(getActivity(), mList, new SpinnerDialog.DialogListener() {
+                    public void cancelled() {
+                        // do your code here
+                    }
+                    public void ready(int n) {
+                        // do your code here
+                        mSpinnerDialog.show();
+
+                    }
+                });*/
+                dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.education_spinner_dialog);
+                EducationList = new String[]{getActivity().getString(R.string.high_schoole), getActivity().getString(R.string.ba),
+                        getActivity().getString(R.string.ma),getActivity().getString(R.string.phd)};
+                Spinner niceSpinner =  dialog.findViewById(R.id.nice_spinner);
+                  eduication_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, EducationList);
+                niceSpinner.setAdapter(eduication_adapter);
+                eduication_adapter.notifyDataSetChanged();
+                Window window = dialog.getWindow();
+                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                dialog.setCancelable(true);
+
+                niceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if(firstExecutionEducation){
+                            firstExecutionEducation = false;
+                            return;
+                        }
+
+                        String educationLevelst = String.valueOf(parent.getItemAtPosition(position));
+                        educationLevel.setText(educationLevelst);
+                        dialog.dismiss();
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+
+
+
+
+
+                    }
+                });
+
+
+
+                dialog.show();
+
+
             }
         });
         work = view.findViewById(R.id.tvJobAdvisorEditProfile);
@@ -244,6 +364,92 @@ public class UserEditProfileFragment extends Fragment implements IPickResult{
         socialState.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+                dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.soical_stautus_spinner_dialog);
+
+                Spinner niceSpinner =  dialog.findViewById(R.id.nice_spinner);
+
+                Soical_statuslist =  new String[]{getActivity().getString(R.string.married), getActivity().getString(R.string.single),
+                        getActivity().getString(R.string.Divorced),getActivity().getString(R.string.widow) };
+
+
+                soical_staus_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, Soical_statuslist);
+                niceSpinner.setAdapter(soical_staus_adapter);
+                soical_staus_adapter.notifyDataSetChanged();
+                Window window = dialog.getWindow();
+                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                dialog.setCancelable(true);
+
+                niceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if(firstExecutionSoical){
+                            firstExecutionSoical = false;
+                            return;
+                        }
+
+                        String usersocialState = String.valueOf(parent.getItemAtPosition(position));
+                        socialState.setText(usersocialState);
+                        dialog.dismiss();
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+
+
+
+
+
+                    }
+                });
+
+
+
+                dialog.show();
+
+
+
+
+
+
+
+
+
+                /*dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.gender_spinner_dialog);
+                NiceSpinner niceSpinner =  dialog.findViewById(R.id.nice_spinner);
+                final List<String> dataset = new LinkedList<>(Arrays.asList(getActivity().getString(R.string.married), getActivity().getString(R.string.single),
+                        getActivity().getString(R.string.Divorced),getActivity().getString(R.string.widow) ));
+                niceSpinner.attachDataSource(dataset);
+                dialog.setCancelable(true);
+                niceSpinner.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                        // This example uses String, but your type can be any
+                        String socialState = String.valueOf(parent.getItemAtPosition(position));
+                        gender.setText(socialState);
+                        dialog.dismiss();
+
+
+                    }
+
+
+
+
+
+
+
+
+                });
+
+
+                dialog.show();*/
 
             }
         });

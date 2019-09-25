@@ -70,6 +70,7 @@ public class ActivateCodeActivity extends AppCompatActivity {
                   else {
                       Toast.makeText(ActivateCodeActivity.this, ""+getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                   }
+                  
 
               }
           }
