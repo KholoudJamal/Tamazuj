@@ -19,13 +19,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".Activity.ResetPassActivity"></activity>
-        <activity android:name=".Activity.ActivateCodeActivity">
-
-
-        </activity>
-
-
+        <activity android:name=".Activity.ResetCodeActivity"></activity>
+        <activity android:name=".Activity.ResetPassActivity" />
+        <activity android:name=".Activity.ActivateCodeActivity"></activity>
         <activity android:name=".Activity.SliderActivity" />
         <activity android:name=".Activity.EditUserProfileActivity" />
         <activity
@@ -55,6 +51,7 @@
         <activity android:name=".Activity.SwitchAccountTypeActivity" />
         <activity android:name=".Activity.AdvisorActivity" />
         <activity android:name=".Activity.BillActivity" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

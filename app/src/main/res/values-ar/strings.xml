@@ -151,5 +151,7 @@
     <string name="ba">بكالوريس </string>
     <string name="ma">ماجستير</string>
     <string name="phd">دكتوراه</string>
+    <string name="resetcode">اعادة طلب كود التفعيل</string>
+    <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
 
 </resources>

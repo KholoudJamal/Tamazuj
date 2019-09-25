@@ -154,8 +154,8 @@
     <string name="ba">بكالوريوس</string>
     <string name="ma">ماجستير</string>
     <string name="phd">دكتوراه</string>
-
-
+    <string name="resetcode">Reset Code</string>
+    <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
 
 
 </resources>

@@ -48,4 +48,13 @@
         android:background="@drawable/button_dark_boarder"
         android:inputType="number"
         android:text="@string/activate_account" />
+    <TextView
+        android:id="@+id/resetcode"
+        android:layout_width="wrap_content"
+        android:text="@string/resetcode"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
 </LinearLayout>
