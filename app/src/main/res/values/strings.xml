@@ -156,6 +156,7 @@
     <string name="phd">دكتوراه</string>
     <string name="resetcode">Reset Code</string>
     <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
+    <string name="savedata">please wait ........Now saving data</string>
 
 
 </resources>

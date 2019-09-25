@@ -211,7 +211,7 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                uploaduserimagee(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
+                                //uploaduserimagee(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
 
                                 uploaduserimageename = COOKERIMAGEfile.getName();
                             }
@@ -542,7 +542,11 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     if(updateusersocialstayus ||updateuserdate||updateusereducation||updateuseremmail||
                             updateuserfulname||updateuserphone||updateusergender||updateuserimage) {
 
-                        UpdateUserProfile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
+
+                        Updateuserprofile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
+
+
+                       // UpdateUserProfile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
                     }
 
                     else {
@@ -667,7 +671,6 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     String photo = taskarray.getString("photo");
                     String usersocial_status = taskarray.getString("social_status");
                     String status = taskarray.getString("status");
-                    Toast.makeText(getActivity(), ""+photo, Toast.LENGTH_SHORT).show();
                     name.setText(username);
                     emailOriginal.setText(useremail);
                     Picasso.with(getContext()).
@@ -740,9 +743,9 @@ fullName.setOnClickListener(new View.OnClickListener() {
     }
 
 
-    private void uploaduserimagee(final String token, final String name, final String phone, final String gender, final String nationality, final String work_status, final String educational_status, final String social_status, final String photo) {
+    private void Updateuserprofile(final String token, final String name, final String phone, final String gender, final String nationality, final String work_status, final String educational_status, final String social_status, final String photo) {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("يتم  الان تحميل الصورة الرجاء الانتظار ...");
+        progressDialog.setMessage(getActivity().getString(R.string.savedata));
         progressDialog.show();
 
         final String id = "1";
@@ -762,10 +765,10 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     Log.e("WAFAAUPDATE", resultResponse);
 
                     if (status == 1) {
-                       // Toast.makeText(getActivity(), "" + message, Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getActivity(), "" + message, Toast.LENGTH_SHORT).show();
 
                     } else {
-                       // Toast.makeText(getActivity(), " " + getActivity().getString(R.string.not_update), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), " " + getActivity().getString(R.string.not_update), Toast.LENGTH_SHORT).show();
 
                     }
 

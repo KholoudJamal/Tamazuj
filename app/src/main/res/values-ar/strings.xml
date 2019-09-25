@@ -153,5 +153,6 @@
     <string name="phd">دكتوراه</string>
     <string name="resetcode">اعادة طلب كود التفعيل</string>
     <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
+    <string name="savedata">الرجاء الانتظار .... يتم الان حفظ البيانات </string>
 
 </resources>
