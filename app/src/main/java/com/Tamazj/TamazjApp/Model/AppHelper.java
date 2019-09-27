@@ -11,6 +11,7 @@ import java.io.ByteArrayOutputStream;
  * Source: Courtesy
  */
 
+
 public class AppHelper {
 // --Commented out by Inspection START (4/24/2018 4:08 PM):
 //    /**

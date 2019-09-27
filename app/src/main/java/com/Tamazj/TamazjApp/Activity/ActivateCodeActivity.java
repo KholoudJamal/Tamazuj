@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Api.MyApplication;
@@ -38,6 +39,7 @@ public class ActivateCodeActivity extends AppCompatActivity {
     private Button mActivateAccount;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor_signUp;
+    private TextView mResetcode;
 
 
     @Override
@@ -48,32 +50,41 @@ public class ActivateCodeActivity extends AppCompatActivity {
         mEditPhone = findViewById(R.id.editPhone);
         mEditActivate = findViewById(R.id.editActivate);
         mActivateAccount = findViewById(R.id.activateAccount);
-      mActivateAccount.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
+        mResetcode = findViewById(R.id.resetcode);
 
-              if(mEditPhone.getText().toString().equals(null) || mEditPhone.getText().toString().equals("")){
-                  Toast.makeText(ActivateCodeActivity.this, ""+getString(R.string.phoneRequired), Toast.LENGTH_SHORT).show();
-              }
-              else if(mEditActivate.getText().toString().equals(null) || mEditActivate.getText().toString().equals("")){
-                  Toast.makeText(ActivateCodeActivity.this, ""+getString(R.string.codeRequired), Toast.LENGTH_SHORT).show();
-              }
-              else {
+        mResetcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivateCodeActivity.this, ResetCodeActivity.class);
+                startActivity(intent);
+                finish();
 
-                  ConnectivityManager conMgr = (ConnectivityManager) ActivateCodeActivity.this.getSystemService(Context.CONNECTIVITY_SERVICE);
-                  NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
+            }
+        });
+        mActivateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                  if (networkInfo != null && networkInfo.isConnected()) {
-                      activateCode(mEditPhone.getText().toString(),mEditActivate.getText().toString());
+                if (mEditPhone.getText().toString().equals(null) || mEditPhone.getText().toString().equals("")) {
+                    Toast.makeText(ActivateCodeActivity.this, "" + getString(R.string.phoneRequired), Toast.LENGTH_SHORT).show();
+                } else if (mEditActivate.getText().toString().equals(null) || mEditActivate.getText().toString().equals("")) {
+                    Toast.makeText(ActivateCodeActivity.this, "" + getString(R.string.codeRequired), Toast.LENGTH_SHORT).show();
+                } else {
 
-                  }
-                  else {
-                      Toast.makeText(ActivateCodeActivity.this, ""+getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
-                  }
+                    ConnectivityManager conMgr = (ConnectivityManager) ActivateCodeActivity.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
-              }
-          }
-      });
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        activateCode(mEditPhone.getText().toString(), mEditActivate.getText().toString());
+
+                    } else {
+                        Toast.makeText(ActivateCodeActivity.this, "" + getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }
+            }
+        });
     }
 
 
@@ -88,10 +99,10 @@ public class ActivateCodeActivity extends AppCompatActivity {
                     int status = register_response.getInt("status");
                     if (status == 1) {
                         String token = register_response.getString("token");
-                        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
+                        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
                         editor_signUp = sharedPreferences.edit();
-                        editor_signUp.putBoolean(AppConstants.ISLOGIN,true);
-                        editor_signUp.putString(AppConstants.token,token);
+                        editor_signUp.putBoolean(AppConstants.ISLOGIN, true);
+                        editor_signUp.putString(AppConstants.token, token);
                         editor_signUp.apply();
                         editor_signUp.commit();
                         Toast.makeText(ActivateCodeActivity.this, "" + message, Toast.LENGTH_SHORT).show();
@@ -106,7 +117,7 @@ public class ActivateCodeActivity extends AppCompatActivity {
                         }
 
 
-                        } else {
+                    } else {
                         Toast.makeText(ActivateCodeActivity.this, " " + message, Toast.LENGTH_SHORT).show();
 
                     }

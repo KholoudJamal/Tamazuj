@@ -145,5 +145,4 @@
     <string name="not_update">the data not updated</string>
     <string name="load_data">please wait .....the data is loading</string>
     <string name="no_internet">No Internet Connection </string>
-    <string name="tryAgain">Try again</string>
 </resources>

@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
     implementation 'id.zelory:compressor:2.1.0'
     implementation 'com.vikktorn.picker:picker:1.0.0'
-
+    implementation 'com.github.arcadefire:nice-spinner:1.4.3'
 
 
 }
