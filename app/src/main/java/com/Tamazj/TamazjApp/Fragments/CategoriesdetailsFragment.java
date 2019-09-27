@@ -2,25 +2,18 @@ package com.Tamazj.TamazjApp.Fragments;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
-import com.Tamazj.TamazjApp.Adapter.Areas_Counseling_adapter;
 import com.Tamazj.TamazjApp.Adapter.CategoriesAdapter;
-import com.Tamazj.TamazjApp.AdvisorFragments.HomeAdvisorFragment;
 import com.Tamazj.TamazjApp.Model.AppConstants;
-import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.Model.Categories;
-import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
 import com.Tamazj.TamazjApp.Model.FilterBottomDialog;
 import com.Tamazj.TamazjApp.R;
 

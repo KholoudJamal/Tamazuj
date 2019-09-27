@@ -8,18 +8,15 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -32,24 +29,16 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.Tamazj.TamazjApp.Activity.ActivateCodeActivity;
-import com.Tamazj.TamazjApp.Activity.SignInActivity;
-import com.Tamazj.TamazjApp.Activity.SignUpActivity;
-import com.Tamazj.TamazjApp.Adapter.ProfileInformationAdapter;
 import com.Tamazj.TamazjApp.Api.MyApplication;
-import com.Tamazj.TamazjApp.MainActivity;
 import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.AppHelper;
 import com.Tamazj.TamazjApp.Model.Countries;
 import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
-import com.Tamazj.TamazjApp.Model.ProfileInformation;
-import com.Tamazj.TamazjApp.Model.SpinnerDialog;
 import com.Tamazj.TamazjApp.Model.VolleyMultipartRequest;
 import com.Tamazj.TamazjApp.R;
 import com.android.volley.AuthFailureError;
@@ -65,10 +54,7 @@ import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 import com.vansuita.pickimage.listeners.IPickCancel;
 import com.vansuita.pickimage.listeners.IPickResult;
-import com.vikktorn.picker.CountriesAdapter;
 
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,13 +62,12 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
@@ -94,8 +79,9 @@ import static android.content.Context.MODE_PRIVATE;
 public class UserEditProfileFragment extends Fragment implements IPickResult {
 
     View view;
-    ImageButton blueBack, editProfileImage, profileImage;
+    ImageButton blueBack, editProfileImage;
     TextView name, emailOriginal;
+    CircleImageView profileImage;
     Button approvalButton;
     EditText fullName, email, phone;
     TextView password;
@@ -139,6 +125,7 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
     boolean updateuserimage ,updateuserworkstayus,updateusernationality=false;
     List<String> countrylist = new ArrayList<String>();
     ArrayAdapter countriesAdapter;
+    String fcm_token;
 
 
 
@@ -164,6 +151,8 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
         sharedPreferences = getActivity().getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
         if (sharedPreferences != null) {
             token = sharedPreferences.getString(AppConstants.token, "default value");
+            fcm_token = sharedPreferences.getString(AppConstants.FCM_TOKEN, "default value");
+
 
             ConnectivityManager conMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
@@ -595,7 +584,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
                             updateuserfulname||updateuserphone||updateusergender||updateuserimage) {
 
 
-                        Updateuserprofile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
+                        Updateuserprofile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), 1, work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename,fcm_token);
 
 
                        // UpdateUserProfile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
@@ -719,6 +708,14 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     String usergender = taskarray.getString("gender");
                     String usernationality = taskarray.getString("nationality");
                     String work_status = taskarray.getString("work_status");
+                   // String date_of_birth=task_respnse.getString("date_of_birth");
+// String date_of_birth=task_respnse.getString("date_of_birth");
+                    String date_of_birth="";
+
+                    if(date_of_birth.matches("")|| date_of_birth.matches(null)){
+                        date_of_birth="2/4/1989";
+
+                    }
                     String educational_status = taskarray.getString("educational_status");
                     String photo = taskarray.getString("photo");
                     String usersocial_status = taskarray.getString("social_status");
@@ -735,6 +732,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     nationality.setText(usernationality);
                     socialState.setText(usersocial_status);
                     educationLevel.setText(educational_status);
+                    birthDate.setText(date_of_birth);
                     work.setText(work_status);
 
 
@@ -795,7 +793,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
     }
 
 
-    private void Updateuserprofile(final String token, final String name, final String phone, final String gender, final String nationality, final String work_status, final String educational_status, final String social_status, final String photo) {
+    private void Updateuserprofile(final String token, final String name, final String phone, final String gender, final int nationality, final String work_status, final String educational_status, final String social_status, final String photo ,final String fcm_token ) {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getActivity().getString(R.string.savedata));
         progressDialog.show();
@@ -847,11 +845,13 @@ fullName.setOnClickListener(new View.OnClickListener() {
                 params.put("name", name);
                 params.put("phone", phone);
                 params.put("gender", gender);
-                params.put("nationality", nationality);
+                params.put("nationality", nationality+"");
                 params.put("work_status", work_status);
                 params.put("social_status", social_status);
                 params.put("educational_status", educational_status + "");
                 params.put("photo", photo + "");
+                params.put("fcm_token", fcm_token);
+
 
                 return params;
             }
@@ -961,7 +961,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
     }
 
 
-    public class DialogSpinner extends android.support.v7.widget.AppCompatSpinner {
+    public class DialogSpinner extends androidx.appcompat.widget.AppCompatSpinner {
         public DialogSpinner(Context context) {
             super(context);
         }
@@ -1032,10 +1032,11 @@ fullName.setOnClickListener(new View.OnClickListener() {
 
 
 
-                            String userCountry = String.valueOf(parent.getItemAtPosition(position));
 
+                            String userCountry = String.valueOf(parent.getItemAtPosition(position));
                             nationality.setText(userCountry);
                             dialog.dismiss();
+
 
                         }
 

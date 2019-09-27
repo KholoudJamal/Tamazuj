@@ -2,24 +2,19 @@ package com.Tamazj.TamazjApp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Activity.BillActivity;
-import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
 import com.Tamazj.TamazjApp.Model.AppConstants;
-import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.Model.Session;
 import com.Tamazj.TamazjApp.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 

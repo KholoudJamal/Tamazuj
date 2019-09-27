@@ -1,12 +1,11 @@
 package com.Tamazj.TamazjApp.Activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
-import com.Tamazj.TamazjApp.Adapter.SessionAdapter;
 import com.Tamazj.TamazjApp.Adapter.SessionAdapterwithoutImage;
 import com.Tamazj.TamazjApp.Api.MyApplication;
 import com.Tamazj.TamazjApp.Model.AppConstants;

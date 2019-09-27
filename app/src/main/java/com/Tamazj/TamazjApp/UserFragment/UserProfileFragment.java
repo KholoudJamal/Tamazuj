@@ -1,5 +1,6 @@
 package com.Tamazj.TamazjApp.UserFragment;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,9 +8,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.Tamazj.TamazjApp.Activity.ResetPassActivity;
-import com.Tamazj.TamazjApp.Adapter.ProfileAttachmentsAdapter;
 import com.Tamazj.TamazjApp.Adapter.ProfileInformationAdapter;
 import com.Tamazj.TamazjApp.Api.MyApplication;
 import com.Tamazj.TamazjApp.Model.AppConstants;
@@ -40,6 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -48,7 +48,8 @@ import static android.content.Context.MODE_PRIVATE;
 public class UserProfileFragment extends Fragment {
 
     View view;
-    ImageButton blueBack, editProfile, profileImage;
+    ImageButton blueBack, editProfile;
+    CircleImageView profileImage;
     TextView name, email, description;
     RecyclerView profileInformationRecyclerView;
     RecyclerView profileAttachmentsRecyclerView;
@@ -109,7 +110,7 @@ public class UserProfileFragment extends Fragment {
         email = view.findViewById(R.id.tvEmailProfile);
         description = view.findViewById(R.id.profileDescription);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        @SuppressLint("WrongConstant") RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         profileInformationRecyclerView = view.findViewById(R.id.profileInformation);
         profileInformationRecyclerView.setLayoutManager(layoutManager);
 
@@ -145,20 +146,29 @@ public class UserProfileFragment extends Fragment {
                     String work_status = taskarray.getString("work_status");
                     String educational_status = taskarray.getString("educational_status");
                     String photo = taskarray.getString("photo");
+                   // String date_of_birth=task_respnse.getString("date_of_birth");
+                    String date_of_birth="";
+
+                    if(date_of_birth.matches("")|| date_of_birth.matches(null)){
+                        date_of_birth="2/4/1989";
+
+                    }
                    String social_status = taskarray.getString("social_status");
                     String status = taskarray.getString("status");
                     name.setText(username);
                     email.setText(useremail);
+
                     Picasso.with(getContext()).
                             load(photo)
                             .transform(new CropCircleTransformation()).into(profileImage);
 
                     profileInformation.add(new ProfileInformation(R.drawable.sex, gender));
                     profileInformation.add(new ProfileInformation(R.drawable.country, nationality));
-                    profileInformation.add(new ProfileInformation(R.drawable.calander, getString(R.string.date_dat)));
+                    profileInformation.add(new ProfileInformation(R.drawable.calander, date_of_birth));
                     profileInformation.add(new ProfileInformation(R.drawable.university, educational_status));
                     profileInformation.add(new ProfileInformation(R.drawable.freework, work_status));
                     profileInformation.add(new ProfileInformation(R.drawable.married, social_status));
+
                     profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
                     profileInformationRecyclerView.setAdapter(profileInformationAdapter);
                    // hideDialog();

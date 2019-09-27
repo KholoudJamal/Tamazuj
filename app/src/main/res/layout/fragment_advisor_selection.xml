@@ -11,7 +11,7 @@
     tools:context=".Fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSuccessPay"
         style="@style/Theme.AppCompat.Light.DarkActionBar"
         android:layout_width="match_parent"
@@ -53,9 +53,9 @@
         </RelativeLayout>
 
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesrecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

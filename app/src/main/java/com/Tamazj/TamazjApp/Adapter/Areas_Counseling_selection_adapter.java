@@ -1,10 +1,10 @@
 package com.Tamazj.TamazjApp.Adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorSelectionFragment;
-import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
-import com.Tamazj.TamazjApp.Fragments.CategorySelectionFragment;
 import com.Tamazj.TamazjApp.Model.Areas_Counseling_Model;
 import com.Tamazj.TamazjApp.R;
 import com.squareup.picasso.Picasso;

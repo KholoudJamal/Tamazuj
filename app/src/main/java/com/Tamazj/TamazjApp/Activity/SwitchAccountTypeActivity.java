@@ -2,21 +2,18 @@ package com.Tamazj.TamazjApp.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.Tamazj.TamazjApp.MainActivity;
 import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.R;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class SwitchAccountTypeActivity extends AppCompatActivity {
 
@@ -24,6 +21,9 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
     private TextView mAdvisor;
     private CardView mBeneficiarycard;
     private CardView mAdvisorcard;
+    String fcm_token;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor_signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,16 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(R.color.stausbarswitch));
         }
+        fcm_token = FirebaseInstanceId.getInstance().getToken();
+        if(fcm_token!=null) {
+            Log.d("fcm_token", fcm_token);
+            sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
+            editor_signUp = sharedPreferences.edit();
+            editor_signUp.putString(AppConstants.FCM_TOKEN, AppConstants.FCM_TOKEN);
+
+        }
+
+
 
 
         mAdvisorcard = findViewById(R.id.advisorcard);
@@ -45,8 +55,8 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
-                SharedPreferences.Editor editor_signUp = sharedPreferences.edit();
+                 sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
+                editor_signUp = sharedPreferences.edit();
                 editor_signUp.putString(AppConstants.ACCOUNT_TYPE, AppConstants.Advisor);
                 //boolean isDone = editor.commit();
                 //editor.apply();
@@ -61,8 +71,8 @@ public class SwitchAccountTypeActivity extends AppCompatActivity {
         mBeneficiarycard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
-                SharedPreferences.Editor editor_signUp = sharedPreferences.edit();
+                 sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP,MODE_PRIVATE);
+                editor_signUp = sharedPreferences.edit();
                 editor_signUp.putString(AppConstants.ACCOUNT_TYPE, AppConstants.Beneficiary);
                 //boolean isDone = editor.commit();
                 //editor.apply();

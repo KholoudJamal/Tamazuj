@@ -3,12 +3,12 @@ package com.Tamazj.TamazjApp.Activity;
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -16,13 +16,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorNotificationsFragment;
-import com.Tamazj.TamazjApp.AdvisorFragments.AdvisorProfileFragment;
 import com.Tamazj.TamazjApp.AdvisorFragments.ConsoultAdvisorFragment;
 import com.Tamazj.TamazjApp.AdvisorFragments.HomeAdvisorFragment;
-import com.Tamazj.TamazjApp.Fragments.CategoriesFragment;
-import com.Tamazj.TamazjApp.Fragments.HomeFragment;
 import com.Tamazj.TamazjApp.Fragments.MenuFragment;
-import com.Tamazj.TamazjApp.Fragments.MyConsultationragment;
 import com.Tamazj.TamazjApp.R;
 
 public class AdvisorActivity extends AppCompatActivity {

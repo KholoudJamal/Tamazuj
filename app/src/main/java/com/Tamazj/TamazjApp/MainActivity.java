@@ -1,19 +1,17 @@
 package com.Tamazj.TamazjApp;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.Tamazj.TamazjApp.Fragments.CategoriesFragment;
-import com.Tamazj.TamazjApp.Fragments.CategoriesdetailsFragment;
 import com.Tamazj.TamazjApp.Fragments.CategorySelectionFragment;
 import com.Tamazj.TamazjApp.Fragments.HomeFragment;
-import com.Tamazj.TamazjApp.Fragments.MenuFragment;
 import com.Tamazj.TamazjApp.Fragments.MenuUserFragment;
 import com.Tamazj.TamazjApp.Fragments.MyConsultationragment;
 

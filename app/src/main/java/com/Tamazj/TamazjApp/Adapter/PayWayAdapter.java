@@ -2,15 +2,13 @@ package com.Tamazj.TamazjApp.Adapter;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.Tamazj.TamazjApp.Fragments.SuccessPayFragment;
-import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.PayWayImage;
 import com.Tamazj.TamazjApp.R;
 import com.squareup.picasso.Picasso;

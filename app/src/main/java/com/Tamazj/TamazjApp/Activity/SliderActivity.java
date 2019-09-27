@@ -1,17 +1,13 @@
 package com.Tamazj.TamazjApp.Activity;
 
-import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.Tamazj.TamazjApp.Adapter.CustomViewPagerAdapter;
 import com.Tamazj.TamazjApp.R;
-import com.smarteist.autoimageslider.IndicatorAnimations;
-import com.smarteist.autoimageslider.SliderAnimations;
-import com.smarteist.autoimageslider.SliderView;
 
 public class SliderActivity extends AppCompatActivity {
 
