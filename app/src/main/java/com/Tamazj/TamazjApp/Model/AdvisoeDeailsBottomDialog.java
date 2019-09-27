@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +16,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Activity.BillActivity;
+import com.Tamazj.TamazjApp.Adapter.SessionAdapter;
 import com.Tamazj.TamazjApp.Adapter.TextViewAdapter;
+import com.Tamazj.TamazjApp.Api.MyApplication;
 import com.Tamazj.TamazjApp.R;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
 
@@ -30,6 +44,11 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
     List<String> list;
     TextViewAdapter textViewAdapter;
     String consultType;
+    private RecyclerView SessionRecycler;
+    LinearLayoutManager linearLayoutManager ;
+    List<Session.DataBean> sessionlist=new ArrayList<>();
+
+    SessionAdapter sessionAdapter;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -67,7 +86,13 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         rvConsults.setLayoutManager(layoutManager);
         rvConsults.setAdapter(textViewAdapter);
+        SessionRecycler=viewDialog.findViewById(R.id.sessionRecycler);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        SessionRecycler.setHasFixedSize(true);
+        sessionAdapter = new SessionAdapter(getContext(),sessionlist);
 
+        getSessionTime();
 
 
 
@@ -80,43 +105,86 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
             }
         });
 
-        firstSessionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent.putExtra(AppConstants.SESSION_TYPE, AppConstants.FIRST_SESSION);
-                intent.putExtra(AppConstants.CONSULT_TYPE, consultType);
-                startActivity(intent);
-            }
-        });
 
-        secondSessionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent.putExtra(AppConstants.SESSION_TYPE, AppConstants.SECOND_SESSION);
-                intent.putExtra(AppConstants.CONSULT_TYPE, consultType);
-                startActivity(intent);
-            }
-        });
 
-        thirdSessionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent.putExtra(AppConstants.SESSION_TYPE, AppConstants.THIRD_SESSION);
-                intent.putExtra(AppConstants.CONSULT_TYPE, consultType);
-                startActivity(intent);
-            }
-        });
 
-        specialSessionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent.putExtra(AppConstants.SESSION_TYPE, AppConstants.SPECIAL_SESSION);
-                intent.putExtra(AppConstants.CONSULT_TYPE, consultType);
-                startActivity(intent);
-            }
-        });
 
 
     }
+
+
+
+    public void getSessionTime() {
+
+        // showDialog();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.session_times, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("Wafaa", response);
+
+                try {
+                    JSONObject session_response = new JSONObject(response);
+                    JSONArray jsonArray = session_response.getJSONArray("data");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        int id = jsonArray.getJSONObject(i).getInt("id");
+                        String time =  jsonArray.getJSONObject(i).getString("time");
+                        String price =  jsonArray.getJSONObject(i).getString("price");
+                        Session.DataBean session = new Session.DataBean();
+                        session.setId(id);
+                        session.setPrice(price);
+                        session.setTime(time);
+                        sessionlist.add(session);
+
+                    }
+
+                    SessionRecycler.setLayoutManager(linearLayoutManager);
+                    SessionRecycler.setAdapter(sessionAdapter);
+                    sessionAdapter.notifyDataSetChanged();
+
+
+
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                    // hideDialog();
+
+                }
+
+
+                // hideDialog();
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+
+            }
+        })
+
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+
+                return headers;
+
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+
+                return headers;
+            };
+        };
+
+        MyApplication.getInstance().addToRequestQueue(stringRequest);
+
+    }
+
 
 }

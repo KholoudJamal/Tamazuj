@@ -29,4 +29,6 @@ public interface AppConstants {
     String USER_PROFILE="http://salahalimohamed.website/tmajog/api/v1/user/profile";
     String updateProfile="http://salahalimohamed.website/tmajog/api/v1/user/updateProfile";
     String resetCode="http://salahalimohamed.website/tmajog/api/v1/user/resetCode";
+    String session_times="http://salahalimohamed.website/tmajog/api/v1/session-times";
+    String countries ="http://salahalimohamed.website/tmajog/api/v1/countries";
 }

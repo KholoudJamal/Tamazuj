@@ -9,6 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +17,31 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.Tamazj.TamazjApp.Activity.SessionTimeActivity;
 import com.Tamazj.TamazjApp.Adapter.ReviewAdapter;
+import com.Tamazj.TamazjApp.Adapter.SessionAdapter;
+import com.Tamazj.TamazjApp.Adapter.SessionAdapterwithoutImage;
 import com.Tamazj.TamazjApp.Adapter.TextViewAdapter;
+import com.Tamazj.TamazjApp.Api.MyApplication;
 import com.Tamazj.TamazjApp.Model.AdvisoeDeailsBottomDialog;
 import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.Review;
+import com.Tamazj.TamazjApp.Model.Session;
 import com.Tamazj.TamazjApp.R;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,13 +51,19 @@ public class ShowAdvisorInformationFragment extends Fragment {
     View view, aboutReviewsView;
     ImageButton blueBack, profileImage;
     TextView tvAdvisorName, tvRatePercent, tvAskConsult, tvAdvisorAbout, tvAdvisorReviews, tvAboutAdvisorText;
-    FrameLayout showAdvisorInformationFrameLayout;
     RecyclerView rvShowAdvisorInf ,rvBeneficiariesFeedback;
     LayoutInflater inf;
     List<String> listShowAdvisorInf;
     TextViewAdapter textViewAdapter;
     List<Review> list;
     ReviewAdapter adapter;
+    private RecyclerView SessionRecycler;
+    LinearLayoutManager linearLayoutManager ;
+    List<Session.DataBean> sessionlist=new ArrayList<>();
+
+    SessionAdapterwithoutImage sessionAdapter;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,7 +87,6 @@ public class ShowAdvisorInformationFragment extends Fragment {
         tvAskConsult = view.findViewById(R.id.tvAskConsult);
         tvAdvisorAbout = view.findViewById(R.id.tvAdvisorAbout);
         tvAdvisorReviews = view.findViewById(R.id.tvAdvisorReviews);
-        showAdvisorInformationFrameLayout = view.findViewById(R.id.showAdvisorInformationFrameLayout);
 
         listShowAdvisorInf = new ArrayList<>();
         listShowAdvisorInf.add(getString(R.string.family_consultane));
@@ -74,9 +96,15 @@ public class ShowAdvisorInformationFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         rvShowAdvisorInf.setLayoutManager(layoutManager);
         rvShowAdvisorInf.setAdapter(textViewAdapter);
+        SessionRecycler=view.findViewById(R.id.sessionRecycler);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        SessionRecycler.setHasFixedSize(true);
+        sessionAdapter = new SessionAdapterwithoutImage(getContext(),sessionlist);
+
+        getSessionTime();
 
         aboutReviewsView = inf.inflate(R.layout.advisor_about_layout,null);
-        showAdvisorInformationFrameLayout.addView(aboutReviewsView);
         tvAboutAdvisorText = aboutReviewsView.findViewById(R.id.tvAboutAdvisorText);
 
         tvAskConsult.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +127,6 @@ public class ShowAdvisorInformationFragment extends Fragment {
                 tvAdvisorReviews.setTextColor(R.color.colorBlack);
 
                 aboutReviewsView = inf.inflate(R.layout.advisor_about_layout,null);
-                showAdvisorInformationFrameLayout.removeAllViews();
-                showAdvisorInformationFrameLayout.addView(aboutReviewsView);
                 tvAboutAdvisorText = aboutReviewsView.findViewById(R.id.tvAboutAdvisorText);
 
             }
@@ -117,8 +143,6 @@ public class ShowAdvisorInformationFragment extends Fragment {
                 tvAdvisorAbout.setTextColor(R.color.colorBlack);
 
                 aboutReviewsView = inf.inflate(R.layout.advisor_reviews_layout,null);
-                showAdvisorInformationFrameLayout.removeAllViews();
-                showAdvisorInformationFrameLayout.addView(aboutReviewsView);
                 rvBeneficiariesFeedback = aboutReviewsView.findViewById(R.id.rvBeneficiariesFeedback);
 
                 list = new ArrayList<>();
@@ -142,5 +166,79 @@ public class ShowAdvisorInformationFragment extends Fragment {
     public String getURLForResource (int resourceId) {
         return Uri.parse("android.resource://"+R.class.getPackage().getName()+"/" +resourceId).toString();
     }
+
+
+    public void getSessionTime() {
+
+        // showDialog();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.session_times, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("Wafaa", response);
+
+                try {
+                    JSONObject session_response = new JSONObject(response);
+                    JSONArray jsonArray = session_response.getJSONArray("data");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        int id = jsonArray.getJSONObject(i).getInt("id");
+                        String time =  jsonArray.getJSONObject(i).getString("time");
+                        String price =  jsonArray.getJSONObject(i).getString("price");
+                        Session.DataBean session = new Session.DataBean();
+                        session.setId(id);
+                        session.setPrice(price);
+                        session.setTime(time);
+                        sessionlist.add(session);
+
+                    }
+
+                    SessionRecycler.setLayoutManager(linearLayoutManager);
+                    SessionRecycler.setAdapter(sessionAdapter);
+                    sessionAdapter.notifyDataSetChanged();
+
+
+
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                    // hideDialog();
+
+                }
+
+
+                // hideDialog();
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+
+            }
+        })
+
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+
+                return headers;
+
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+
+                return headers;
+            };
+        };
+
+        MyApplication.getInstance().addToRequestQueue(stringRequest);
+
+    }
+
 
 }

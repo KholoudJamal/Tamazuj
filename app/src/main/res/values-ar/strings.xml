@@ -143,16 +143,26 @@
     <string name="load_data">الرجاءالانتظار ... يتم تحميل البيانات</string>
     <string name="no_internet">لا يوجد اتصال بالانترنت</string>
     <string name="female">انثى</string>
-    <string name="Married">متزوج / ة</string>
-    <string name="Divorced">مطلق /ة</string>
-    <string name="single">أعزب</string>
-    <string name="widow">أرمل /ة</string>
+
+
+    <string name="resetcode">اعادة طلب كود التفعيل</string>
+    <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
+    <string name="savedata">الرجاء الانتظار .... يتم الان حفظ البيانات </string>
+    <string name="currancy">ر.س</string>
+    <!--work-->
+<string name="work">يعمل</string>
+<string name="notwork">لا يعمل</string>
+<string name="work_private_sector">يعمل في القطاع الخاص</string>
+    <!--education-->
     <string name="high_schoole">ثانوية عامة</string>
     <string name="ba">بكالوريس </string>
     <string name="ma">ماجستير</string>
     <string name="phd">دكتوراه</string>
-    <string name="resetcode">اعادة طلب كود التفعيل</string>
-    <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
-    <string name="savedata">الرجاء الانتظار .... يتم الان حفظ البيانات </string>
+    <!--soical -->
+    <string name="Married">متزوج / ة</string>
+    <string name="Divorced">مطلق /ة</string>
+    <string name="single">أعزب</string>
+    <string name="widow">أرمل /ة</string>
+
 
 </resources>

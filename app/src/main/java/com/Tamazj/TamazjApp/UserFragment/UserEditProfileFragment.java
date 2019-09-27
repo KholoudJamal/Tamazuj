@@ -46,6 +46,7 @@ import com.Tamazj.TamazjApp.Api.MyApplication;
 import com.Tamazj.TamazjApp.MainActivity;
 import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.AppHelper;
+import com.Tamazj.TamazjApp.Model.Countries;
 import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
 import com.Tamazj.TamazjApp.Model.ProfileInformation;
 import com.Tamazj.TamazjApp.Model.SpinnerDialog;
@@ -64,9 +65,11 @@ import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 import com.vansuita.pickimage.listeners.IPickCancel;
 import com.vansuita.pickimage.listeners.IPickResult;
+import com.vikktorn.picker.CountriesAdapter;
 
 import org.angmarch.views.NiceSpinner;
 import org.angmarch.views.OnSpinnerItemSelectedListener;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -112,14 +115,20 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
     String uploaduserimageename = "";
     ArrayAdapter<String> eduication_adapter;
     ArrayAdapter<String> soical_staus_adapter;
+    ArrayAdapter<String> work_adapter;
+
     String[] Soical_statuslist;
     String[] EducationList;
     String[] GenderList;
+    String[] WorkList;
     ArrayAdapter<String> gender_adapter;
     SpinnerDialog mSpinnerDialog;
     private boolean firstExecutionSoical = true;
+    private boolean firstExecutionWork = true;
     private boolean firstExecutionEducation = true;
     private boolean firstExecutionGender = true;
+    private boolean firstExecutionNationality = true;
+
     boolean updateuserphone = false;
     boolean updateusergender = false;
     boolean updateuserdate = false;
@@ -127,7 +136,10 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
     boolean updateusersocialstayus = false;
     boolean updateuseremmail = false;
     boolean updateuserfulname = false;
-    boolean updateuserimage = false;
+    boolean updateuserimage ,updateuserworkstayus,updateusernationality=false;
+    List<String> countrylist = new ArrayList<String>();
+    ArrayAdapter countriesAdapter;
+
 
 
 
@@ -301,6 +313,11 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
         nationality.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getCountries();
+
+
+
+
 
             }
         });
@@ -442,7 +459,42 @@ fullName.setOnClickListener(new View.OnClickListener() {
         work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 updateuserworkstayus = true;
+                dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.soical_stautus_spinner_dialog);
+                Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
+                WorkList = new String[]{getActivity().getString(R.string.work), getActivity().getString(R.string.notwork), getActivity().getString(R.string.work_private_sector)};
+                work_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, WorkList);
+                niceSpinner.setAdapter(work_adapter);
+                work_adapter.notifyDataSetChanged();
+                Window window = dialog.getWindow();
+                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+                dialog.setCancelable(true);
+
+                niceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if (firstExecutionWork) {
+                            firstExecutionWork = false;
+                            return;
+                        }
+
+                        String userwork = String.valueOf(parent.getItemAtPosition(position));
+                        work.setText(userwork);
+                        dialog.dismiss();
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+
+                    }
+                });
+
+
+                dialog.show();
             }
         });
         socialState = view.findViewById(R.id.tvSocialStateAdvisorEditProfile);
@@ -926,7 +978,121 @@ fullName.setOnClickListener(new View.OnClickListener() {
             return true;
         }
     }
+    public void getCountries() {
 
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.countries, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("HZM", response);
+
+                try {
+                    JSONObject session_response = new JSONObject(response);
+                    JSONArray jsonArray = session_response.getJSONArray("data");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        int id = jsonArray.getJSONObject(i).getInt("id");
+                        String name_ar = jsonArray.getJSONObject(i).getString("name_ar");
+                        String name_en = jsonArray.getJSONObject(i).getString("name_en");
+                        String short_code = jsonArray.getJSONObject(i).getString("short_code");
+                        Countries.DataBean countries = new Countries.DataBean();
+                        countries.setId(id);
+                        countries.setName_ar(name_ar);
+                        countries.setName_en(name_en);
+                        countries.setShort_code(short_code);
+                        countrylist.add(name_ar);
+
+                    }
+
+                    dialog = new Dialog(getActivity());
+                    dialog.setContentView(R.layout.country_spinner_dialog);
+                    final Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
+                    countriesAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, countrylist);
+                    niceSpinner.setAdapter(countriesAdapter);
+                    countriesAdapter.notifyDataSetChanged();
+                    Window window = dialog.getWindow();
+                    window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                    dialog.setCancelable(true);
+                    niceSpinner.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            updateusernationality=true;
+
+                            return false;
+                        }
+                    });
+
+                    niceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            if (firstExecutionNationality) {
+                                firstExecutionNationality = false;
+                                return;
+                            }
+
+
+
+                            String userCountry = String.valueOf(parent.getItemAtPosition(position));
+
+                            nationality.setText(userCountry);
+                            dialog.dismiss();
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+
+                        }
+                    });
+
+
+                    dialog.show();
+
+
+
+
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+
+                }
+
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + token);
+
+                return headers;
+
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + token);
+
+                return headers;
+            }
+
+            ;
+        };
+
+        MyApplication.getInstance().addToRequestQueue(stringRequest);
+
+    }
 
 
     }
