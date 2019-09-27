@@ -19,6 +19,11 @@ public interface AppConstants {
     String THIRD_SESSION = "THIRD_SESSION";
     String SPECIAL_SESSION = "SPECIAL_SESSION";
     String toolbartiltle = "toolbartiltle";
+
+    String ACTIVE = "الحساب  مفعل ";
+    String NOT_ACTIVE = "الحساب غير مفعل";
+
+    //--------------------------------------APIs----------------------------------------------------
     String USER_REGISTER = "http://salahalimohamed.website/tmajog/api/v1/user/register";
     String ISLOGIN = "ISLOGIN";
     String USER_LOGIN = "http://salahalimohamed.website/tmajog/api/v1/user/login";
@@ -29,4 +34,5 @@ public interface AppConstants {
     String USER_PROFILE="http://salahalimohamed.website/tmajog/api/v1/user/profile";
     String updateProfile="http://salahalimohamed.website/tmajog/api/v1/user/updateProfile";
     String resetCode="http://salahalimohamed.website/tmajog/api/v1/user/resetCode";
+    String ADVISORS_CONSULTANTS = "http://salahalimohamed.website/tmajog/api/v1/consultants";
 }

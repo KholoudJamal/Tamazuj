@@ -142,5 +142,6 @@
     <string name="not_update">لم يتم تعديل البيانات</string>
     <string name="load_data">الرجاءالانتظار ... يتم تحميل البيانات</string>
     <string name="no_internet">لا يوجد اتصال بالانترنت</string>
+    <string name="tryAgain">Try again</string>
 
 </resources>
