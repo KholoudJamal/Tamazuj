@@ -97,9 +97,9 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
                         choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "ar");
                    //updatePassword(token,choosing_langauge,dialogOldPassword.getText().toString(),dialogNewPassword.getText().toString(),dialogConfirmPassword.toString());
 
+                       // updatePassword(token,"en","12345","123456","123456");
+                        updatePassword(token,choosing_langauge,dialogOldPassword.getText().toString(),dialogNewPassword.getText().toString(),dialogConfirmPassword.getText().toString());
 
-                         updatePassword("Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc2Yzk1MDc1ZmY2NjVlMmE5ZGVmOTI3MjE0ZjdhMzIwMDMwMWM0MWMyZWJjMDYwNmMzYTAyZjQ2MGMyZWRiMmJiYzM0YWIyMjdiMzBjNjUzIn0.eyJhdWQiOiIxIiwianRpIjoiNzZjOTUwNzVmZjY2NWUyYTlkZWY5MjcyMTRmN2EzMjAwMzAxYzQxYzJlYmMwNjA2YzNhMDJmNDYwYzJlZGIyYmJjMzRhYjIyN2IzMGM2NTMiLCJpYXQiOjE1Njk2MzU3NzIsIm5iZiI6MTU2OTYzNTc3MiwiZXhwIjoxNjAxMjU4MTcyLCJzdWIiOiIxMiIsInNjb3BlcyI6W119.MY1x3o0S52HlSLTXMwUPUaxEszinLNGTMouNgMUzMWIpDTnNwllye_m_oDUfc0F1kV0Ot1r4VukGmPPTMa5VnkMgg48EcwsCeuqT4urUWZ0EQ01vaOkOrDwJlwfrkJR4vJ_gb__g1TZniwd71pj7wRQCqejoLediOIryOY5vtcPjSg13B-EmcmhVfqEdb88EFusxQF62G3w8HwlMJ8Ouj61gJZAAzIjCqsEzwfE9dcoMCeag4wz4a3GrdiFyJ0B7igdzlbDtBJGq36aZ-Wj5n2Jgmh506fYttU33J6cG4AZ8Opye7wLi9jcvdKC49bRsNyEoK5D-75MUE8HJu7OdSCqm_J72aC68QD0tiPT3Xc88stYBHsPCa0f5nBZzaFgru54cKe39MRA_Vq0Of7huJBDzC1nH2l4PaOcPRKwSMzi5RdA0QxOUSMg1Hgc-ZegjMbCGmWsqVUgGhvOwNrtfDTh_ApSlBn-yV2SBo8dsau5T2TxCApJdwV1RISZiCLPBE-999CBgnixraPfIKxQhtkhpEj5-q-XT-DTgfolM1yHrWE7oZ8elK5piMDdVJw0I2kFgRxXoauYmMbZPXCxJxH23tFTxDQc5NU31LZxpO2_HH-zsMh8gGevE_8dYh1_-JVSvZA0bLZQShNfzjRAZtbzvN3LiwPi2ulQUb3cHkO0",
-                                "en","123","12345","12345");
 
                     }
 
@@ -114,7 +114,8 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
 
 
 
-    public void updatePassword(final String token,final  String lang,final String old_password,final String new_password,final  String confirmed_password) {
+    public void updatePassword(final String token,final  String lang,final String old_password,
+                               final String new_password,final  String confirmed_password) {
 
        showDialog();
 
@@ -164,11 +165,11 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> Params = new HashMap<>();
-                Params.put("new_password",  new_password);
-                Params.put("old_password",  old_password);
-                Params.put("confirmed_password",  confirmed_password);
                 Params.put("Authorization", "Bearer" + "  " + token);
                 Params.put("lang", lang);
+                Params.put("new_password",new_password);
+                Params.put("old_password",old_password);
+                Params.put("confirmed_password",confirmed_password);
 
 
                 return Params;
@@ -177,12 +178,10 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
 
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders()  {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer" + "  " + token);
                 headers.put("lang", lang);
-                headers.put("Content-Type", "application/json");
-
                 return headers;
             }
 
@@ -226,6 +225,7 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
 
                     if (status == 1) {
                         Toast.makeText(getActivity(), "" + message, Toast.LENGTH_SHORT).show();
+                        dismiss();
 
 
                     } else {
@@ -254,9 +254,10 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap();
                 map.put("Authorization", "Bearer" + "  " + token);
-                map.put("new_password",  new_password);
-                map.put("old_password",  old_password);
-                map.put("confirmed_password",  confirmed_password);
+                map.put("lang", lang);
+                map.put("new_password",new_password);
+                map.put("old_password",old_password);
+                map.put("confirmed_password",confirmed_password);
 
                 map.put("lang", lang);
 
@@ -266,11 +267,10 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer" + "  " + token);
                 headers.put("lang", lang);
-                headers.put("Content-Type", "application/json");
 
                 return headers;
             }
