@@ -151,10 +151,10 @@
     <string name="Divorced">Divorced</string>
     <string name="single">single</string>
     <string name="widow">widow</string>
-    <string name="high_schoole">High School</string>
-    <string name="ba">B.A</string>
-    <string name="ma">M.A</string>
-    <string name="phd">PHD</string>
+    <string name="high_schoole">    ثانوية عامة</string>
+    <string name="ba">بكالوريوس</string>
+    <string name="ma">ماجستير</string>
+    <string name="phd">دكتوراه</string>
     <string name="resetcode">Reset Code</string>
     <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
     <string name="savedata">please wait ........Now saving data</string>
@@ -163,7 +163,6 @@
     <string name="notwork">Not Work</string>
     <string name="work_private_sector">Work in private sector</string>
 
-    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
-    <string name="default_notification_channel_name" translatable="true">Weather</string>
+
 
 </resources>
