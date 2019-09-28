@@ -81,6 +81,6 @@ public class CategoriesFragment extends Fragment {
         mAreasCounseling = view.findViewById(R.id.Areas_Counseling);
     }
 
-    
+
 
 }
