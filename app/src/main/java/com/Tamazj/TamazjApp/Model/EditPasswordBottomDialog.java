@@ -48,6 +48,7 @@ public class EditPasswordBottomDialog extends BottomSheetDialogFragment {
     SharedPreferences sharedPreferences;
     String choosing_langauge;
 
+    
 
     @SuppressLint("RestrictedApi")
     @Override
