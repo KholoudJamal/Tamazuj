@@ -101,8 +101,7 @@ public class SignInActivity extends AppCompatActivity {
                         editor_signUp.commit();
                         break;
                     default:
-                        //config.locale = Locale.getDefault();
-                        Locale arabiclocal = new Locale("ar", "ar");
+               Locale arabiclocal = new Locale("ar", "ar");
                         config.locale = arabiclocal;
                         editor_signUp = sharedPreferences.edit();
                         editor_signUp.putString(AppConstants.LANG_choose, "ar");
