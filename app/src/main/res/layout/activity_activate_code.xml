@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/activity_horizontal_margin_large"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin_large"
+    android:layout_marginTop="50dp"
+    tools:context=".Activity.ActivateCodeActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/activate_account"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:hint="@string/phoneNumber" />
+
+    <EditText
+        android:id="@+id/editActivate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:inputType="number"
+        android:hint="@string/code" />
+
+    <Button
+        android:id="@+id/activateAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:background="@drawable/button_dark_boarder"
+        android:inputType="number"
+        android:text="@string/activate_account" />
+    <TextView
+        android:id="@+id/resetcode"
+        android:layout_width="wrap_content"
+        android:text="@string/resetcode"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_margin16"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+</LinearLayout>

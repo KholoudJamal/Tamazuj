@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "964771797475",
+    "firebase_url": "https://tamazajapp.firebaseio.com",
+    "project_id": "tamazajapp",
+    "storage_bucket": "tamazajapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964771797475:android:2948c01f4e0016ac1ee8d6",
+        "android_client_info": {
+          "package_name": "com.Tamazj.TamazjApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964771797475-ec36f6u9i7p69190lsfvjr84l7ci8ode.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGBWC1gYkDD2poG3SydHFN-m1EQvmv4iE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964771797475-ec36f6u9i7p69190lsfvjr84l7ci8ode.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/cardView"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
+    android:layout_margin="8dp"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/area_counseling_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:background="@drawable/gray_bacground"
+        android:gravity="center_horizontal"
+        app:srcCompat="@drawable/image" />
+
+    <TextView
+        android:id="@+id/area_counseling_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/area_counseling_image"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-24dp"
+        android:gravity="center"
+        android:drawableTop="@drawable/englishrequesticon"
+        android:text="ddddddddddddddd" />
+
+    <TextView
+        android:id="@+id/area_counseling_catogory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/area_counseling_name"
+        android:text="ddddddddddddddd"
+        android:textColor="@color/colorBlue"
+        android:textStyle="bold" />
+
+
+
+
+</RelativeLayout>

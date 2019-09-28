@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AdvisorFragments.AdvisorEditProfileFragment"
+    android:orientation="vertical"
+    android:background="@drawable/editprofileback">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
+        android:layout_height="wrap_content"
+        android:background="#00000000">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/editMyInformation"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_header_size"
+                />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/blueBack"
+                android:background="#00000000"
+                android:src="@drawable/backblueicon"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+
+                />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/activity_vertical_margin_64"
+            android:layout_height="@dimen/activity_vertical_margin_64"
+            android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+            android:background="@drawable/circle_light_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="@dimen/activity_vertical_margin_64"
+            android:layout_height="@dimen/activity_vertical_margin_64"
+            android:background="#00000000"
+            android:src="@drawable/circle_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:id="@+id/editProfileImage"
+            android:src="@drawable/editprofille"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvFullNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/activity_vertical_margin_small"
+        android:padding="@dimen/activity_vertical_margin_small"
+        android:text="@string/nameHint"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_header_size"/>
+
+    <TextView
+        android:id="@+id/tvEmailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/activity_vertical_margin_medium"
+        android:text="@string/emailHint"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textDirection="rtl"
+            android:layoutDirection="rtl"
+            android:layout_gravity="right"
+
+            android:orientation="vertical">
+
+
+            <EditText android:id="@+id/tvFullNameAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_large"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/nameHint"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:inputType="text"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"/>
+
+            <EditText android:id="@+id/tvEmailAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/emailHint"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:inputType="textEmailAddress"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"/>
+
+            <TextView android:id="@+id/tvPhoneAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/phoneNumber"
+                android:textColor="@color/colorGray"
+                android:textDirection="rtl"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textSize="@dimen/text_header_size"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:inputType="phone"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvPasswordAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/passwordHint"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/editgray"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvGenderAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/gender"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/arabicrow"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvNationalityAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/nationality"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/arabicrow"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvBirthDateAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/birthDate"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/calndergray"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvLearningAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/learning"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/arabicrow"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvJobAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/job"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/arabicrow"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <TextView android:id="@+id/tvSocialStateAdvisorEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_medium"
+                android:background="@drawable/edit_text_boarder"
+                android:text="@string/socialState"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_header_size"
+                android:drawableEnd="@drawable/arabicrow"
+                android:drawablePadding="@dimen/activity_vertical_margin_small"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginStart="@dimen/activity_vertical_margin_large"
+                android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+                />
+
+            <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/approvalButton"
+                android:padding="@dimen/activity_vertical_margin_medium"
+                android:layout_marginTop="@dimen/activity_vertical_margin_large"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin_large"
+                android:textColor="@android:color/white"
+                android:text="@string/approval"
+                android:background="@drawable/button_boarder"
+                android:layout_margin="@dimen/activity_vertical_margin_large"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

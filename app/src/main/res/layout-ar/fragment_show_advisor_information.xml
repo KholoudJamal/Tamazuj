@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.ShowAdvisorInformationFragment"
+    android:background="@drawable/home_advisor_back"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+       android:layout_alignParentTop="true"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/blueBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:background="#00000000"
+            android:src="@drawable/backen"
+
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarShow"
+        android:layout_above="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/advisorInformationConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbarShow">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <FrameLayout
+                        android:id="@+id/advisorProfileFrame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_vertical_margin_xxlarge"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/advisorProfileCardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/activity_vertical_margin_large"
+                            android:background="@color/colorWhite"
+                            android:divider="@android:color/transparent"
+                            android:dividerHeight="0.0px"
+                            app:cardElevation="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin_large"
+                                android:padding="@dimen/activity_vertical_margin_medium">
+
+
+                                <TextView
+                                    android:id="@+id/tvAdvisorName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin_xlarge"
+                                    android:padding="@dimen/activity_vertical_margin_small"
+                                    android:text="@string/abu_dall_mohammed_omar"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/text_header_size"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/tvRatePercent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/activity_vertical_margin_xlarge"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin_small"
+                                    android:drawableStart="@drawable/percent"
+                                    android:drawablePadding="@dimen/activity_vertical_margin_medium"
+                                    android:text="@string/ratePercent"
+                                    app:layout_constraintEnd_toStartOf="@+id/tvBeneficiarieSatisfaction"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tvAdvisorName" />
+
+                                <TextView
+                                    android:id="@+id/tvBeneficiarieSatisfaction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin_small"
+                                    android:layout_marginEnd="@dimen/activity_vertical_margin_xlarge"
+                                    android:text="@string/beneficiarieSatisfaction"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/tvRatePercent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tvAdvisorName" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvShowAdvisorInf"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin_small"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tvBeneficiarieSatisfaction" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+                    </FrameLayout>
+
+                    <ImageButton
+                        android:id="@+id/profileImage"
+                        android:layout_width="80dp"
+                        android:layout_height="100dp"
+                        android:background="#00000000"
+                        android:src="@drawable/image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvAskConsult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/activity_vertical_margin_medium"
+                        android:background="@drawable/button_dark_boarder"
+                        android:padding="@dimen/activity_vertical_margin_medium"
+                        android:text="@string/askConsult"
+                        android:textColor="@color/colorWhite"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/activity_vertical_margin_large"
+                android:background="#00000000"
+                android:id="@+id/advisorSessionsLayout"
+                android:gravity="top"
+                android:padding="@dimen/activity_vertical_margin_medium">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvAboutAdvisorText"
+                    android:gravity="start"
+                    android:text="@string/notificationText"
+                    android:padding="@dimen/activity_vertical_margin_small"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/sessionRecycler"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/activity_vertical_margin_medium"
+        android:layout_marginBottom="@dimen/activity_vertical_margin_large">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/tvAdvisorAbout"
+            android:text="@string/advisorAbout"
+            android:padding="@dimen/activity_vertical_margin_large"
+            android:gravity="center"
+            android:background="@drawable/light_blue_bacground"
+            android:textColor="@color/colorBlue"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/tvAdvisorReviews"
+            android:text="@string/advisorReviews"
+            android:padding="@dimen/activity_vertical_margin_large"
+            android:gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>

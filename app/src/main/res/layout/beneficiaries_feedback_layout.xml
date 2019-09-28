@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/reviewContainer">
+
+    <ImageView
+        android:id="@+id/beneficiarieFeedbackImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin_medium"
+        android:src="@drawable/advisorreview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/beneficiarieFeedbackTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_vertical_margin_small"
+        android:text="@string/FeedbackTime"
+        app:layout_constraintStart_toEndOf="@+id/beneficiarieFeedbackImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/beneficiarieName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_vertical_margin_small"
+        android:text="@string/esaIbraheem"
+        app:layout_constraintBottom_toBottomOf="@+id/beneficiarieFeedbackImage"
+        app:layout_constraintStart_toEndOf="@+id/beneficiarieFeedbackImage"
+        app:layout_constraintTop_toBottomOf="@+id/beneficiarieFeedbackTime" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/feedbackIcon"
+        android:src="@drawable/love"
+        app:layout_constraintBottom_toBottomOf="@+id/beneficiarieName"
+        app:layout_constraintStart_toEndOf="@+id/beneficiarieName"
+        app:layout_constraintTop_toTopOf="@+id/beneficiarieName"
+        android:layout_marginStart="@dimen/activity_vertical_margin_large"/>
+
+    <TextView
+        android:id="@+id/feedbackRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_vertical_margin_small"
+        android:text="@string/happy"
+        app:layout_constraintBottom_toBottomOf="@+id/beneficiarieName"
+        app:layout_constraintStart_toEndOf="@+id/feedbackIcon"
+        app:layout_constraintTop_toTopOf="@+id/beneficiarieName"
+        android:layout_marginStart="@dimen/activity_vertical_margin_medium"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/feedbackBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="@dimen/activity_vertical_margin_medium"
+        android:text="@string/notificationText"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLightGray"
+        />
+
+</LinearLayout>

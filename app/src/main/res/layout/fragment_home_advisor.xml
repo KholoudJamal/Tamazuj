@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdvisorFragments.HomeAdvisorFragment"
+    android:orientation="vertical"
+    android:background="@drawable/home_advisor_back">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logofortoolbar"
+            android:layout_centerInParent="true"
+                android:layout_margin="@dimen/activity_vertical_margin_large"
+            />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/warningFrameLayout"
+        android:layout_marginTop="@dimen/activity_vertical_margin_large"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin_large"
+        android:text="@string/consultApplications"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_header_size"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rvConsultApplications"
+        android:padding="@dimen/activity_vertical_margin_medium"/>
+
+
+</LinearLayout>

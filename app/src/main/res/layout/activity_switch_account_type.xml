@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/MyActionBar"
+    tools:context=".Activity.SwitchAccountTypeActivity"
+    android:background="@drawable/welcomback">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/activity_horizontal_margin_large">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selectAccountType"
+            android:layout_gravity="center"
+            android:textSize="@dimen/text_large_size"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/beneficiarycard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin_xxlarge"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/beneficiary"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/text_xlarge_size"
+                android:text="@string/beneficiary"
+                android:padding="@dimen/activity_horizontal_margin_medium"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/beneficiary"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_large_size"
+                android:text="@string/DoYouNeedAnAdvisor"
+                android:paddingBottom="@dimen/activity_horizontal_margin_large"
+                android:paddingStart="@dimen/activity_horizontal_margin_medium"
+                />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mostefied"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/activity_horizontal_margin_large"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:id="@+id/advisorcard"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin_xlarge"
+            android:layout_marginBottom="@dimen/activity_vertical_margin_xxxlarge"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/advisor"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPink"
+                    android:textSize="@dimen/text_xlarge_size"
+                    android:text="@string/advisor"
+                    android:padding="@dimen/activity_horizontal_margin_medium"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/advisor"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_large_size"
+                    android:text="@string/consultYourBeneficiaries"
+                    android:paddingBottom="@dimen/activity_horizontal_margin_large"
+                    android:paddingStart="@dimen/activity_horizontal_margin_medium"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mostashar"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/activity_horizontal_margin_large"/>
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
