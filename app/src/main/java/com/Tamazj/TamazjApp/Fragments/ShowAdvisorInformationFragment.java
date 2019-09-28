@@ -3,6 +3,7 @@ package com.Tamazj.TamazjApp.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -42,7 +43,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,7 +68,7 @@ public class ShowAdvisorInformationFragment extends Fragment {
 
     SessionAdapterwithoutImage sessionAdapter;
 
-    String ADVISOR_ID;
+    String ADVISOR_ID, lang;
 
 
     @Override
@@ -72,6 +76,13 @@ public class ShowAdvisorInformationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_show_advisor_information, container, false);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+        if(sharedPreferences != null && sharedPreferences.getString(AppConstants.LANG_choose,Locale.getDefault().getLanguage()) != null){
+            lang = sharedPreferences.getString(AppConstants.LANG_choose,Locale.getDefault().getLanguage());
+        } else {
+            lang = Locale.getDefault().getLanguage();
+        }
 
         blueBack = view.findViewById(R.id.blueBack);
         blueBack.setOnClickListener(new View.OnClickListener() {
@@ -285,7 +296,10 @@ public class ShowAdvisorInformationFragment extends Fragment {
                             for(int j=0;j<jsonArrayCategory.length();j++){
                             try {
                                 JSONObject jsonObject2 =  jsonArrayCategory.getJSONObject(j);
-                                String category =jsonObject2.get("name_en").toString();
+                                String category;
+                                if(lang.equals("ar"))
+                                    category =jsonObject2.get("name_ar").toString();
+                                else category =jsonObject2.get("name_en").toString();
                                 listShowAdvisorInf.add(category);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -322,13 +336,13 @@ public class ShowAdvisorInformationFragment extends Fragment {
                 Log.e("WAFAA", error.toString());
             }
         }) {
-//                @Override
-//                protected Map<String, String> getParams() throws AuthFailureError {
-////                    Map<String, String> map = new HashMap();
-////                    map.put(,);
-////                    return map;
-//
-//                }
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> map = new HashMap();
+                    map.put("lang", lang);
+                    return map;
+
+                }
         };
 
         MyApplication.getInstance().addToRequestQueue(stringRequest);

@@ -9,6 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,7 +36,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
 
@@ -52,7 +56,7 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
 
     SessionAdapter sessionAdapter;
 
-    String ADVISOR_ID;
+    String ADVISOR_ID, lang;
 
 
     @SuppressLint("RestrictedApi")
@@ -62,6 +66,13 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
 
         viewDialog = View.inflate(getContext(), R.layout.advisor_details_layout, null);
         dialog.setContentView(viewDialog);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+        if(sharedPreferences != null && sharedPreferences.getString(AppConstants.LANG_choose,Locale.getDefault().getLanguage()) != null){
+            lang = sharedPreferences.getString(AppConstants.LANG_choose,Locale.getDefault().getLanguage());
+        } else {
+            lang = Locale.getDefault().getLanguage();
+        }
 
         Bundle bundle = getArguments();
         if( bundle != null && bundle.getString(AppConstants.ADVISOR_ID)!= null){
@@ -226,7 +237,10 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
                         for(int j=0;j<jsonArrayCategory.length();j++){
                             try {
                                 JSONObject jsonObject2 =  jsonArrayCategory.getJSONObject(j);
-                                String category =jsonObject2.get("name_en").toString();
+                                String category;
+                                if(lang.equals("ar"))
+                                    category =jsonObject2.get("name_ar").toString();
+                                else category =jsonObject2.get("name_en").toString();
                                 list.add(category);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -263,13 +277,13 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
                 Log.e("WAFAA", error.toString());
             }
         }) {
-//                @Override
-//                protected Map<String, String> getParams() throws AuthFailureError {
-////                    Map<String, String> map = new HashMap();
-////                    map.put(,);
-////                    return map;
-//
-//                }
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> map = new HashMap();
+                    map.put("lang", lang);
+                    return map;
+
+                }
         };
 
         MyApplication.getInstance().addToRequestQueue(stringRequest);

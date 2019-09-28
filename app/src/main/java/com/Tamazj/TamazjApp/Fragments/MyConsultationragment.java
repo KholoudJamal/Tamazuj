@@ -2,6 +2,7 @@ package com.Tamazj.TamazjApp.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.Distinguished_Advisors_Model;
 import com.Tamazj.TamazjApp.Model.FilterBottomDialog;
 import com.Tamazj.TamazjApp.R;
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -35,7 +37,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class MyConsultationragment extends Fragment {
     View view;
@@ -47,17 +54,25 @@ public class MyConsultationragment extends Fragment {
     private LinearLayout mLinaree;
     private RecyclerView mDistinguishedAdvisors;
     ImageView blueBack;
-
     ImageView personalprofile;
     ImageView filter;
     ImageView astesharticontoolbar;
 
+    String lang;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_my_consultationragment, container, false);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+        if(sharedPreferences != null && sharedPreferences.getString(AppConstants.LANG_choose,Locale.getDefault().getLanguage()) != null){
+            lang = sharedPreferences.getString(AppConstants.LANG_choose,Locale.getDefault().getLanguage());
+        } else {
+            lang = Locale.getDefault().getLanguage();
+        }
+
         mToolbar = view.findViewById(R.id.toolbar);
         mLinaree = view.findViewById(R.id.linaree);
         mDistinguishedAdvisors = view.findViewById(R.id.Distinguished_Advisors);
@@ -140,7 +155,9 @@ public class MyConsultationragment extends Fragment {
 //                            for(int j=0;j<jsonArray.length();j++){
                                 try {
                                     JSONObject jsonObject2 =  jsonArrayCategory.getJSONObject(0);
-                                    category =jsonObject2.get("name_en").toString();
+                                    if(lang.equals("ar"))
+                                        category =jsonObject2.get("name_ar").toString();
+                                    else category =jsonObject2.get("name_en").toString();
                                     Toast.makeText(getContext(), ""+ category, Toast.LENGTH_SHORT).show();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -189,13 +206,13 @@ public class MyConsultationragment extends Fragment {
                     Log.e("WAFAA", error.toString());
                 }
             }) {
-//                @Override
-//                protected Map<String, String> getParams() throws AuthFailureError {
-////                    Map<String, String> map = new HashMap();
-////                    map.put(,);
-////                    return map;
-//
-//                }
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> map = new HashMap();
+                    map.put("lang", lang);
+                    return map;
+
+                }
             };
 
             MyApplication.getInstance().addToRequestQueue(stringRequest);
