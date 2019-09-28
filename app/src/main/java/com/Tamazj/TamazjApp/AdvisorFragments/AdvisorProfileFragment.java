@@ -21,14 +21,16 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 
 public class AdvisorProfileFragment extends Fragment {
 
     View view;
-    ImageButton blueBack, editProfile, profileImage;
+    ImageButton blueBack, editProfile;
     TextView name, email, description;
+    CircleImageView profileImage;
     RecyclerView profileInformationRecyclerView;
     RecyclerView profileAttachmentsRecyclerView;
     List<ProfileInformation> profileInformation;

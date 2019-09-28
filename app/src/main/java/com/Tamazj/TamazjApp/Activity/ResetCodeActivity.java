@@ -3,6 +3,7 @@ package com.Tamazj.TamazjApp.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ public class ResetCodeActivity extends AppCompatActivity {
     private EditText mEditPhone;
     private Button mResetcode;
     ProgressDialog progressDialog;
+    String choosing_langauge;
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -42,6 +45,10 @@ public class ResetCodeActivity extends AppCompatActivity {
         mEditPhone = findViewById(R.id.editPhone);
         mResetcode = findViewById(R.id.resetcode);
         progressDialog = new ProgressDialog(ResetCodeActivity.this);
+        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+
+
+
         mResetcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +61,15 @@ public class ResetCodeActivity extends AppCompatActivity {
                     NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
                     if (networkInfo != null && networkInfo.isConnected()) {
-                        resetCode(mEditPhone.getText().toString());
+                        if (sharedPreferences != null) {
+                            if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                                choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                                resetCode(mEditPhone.getText().toString(),choosing_langauge);
+
+
+                            }
+                        }
+
 
                     }
                     else {
@@ -70,7 +85,7 @@ public class ResetCodeActivity extends AppCompatActivity {
 
 
 
-    public void resetCode(final String phone) {
+    public void resetCode(final String phone,final  String lang) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.resetCode, new Response.Listener<String>() {
             @Override
@@ -120,6 +135,14 @@ public class ResetCodeActivity extends AppCompatActivity {
 
                 return map;
 
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("lang", lang);
+                return headers;
             }
         };
 

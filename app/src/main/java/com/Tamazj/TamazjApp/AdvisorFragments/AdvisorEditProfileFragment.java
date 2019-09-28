@@ -17,6 +17,7 @@ import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
 import com.Tamazj.TamazjApp.R;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 /**
@@ -25,7 +26,8 @@ import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 public class AdvisorEditProfileFragment extends Fragment {
 
     View view;
-    ImageButton blueBack, editProfileImage, profileImage;
+    ImageButton blueBack, editProfileImage;
+    CircleImageView profileImage;
     TextView name, emailOriginal;
     Button approvalButton;
     EditText fullName, email, phone;

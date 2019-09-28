@@ -59,6 +59,7 @@ public class UserProfileFragment extends Fragment {
     String token;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor_signUp;
+    String choosing_langauge;
 
 
 
@@ -82,7 +83,16 @@ public class UserProfileFragment extends Fragment {
             NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                getUserProfile(token);
+                if (sharedPreferences != null) {
+                    if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                        choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                        getUserProfile(token,choosing_langauge);
+
+
+                    }
+                }
+
+
 
             }
             else {
@@ -127,7 +137,7 @@ public class UserProfileFragment extends Fragment {
     }
 
 
-    public void getUserProfile(final String token) {
+    public void getUserProfile(final String token,final  String lang) {
 
      // showDialog();
 
@@ -146,28 +156,63 @@ public class UserProfileFragment extends Fragment {
                     String work_status = taskarray.getString("work_status");
                     String educational_status = taskarray.getString("educational_status");
                     String photo = taskarray.getString("photo");
-                   // String date_of_birth=task_respnse.getString("date_of_birth");
-                    String date_of_birth="";
-
-                    if(date_of_birth.matches("")|| date_of_birth.matches(null)){
-                        date_of_birth="2/4/1989";
-
-                    }
+                  String date_of_birth=taskarray.getString("date_of_birth");
                    String social_status = taskarray.getString("social_status");
                     String status = taskarray.getString("status");
                     name.setText(username);
                     email.setText(useremail);
 
+
+
                     Picasso.with(getContext()).
                             load(photo)
                             .transform(new CropCircleTransformation()).into(profileImage);
+                    if(gender.equals(null)||gender.matches("null")){
+                        profileInformation.add(new ProfileInformation(R.drawable.sex, ""));
+                    }
+                    else {
+                        profileInformation.add(new ProfileInformation(R.drawable.sex, gender));
 
-                    profileInformation.add(new ProfileInformation(R.drawable.sex, gender));
-                    profileInformation.add(new ProfileInformation(R.drawable.country, nationality));
-                    profileInformation.add(new ProfileInformation(R.drawable.calander, date_of_birth));
-                    profileInformation.add(new ProfileInformation(R.drawable.university, educational_status));
-                    profileInformation.add(new ProfileInformation(R.drawable.freework, work_status));
-                    profileInformation.add(new ProfileInformation(R.drawable.married, social_status));
+                    }
+                    if(nationality.equals(null)||nationality.matches("null")){
+                        profileInformation.add(new ProfileInformation(R.drawable.country, ""));
+                    }
+                    else {
+                        profileInformation.add(new ProfileInformation(R.drawable.country, nationality));
+
+                    }
+
+                    if(date_of_birth.equals(null)||date_of_birth.matches("null")){
+                        profileInformation.add(new ProfileInformation(R.drawable.calander, ""));
+                    }
+                    else {
+                        profileInformation.add(new ProfileInformation(R.drawable.calander, date_of_birth));
+
+                    }
+                    if(educational_status.equals(null)||educational_status.matches("null")){
+                        profileInformation.add(new ProfileInformation(R.drawable.university, ""));
+                    }
+                    else {
+                        profileInformation.add(new ProfileInformation(R.drawable.university, educational_status));
+
+                    }
+
+                    if(work_status.equals(null)||work_status.matches("null")){
+                        profileInformation.add(new ProfileInformation(R.drawable.freework, " "));
+                    }
+                    else {
+                        profileInformation.add(new ProfileInformation(R.drawable.freework, work_status));
+
+                    }
+
+                    if(social_status.equals(null)||social_status.matches("null")){
+                        profileInformation.add(new ProfileInformation(R.drawable.married, ""));
+                    }
+                    else {
+                        profileInformation.add(new ProfileInformation(R.drawable.married, social_status));
+
+                    }
+
 
                     profileInformationAdapter = new ProfileInformationAdapter(getContext(), profileInformation);
                     profileInformationRecyclerView.setAdapter(profileInformationAdapter);
@@ -209,6 +254,7 @@ public class UserProfileFragment extends Fragment {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer" + "  " + token);
+                headers.put("lang", lang);
 
                 return headers;
             };

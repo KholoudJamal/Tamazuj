@@ -32,4 +32,6 @@ public interface AppConstants {
     String session_times="http://salahalimohamed.website/tmajog/api/v1/session-times";
     String countries ="http://salahalimohamed.website/tmajog/api/v1/countries";
     String FCM_TOKEN ="FCM_TOKEN" ;
+    String LANG_choose ="LANG_choose" ;
+    String updatePassword ="http://salahalimohamed.website/tmajog/api/v1/user/updatePassword";
 }

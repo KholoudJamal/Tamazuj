@@ -162,7 +162,9 @@
     <string name="work">Work</string>
     <string name="notwork">Not Work</string>
     <string name="work_private_sector">Work in private sector</string>
-
-
-
+    <string name="selectone">Select </string>
+    <string name="choose_lang">Choose Lanaguage</string>
+    <string name="choose_lanague">Choose Language</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
 </resources>

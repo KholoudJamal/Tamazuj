@@ -40,6 +40,7 @@ public class ActivateCodeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor_signUp;
     private TextView mResetcode;
+    String choosing_langauge;
 
 
     @Override
@@ -51,6 +52,7 @@ public class ActivateCodeActivity extends AppCompatActivity {
         mEditActivate = findViewById(R.id.editActivate);
         mActivateAccount = findViewById(R.id.activateAccount);
         mResetcode = findViewById(R.id.resetcode);
+        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
 
         mResetcode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +77,15 @@ public class ActivateCodeActivity extends AppCompatActivity {
                     NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
                     if (networkInfo != null && networkInfo.isConnected()) {
-                        activateCode(mEditPhone.getText().toString(), mEditActivate.getText().toString());
+
+                        if (sharedPreferences != null) {
+                            if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                                choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                                activateCode(choosing_langauge,mEditPhone.getText().toString(), mEditActivate.getText().toString());
+
+                            }
+                        }
+
 
                     } else {
                         Toast.makeText(ActivateCodeActivity.this, "" + getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
@@ -88,7 +98,7 @@ public class ActivateCodeActivity extends AppCompatActivity {
     }
 
 
-    public void activateCode(final String phone, final String activate) {
+    public void activateCode(final String lang,final String phone, final String activate) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.activateCode, new Response.Listener<String>() {
             @Override
@@ -150,6 +160,13 @@ public class ActivateCodeActivity extends AppCompatActivity {
 
                 return map;
 
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("lang", lang);
+                return headers;
             }
         };
 

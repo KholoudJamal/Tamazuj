@@ -23,6 +23,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -39,6 +40,8 @@ import com.Tamazj.TamazjApp.Model.AppConstants;
 import com.Tamazj.TamazjApp.Model.AppHelper;
 import com.Tamazj.TamazjApp.Model.Countries;
 import com.Tamazj.TamazjApp.Model.EditPasswordBottomDialog;
+import com.Tamazj.TamazjApp.Model.ProfileInformation;
+import com.Tamazj.TamazjApp.Model.SpinnerDialog;
 import com.Tamazj.TamazjApp.Model.VolleyMultipartRequest;
 import com.Tamazj.TamazjApp.R;
 import com.android.volley.AuthFailureError;
@@ -83,8 +86,8 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
     TextView name, emailOriginal;
     CircleImageView profileImage;
     Button approvalButton;
-    EditText fullName, email, phone;
-    TextView password;
+    EditText fullName;
+    TextView password,email,phone;
     TextView gender;
     TextView nationality;
     public static TextView birthDate;
@@ -123,10 +126,13 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
     boolean updateuseremmail = false;
     boolean updateuserfulname = false;
     boolean updateuserimage ,updateuserworkstayus,updateusernationality=false;
-    List<String> countrylist = new ArrayList<String>();
+    List<Countries.DataBean> countrylist= new ArrayList<Countries.DataBean>();
+    List<String> countrylistname = new ArrayList<>();
+
     ArrayAdapter countriesAdapter;
     String fcm_token;
-
+    int country_id;
+    String choosing_langauge;
 
 
 
@@ -158,7 +164,19 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
             NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                getUserProfile(token);
+
+                if (sharedPreferences != null) {
+                    if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                        choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                        getUserProfile(token,choosing_langauge);
+
+
+                    }
+                }
+
+
+
+
 
             } else {
                 Toast.makeText(getActivity(), "" + getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
@@ -261,9 +279,10 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
                 dialog = new Dialog(getActivity());
                 dialog.setContentView(R.layout.gender_spinner_dialog);
                 final Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
-                GenderList = new String[]{getActivity().getString(R.string.female), getActivity().getString(R.string.male)};
+                GenderList = new String[]{getActivity().getString(R.string.selectone)+ " "+getActivity().getString(R.string.gender),getActivity().getString(R.string.female), getActivity().getString(R.string.male)};
                 gender_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, GenderList);
                 niceSpinner.setAdapter(gender_adapter);
+
                 gender_adapter.notifyDataSetChanged();
                 Window window = dialog.getWindow();
                 window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -273,20 +292,28 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
                 niceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        //updateusergender=true;
-                        if (firstExecutionGender) {
+                        updateusergender=true;
+                    if (firstExecutionGender) {
                             firstExecutionGender = false;
                             return;
                         }
 
-                        String usergender = String.valueOf(parent.getItemAtPosition(position));
+                        if (gender.isClickable()){
+                            firstExecutionGender = true;
+
+                        }
+
+
+                            String usergender = String.valueOf(parent.getItemAtPosition(position));
                         gender.setText(usergender);
-                        dialog.dismiss();
+                      if(updateusergender){
+                        dialog.dismiss();}
 
                     }
 
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
+
 
 
                     }
@@ -343,23 +370,6 @@ fullName.setOnClickListener(new View.OnClickListener() {
 });
 
 
-        email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateuseremmail=true;
-
-            }
-        });
-
-
-        email.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                updateuseremmail=true;
-
-                return false;
-            }
-        });
 
 
 
@@ -403,7 +413,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
                 builder.create().show();*/
                 dialog = new Dialog(getActivity());
                 dialog.setContentView(R.layout.education_spinner_dialog);
-                EducationList = new String[]{getActivity().getString(R.string.high_schoole), getActivity().getString(R.string.ba), getActivity().getString(R.string.ma), getActivity().getString(R.string.phd)};
+                EducationList = new String[]{getActivity().getString(R.string.selectone)+ " "+getActivity().getString(R.string.learning),getActivity().getString(R.string.high_schoole), getActivity().getString(R.string.ba), getActivity().getString(R.string.ma), getActivity().getString(R.string.phd)};
                 Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
                 eduication_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, EducationList);
                 niceSpinner.setAdapter(eduication_adapter);
@@ -421,6 +431,13 @@ fullName.setOnClickListener(new View.OnClickListener() {
                             return;
 
                         }
+
+
+                        if (educationLevel.isClickable()){
+                            firstExecutionEducation = true;
+
+                        }
+
 
 
                         String educationLevelst = String.valueOf(parent.getItemAtPosition(position));
@@ -452,7 +469,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
                 dialog = new Dialog(getActivity());
                 dialog.setContentView(R.layout.soical_stautus_spinner_dialog);
                 Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
-                WorkList = new String[]{getActivity().getString(R.string.work), getActivity().getString(R.string.notwork), getActivity().getString(R.string.work_private_sector)};
+                WorkList = new String[]{getActivity().getString(R.string.selectone)+ " "+getActivity().getString(R.string.job),getActivity().getString(R.string.work), getActivity().getString(R.string.notwork), getActivity().getString(R.string.work_private_sector)};
                 work_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, WorkList);
                 niceSpinner.setAdapter(work_adapter);
                 work_adapter.notifyDataSetChanged();
@@ -469,6 +486,11 @@ fullName.setOnClickListener(new View.OnClickListener() {
                             return;
                         }
 
+
+                        if (work.isClickable()){
+                            firstExecutionWork = true;
+
+                        }
                         String userwork = String.valueOf(parent.getItemAtPosition(position));
                         work.setText(userwork);
                         dialog.dismiss();
@@ -496,7 +518,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
 
                 Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
 
-                Soical_statuslist = new String[]{getActivity().getString(R.string.married), getActivity().getString(R.string.single), getActivity().getString(R.string.Divorced), getActivity().getString(R.string.widow)};
+                Soical_statuslist = new String[]{getActivity().getString(R.string.selectone)+ " "+getActivity().getString(R.string.socialState),getActivity().getString(R.string.married), getActivity().getString(R.string.single), getActivity().getString(R.string.Divorced), getActivity().getString(R.string.widow)};
 
 
                 soical_staus_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, Soical_statuslist);
@@ -513,6 +535,11 @@ fullName.setOnClickListener(new View.OnClickListener() {
                         if (firstExecutionSoical) {
                             firstExecutionSoical = false;
                             return;
+                        }
+
+                        if (socialState.isClickable()){
+                            firstExecutionSoical = true;
+
                         }
 
                         String usersocialState = String.valueOf(parent.getItemAtPosition(position));
@@ -581,10 +608,19 @@ fullName.setOnClickListener(new View.OnClickListener() {
 
                 if (networkInfo != null && networkInfo.isConnected()) {
                     if(updateusersocialstayus ||updateuserdate||updateusereducation||updateuseremmail||
-                            updateuserfulname||updateuserphone||updateusergender||updateuserimage) {
+                            updateuserfulname||updateuserphone||updateusergender||updateuserimage || updateuserworkstayus) {
+
+                        if (sharedPreferences != null) {
+                            if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                                choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                                Updateuserprofile(choosing_langauge,token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(),
+                                        country_id, work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename,fcm_token,birthDate.getText().toString());
 
 
-                        Updateuserprofile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), 1, work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename,fcm_token);
+                            }
+                        }
+
+
 
 
                        // UpdateUserProfile(token, fullName.getText().toString(), phone.getText().toString(), gender.getText().toString(), nationality.getText().toString(), work.getText().toString(), educationLevel.getText().toString(), socialState.getText().toString(), uploaduserimageename);
@@ -690,7 +726,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
 
     }
 
-    public void getUserProfile(final String token) {
+    public void getUserProfile(final String token,final  String lang) {
 
         showDialog();
 
@@ -708,14 +744,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     String usergender = taskarray.getString("gender");
                     String usernationality = taskarray.getString("nationality");
                     String work_status = taskarray.getString("work_status");
-                   // String date_of_birth=task_respnse.getString("date_of_birth");
-// String date_of_birth=task_respnse.getString("date_of_birth");
-                    String date_of_birth="";
-
-                    if(date_of_birth.matches("")|| date_of_birth.matches(null)){
-                        date_of_birth="2/4/1989";
-
-                    }
+                  String date_of_birth=taskarray.getString("date_of_birth");
                     String educational_status = taskarray.getString("educational_status");
                     String photo = taskarray.getString("photo");
                     String usersocial_status = taskarray.getString("social_status");
@@ -724,16 +753,56 @@ fullName.setOnClickListener(new View.OnClickListener() {
                     emailOriginal.setText(useremail);
                     Picasso.with(getContext()).
                             load(photo).transform(new CropCircleTransformation()).into(profileImage);
-
                     fullName.setText(username);
                     email.setText(useremail);
                     phone.setText(userphone);
-                    gender.setText(usergender);
-                    nationality.setText(usernationality);
-                    socialState.setText(usersocial_status);
-                    educationLevel.setText(educational_status);
-                    birthDate.setText(date_of_birth);
-                    work.setText(work_status);
+
+
+                    if(usergender.equals(null)||usergender.matches("null")){
+                        gender.setText("");
+                    }
+                    else {
+                        gender.setText(usergender);
+
+                    }
+                    if(usernationality.equals(null)||usernationality.matches("null")){
+                        nationality.setText(" ");
+                    }
+                    else {
+                        nationality.setText(usernationality);
+
+                    }
+
+                    if(usersocial_status.equals(null)||usersocial_status.matches("null")){
+                        socialState.setText(" ");
+                    }
+                    else {
+                        socialState.setText(usersocial_status);
+
+                    }
+                    if(educational_status.equals(null)||educational_status.matches("null")){
+                        educationLevel.setText("");
+                    }
+                    else {
+                        educationLevel.setText(educational_status);
+
+                    }
+
+                    if(work_status.equals(null)||work_status.matches("null")){
+                        work.setText("");
+                    }
+                    else {
+                        work.setText(work_status);
+
+                    }
+
+                    if(date_of_birth.equals(null)||date_of_birth.matches("null")){
+                        birthDate.setText("");
+                    }
+                    else {
+                        birthDate.setText(date_of_birth);
+
+                    }
 
 
                 } catch (JSONException e1) {
@@ -769,6 +838,8 @@ fullName.setOnClickListener(new View.OnClickListener() {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer" + "  " + token);
+                headers.put("lang", lang);
+
 
                 return headers;
             }
@@ -793,7 +864,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
     }
 
 
-    private void Updateuserprofile(final String token, final String name, final String phone, final String gender, final int nationality, final String work_status, final String educational_status, final String social_status, final String photo ,final String fcm_token ) {
+    private void Updateuserprofile(final  String lang,final String token, final String name, final String phone, final String gender, final int nationality, final String work_status, final String educational_status, final String social_status, final String photo ,final String fcm_token,final  String date_of_birth ) {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getActivity().getString(R.string.savedata));
         progressDialog.show();
@@ -844,6 +915,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
                 params.put("Authorization", "Bearer" + "  " + token);
                 params.put("name", name);
                 params.put("phone", phone);
+                params.put("date_of_birth",date_of_birth);
                 params.put("gender", gender);
                 params.put("nationality", nationality+"");
                 params.put("work_status", work_status);
@@ -861,6 +933,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer" + "  " + token);
+                headers.put("lang", lang);
 
                 return headers;
             }
@@ -902,7 +975,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
         }
 
         public void populateSetDate(int year, int month, int day) {
-            birthDate.setText(month + "/" + day + "/" + year);
+            birthDate.setText(year + "-" + month + "-" + day);
         }
     }
 
@@ -999,19 +1072,21 @@ fullName.setOnClickListener(new View.OnClickListener() {
                         countries.setName_ar(name_ar);
                         countries.setName_en(name_en);
                         countries.setShort_code(short_code);
-                        countrylist.add(name_ar);
+                        countrylistname.add(name_ar);
+                        countrylist.add(countries);
+
+
 
                     }
 
                     dialog = new Dialog(getActivity());
                     dialog.setContentView(R.layout.country_spinner_dialog);
                     final Spinner niceSpinner = dialog.findViewById(R.id.nice_spinner);
-                    countriesAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, countrylist);
+                    countriesAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, countrylistname);
                     niceSpinner.setAdapter(countriesAdapter);
                     countriesAdapter.notifyDataSetChanged();
                     Window window = dialog.getWindow();
                     window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
                     dialog.setCancelable(true);
                     niceSpinner.setOnTouchListener(new View.OnTouchListener() {
                         @Override
@@ -1031,6 +1106,13 @@ fullName.setOnClickListener(new View.OnClickListener() {
                             }
 
 
+                            if (nationality.isClickable()){
+                                firstExecutionNationality = true;
+
+                            }
+                            country_id= countrylist.get(position).getId();
+
+
 
 
                             String userCountry = String.valueOf(parent.getItemAtPosition(position));
@@ -1042,6 +1124,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
 
                         @Override
                         public void onNothingSelected(AdapterView<?> parent) {
+
 
 
                         }

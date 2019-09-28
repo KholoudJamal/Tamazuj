@@ -3,6 +3,7 @@ package com.Tamazj.TamazjApp.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Api.MyApplication;
@@ -33,6 +35,10 @@ public class ResetPassActivity extends AppCompatActivity {
     private EditText mEditPhone;
     private Button mResetpass;
     ProgressDialog progressDialog;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor_signUp;
+    String choosing_langauge;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,9 @@ public class ResetPassActivity extends AppCompatActivity {
         mEditPhone = findViewById(R.id.editPhone);
         mResetpass = findViewById(R.id.resetpass);
         progressDialog = new ProgressDialog(ResetPassActivity.this);
+
+        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+
 
         mResetpass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +64,15 @@ public class ResetPassActivity extends AppCompatActivity {
                     NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
                     if (networkInfo != null && networkInfo.isConnected()) {
-                        resetPass(mEditPhone.getText().toString());
+                        if (sharedPreferences != null) {
+                            if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                                choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                                resetPass(mEditPhone.getText().toString(),choosing_langauge);
+
+                            }
+                        }
+
+
 
                     }
                     else {
@@ -71,7 +88,7 @@ public class ResetPassActivity extends AppCompatActivity {
 
 
 
-    public void resetPass(final String phone) {
+    public void resetPass(final String phone,final  String lang) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.resetPass, new Response.Listener<String>() {
             @Override
@@ -121,6 +138,12 @@ public class ResetPassActivity extends AppCompatActivity {
 
                 return map;
 
+            }
+            @Override
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("lang", lang);
+                return headers;
             }
         };
 

@@ -42,7 +42,7 @@
     <string name="settings">الاعدادات </string>
     <string name="attachments">المرفقات </string>
     <string name="_84_percent_of">"84 % نسبة رضي "</string>
-    <string name="ask_for_advice">"اطلب اسشترة "</string>
+    <string name="ask_for_advice">"اطلب استشارة  "</string>
     <string name="asteshart_ame">استشاراتي</string>
     <string name="abu_dall_mohammed_omar">محمد عبد الله</string>
     <string name="approval">اعتماد</string>
@@ -50,7 +50,6 @@
     <string name="dist">المستشارون المميزون</string>
     <string name="editMyInformation">تعديل البيانات</string>
     <string name="educational_consultant_holding_an_international_certificate_in_education">"المستشار التربوي الحاصل على الشهادة الدولية في التربية "</string>
-    <string name="job">المهنة</string>
     <string name="learning">مستوى التعليم</string>
     <string name="gender">الجنس</string>
     <string name="nationality">"الجنسية "</string>
@@ -142,5 +141,32 @@
     <string name="not_update">لم يتم تعديل البيانات</string>
     <string name="load_data">الرجاءالانتظار ... يتم تحميل البيانات</string>
     <string name="no_internet">لا يوجد اتصال بالانترنت</string>
+    <string name="female">انثى</string>
+
+
+    <string name="resetcode">اعادة طلب كود التفعيل</string>
+    <string name="nodatachanged">لم يتم تحديث البيانات لعمل تحديث</string>
+    <string name="savedata">الرجاء الانتظار .... يتم الان حفظ البيانات </string>
+    <string name="currancy">ر.س</string>
+    <!--work-->
+<string name="work">يعمل</string>
+<string name="notwork">لا يعمل</string>
+<string name="work_private_sector">يعمل في القطاع الخاص</string>
+    <!--education-->
+    <string name="high_schoole">ثانوية عامة</string>
+    <string name="ba">بكالوريس </string>
+    <string name="ma">ماجستير</string>
+    <string name="phd">دكتوراه</string>
+    <!--soical -->
+    <string name="Married">متزوج / ة</string>
+    <string name="Divorced">مطلق /ة</string>
+    <string name="single">أعزب</string>
+    <string name="widow">أرمل /ة</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <string name="selectone">اختر </string>
+    <string name="job">المهنة</string>
+    <string name="choose_lang">اختر اللغة</string>
+    <string name="choose_lanague">اختر الدولة</string>
 
 </resources>

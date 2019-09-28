@@ -2,8 +2,9 @@ package com.Tamazj.TamazjApp.Model;
 
 public class Profile {
 
+
     /**
-     * data : {"id":2,"name":"mahmoud zo","email":"ashq.smile@gmail.com","phone":"0595592136","gender":"male","nationality":null,"work_status":"workok","social_status":null,"educational_status":"ghj","photo":"http://salahalimohamed.website/tmajog/public/admin/img/user/11.PNG","status":"الحساب  مفعل برقم الهاتف"}
+     * data : {"id":13,"name":"wafaa herb","email":"wafaaherb@gmail.com","phone":"0599101010","gender":null,"nationality":"","work_status":null,"social_status":null,"educational_status":null,"photo":"http://salahalimohamed.website/tmajog/public/admin/img/setting/35163665790_d182d84f5e_k.jpg","status":"الحساب  مفعل برقم الهاتف","date_of_birth":null}
      * meta : {"message":"تمت العملية بنجاح","status":1}
      */
 
@@ -28,30 +29,32 @@ public class Profile {
 
     public static class DataBean {
         /**
-         * id : 2
-         * name : mahmoud zo
-         * email : ashq.smile@gmail.com
-         * phone : 0595592136
-         * gender : male
-         * nationality : null
-         * work_status : workok
+         * id : 13
+         * name : wafaa herb
+         * email : wafaaherb@gmail.com
+         * phone : 0599101010
+         * gender : null
+         * nationality :
+         * work_status : null
          * social_status : null
-         * educational_status : ghj
-         * photo : http://salahalimohamed.website/tmajog/public/admin/img/user/11.PNG
+         * educational_status : null
+         * photo : http://salahalimohamed.website/tmajog/public/admin/img/setting/35163665790_d182d84f5e_k.jpg
          * status : الحساب  مفعل برقم الهاتف
+         * date_of_birth : null
          */
 
         private int id;
         private String name;
         private String email;
         private String phone;
-        private String gender;
-        private Object nationality;
-        private String work_status;
+        private Object gender;
+        private String nationality;
+        private Object work_status;
         private Object social_status;
-        private String educational_status;
+        private Object educational_status;
         private String photo;
         private String status;
+        private Object date_of_birth;
 
         public int getId() {
             return id;
@@ -85,27 +88,27 @@ public class Profile {
             this.phone = phone;
         }
 
-        public String getGender() {
+        public Object getGender() {
             return gender;
         }
 
-        public void setGender(String gender) {
+        public void setGender(Object gender) {
             this.gender = gender;
         }
 
-        public Object getNationality() {
+        public String getNationality() {
             return nationality;
         }
 
-        public void setNationality(Object nationality) {
+        public void setNationality(String nationality) {
             this.nationality = nationality;
         }
 
-        public String getWork_status() {
+        public Object getWork_status() {
             return work_status;
         }
 
-        public void setWork_status(String work_status) {
+        public void setWork_status(Object work_status) {
             this.work_status = work_status;
         }
 
@@ -117,11 +120,11 @@ public class Profile {
             this.social_status = social_status;
         }
 
-        public String getEducational_status() {
+        public Object getEducational_status() {
             return educational_status;
         }
 
-        public void setEducational_status(String educational_status) {
+        public void setEducational_status(Object educational_status) {
             this.educational_status = educational_status;
         }
 
@@ -139,6 +142,14 @@ public class Profile {
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        public Object getDate_of_birth() {
+            return date_of_birth;
+        }
+
+        public void setDate_of_birth(Object date_of_birth) {
+            this.date_of_birth = date_of_birth;
         }
     }
 

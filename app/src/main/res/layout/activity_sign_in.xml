@@ -60,7 +60,7 @@ android:background="@drawable/loginbackgroundwithouticon">
                   android:text="@string/forgetPassword"
                   android:textSize="@dimen/text_header_size"
                   android:id="@+id/forgetpassward"
-                  android:layout_margin="@dimen/activity_vertical_margin_large"
+                  android:layout_margin="@dimen/activity_horizontal_margin_medium"
         />
 
         <Button android:id="@+id/buttonSignInSign"
@@ -79,7 +79,7 @@ android:background="@drawable/loginbackgroundwithouticon">
                   android:layout_gravity="center"
                   android:text="@string/dontHaveAccount"
                   android:textSize="@dimen/text_header_size"
-                  android:layout_marginTop="@dimen/activity_vertical_margin_large"
+                  android:layout_marginTop="@dimen/activity_horizontal_margin_medium"
         />
 
         <Button android:id="@+id/buttonSignInSignUp"
@@ -92,7 +92,21 @@ android:background="@drawable/loginbackgroundwithouticon">
                 android:background="#00000000"
         />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@string/choose_lang"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_medium"
+            android:textSize="@dimen/text_header_size"
+            android:layout_height="wrap_content" />
 
+        <Spinner
+            android:id="@+id/langauage"
+            android:layout_width="match_parent"
+            android:gravity="center"
+
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

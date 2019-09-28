@@ -4,15 +4,20 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,7 +48,12 @@ public class SignInActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor_signUp;
     TextView forgetpassward;
+    private String[] languages = { "English", "Arabic" };
+    boolean choose_langaue=false;
 
+    Spinner langauage;
+
+    String choosing_langauge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +61,63 @@ public class SignInActivity extends AppCompatActivity {
 
         email = findViewById(R.id.etSignInEmail);
         password = findViewById(R.id.etSignInPassword);
+        langauage = findViewById(R.id.langauage);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, languages);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        langauage.setAdapter(adapter);
+        langauage.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                choose_langaue=true;
+                return false;
+            }
+        });
+        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
 
+        langauage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+
+                choose_langaue=true;
+                Configuration config = new Configuration();
+                switch (arg2) {
+                    case 0:
+                        config.locale = Locale.ENGLISH;
+
+                        sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+                        editor_signUp = sharedPreferences.edit();
+                        editor_signUp.putString(AppConstants.LANG_choose, "en");
+                        editor_signUp.apply();
+                        editor_signUp.commit();
+                        break;
+                    case 1:
+                        Locale arabic = new Locale("ar", "ar");
+                        config.locale = arabic;
+                        editor_signUp = sharedPreferences.edit();
+                        editor_signUp.putString(AppConstants.LANG_choose, "ar");
+                        editor_signUp.apply();
+                        editor_signUp.commit();
+                        break;
+                    default:
+                        //config.locale = Locale.getDefault();
+                        Locale arabiclocal = new Locale("ar", "ar");
+                        config.locale = arabiclocal;
+                        editor_signUp = sharedPreferences.edit();
+                        editor_signUp.putString(AppConstants.LANG_choose, "ar");
+                        editor_signUp.apply();
+                        editor_signUp.commit();
+                        break;
+                }
+                getResources().updateConfiguration(config, null);
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
         sign = findViewById(R.id.buttonSignInSign);
         signUp = findViewById(R.id.buttonSignInSignUp);
         forgetpassward = findViewById(R.id.forgetpassward);
@@ -79,10 +146,26 @@ public class SignInActivity extends AppCompatActivity {
                     NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
                     if (networkInfo != null && networkInfo.isConnected()) {
-                        loginuser(email.getText().toString(), password.getText().toString());
 
+                        if(choose_langaue) {
+                            sharedPreferences = getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
+                            if (sharedPreferences != null) {
+                                if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                                    choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                                    loginuser(email.getText().toString(), password.getText().toString(), choosing_langauge);
+
+                                }
+                            }
+
+                        }
+                        else {
+                            Toast.makeText(SignInActivity.this, ""+getString(R.string.choose_lanague), Toast.LENGTH_SHORT).show();
+                        }
 
                     }
+
+
+
                     else {
                         Toast.makeText(SignInActivity.this, ""+getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                     }
@@ -112,7 +195,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 
-    public void loginuser(final String email, final String password) {
+    public void loginuser(final String email, final String password,final String lang) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.USER_LOGIN, new Response.Listener<String>() {
             @Override
@@ -177,6 +260,14 @@ public class SignInActivity extends AppCompatActivity {
 
                 return map;
 
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("lang", lang);
+                return headers;
             }
         };
 

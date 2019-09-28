@@ -117,7 +117,7 @@
                 android:layout_marginStart="@dimen/activity_vertical_margin_large"
                 android:layout_marginEnd="@dimen/activity_vertical_margin_large"/>
 
-            <EditText android:id="@+id/tvEmailAdvisorEditProfile"
+            <TextView android:id="@+id/tvEmailAdvisorEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin_medium"
@@ -126,11 +126,10 @@
                 android:textColor="@color/colorGray"
                 android:textSize="@dimen/text_header_size"
                 android:padding="@dimen/activity_vertical_margin_medium"
-                android:inputType="textEmailAddress"
                 android:layout_marginStart="@dimen/activity_vertical_margin_large"
                 android:layout_marginEnd="@dimen/activity_vertical_margin_large"/>
 
-            <EditText android:id="@+id/tvPhoneAdvisorEditProfile"
+            <TextView android:id="@+id/tvPhoneAdvisorEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin_medium"

@@ -115,7 +115,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/activity_vertical_margin_medium"/>
-        <ImageButton
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImage"
             android:layout_width="@dimen/activity_vertical_margin_64"
             android:layout_height="@dimen/activity_vertical_margin_64"
