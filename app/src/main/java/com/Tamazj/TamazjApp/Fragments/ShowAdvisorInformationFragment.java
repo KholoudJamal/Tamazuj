@@ -2,6 +2,10 @@ package com.Tamazj.TamazjApp.Fragments;
 
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Tamazj.TamazjApp.Adapter.ReviewAdapter;
 import com.Tamazj.TamazjApp.Adapter.SessionAdapterwithoutImage;
@@ -40,6 +45,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -60,13 +67,18 @@ public class ShowAdvisorInformationFragment extends Fragment {
 
     SessionAdapterwithoutImage sessionAdapter;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor_signUp;
+    String choosing_langauge;
+    String token;
 
-
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_show_advisor_information, container, false);
+        sharedPreferences = getActivity().getSharedPreferences(AppConstants.KEY_SIGN_UP, MODE_PRIVATE);
 
         blueBack = view.findViewById(R.id.blueBack);
         blueBack.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +110,24 @@ public class ShowAdvisorInformationFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         SessionRecycler.setHasFixedSize(true);
         sessionAdapter = new SessionAdapterwithoutImage(getContext(),sessionlist);
+        ConnectivityManager conMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
 
-        getSessionTime();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            if (sharedPreferences != null) {
+                if (sharedPreferences.getString(AppConstants.LANG_choose, null) != null) {
+                    choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
+                    token = sharedPreferences.getString(AppConstants.token, "default value");
+
+                    getSessionTime(choosing_langauge,token);
+
+                }
+            }
+        }
+
+        else {
+            Toast.makeText(getActivity(), ""+getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+        }
 
         aboutReviewsView = inf.inflate(R.layout.advisor_about_layout,null);
         tvAboutAdvisorText = aboutReviewsView.findViewById(R.id.tvAboutAdvisorText);
@@ -147,7 +175,7 @@ public class ShowAdvisorInformationFragment extends Fragment {
                 list.add(new Review(getURLForResource(R.drawable.advisorreview),getString(R.string.FeedbackTime),getString(R.string.esaIbraheem),AppConstants.SATISFIED,getString(R.string.notificationText)));
                 list.add(new Review(getURLForResource(R.drawable.advisorreview),getString(R.string.FeedbackTime),getString(R.string.esaIbraheem),AppConstants.NOT_SATISFIED,getString(R.string.notificationText)));
                 adapter = new ReviewAdapter(getContext(), list);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+                @SuppressLint("WrongConstant") RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
                 rvBeneficiariesFeedback.setLayoutManager(layoutManager);
                 rvBeneficiariesFeedback.setAdapter(adapter);
 
@@ -165,7 +193,7 @@ public class ShowAdvisorInformationFragment extends Fragment {
     }
 
 
-    public void getSessionTime() {
+    public void getSessionTime(final String lang,final String token) {
 
         // showDialog();
 
@@ -219,6 +247,8 @@ public class ShowAdvisorInformationFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
+                headers.put("lang", lang);
+                headers.put("Authorization", "Bearer" + "  " + token);
 
                 return headers;
 

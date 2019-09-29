@@ -158,7 +158,7 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
         if (sharedPreferences != null) {
             token = sharedPreferences.getString(AppConstants.token, "default value");
             fcm_token = sharedPreferences.getString(AppConstants.FCM_TOKEN, "default value");
-
+            choosing_langauge = sharedPreferences.getString(AppConstants.LANG_choose, "");
 
             ConnectivityManager conMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
@@ -329,7 +329,7 @@ public class UserEditProfileFragment extends Fragment implements IPickResult {
         nationality.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getCountries();
+                getCountries(choosing_langauge,token);
 
 
 
@@ -914,7 +914,6 @@ fullName.setOnClickListener(new View.OnClickListener() {
                 params.put("id", id);
                 params.put("Authorization", "Bearer" + "  " + token);
                 params.put("name", name);
-                params.put("phone", phone);
                 params.put("date_of_birth",date_of_birth);
                 params.put("gender", gender);
                 params.put("nationality", nationality+"");
@@ -1051,10 +1050,12 @@ fullName.setOnClickListener(new View.OnClickListener() {
             return true;
         }
     }
-    public void getCountries() {
+    public void getCountries(final String lang,final  String token) {
 
+        countrylistname.clear();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConstants.countries, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                AppConstants.countries, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.e("HZM", response);
@@ -1072,7 +1073,14 @@ fullName.setOnClickListener(new View.OnClickListener() {
                         countries.setName_ar(name_ar);
                         countries.setName_en(name_en);
                         countries.setShort_code(short_code);
-                        countrylistname.add(name_ar);
+                        if(choosing_langauge.matches("ar")) {
+                            countrylistname.add(name_ar);
+                        }
+                        else {
+                            countrylistname.add(name_en);
+
+
+                        }
                         countrylist.add(countries);
 
 
@@ -1157,6 +1165,7 @@ fullName.setOnClickListener(new View.OnClickListener() {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Authorization", "Bearer" + "  " + token);
+                headers.put("lang", lang);
 
                 return headers;
 

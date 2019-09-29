@@ -34,4 +34,5 @@ public interface AppConstants {
     String FCM_TOKEN ="FCM_TOKEN" ;
     String LANG_choose ="LANG_choose" ;
     String updatePassword ="http://salahalimohamed.website/tmajog/api/v1/user/updatePassword";
+    String user_consultation ="http://salahalimohamed.website/tmajog/api/v1/user/consultation";
 }

@@ -47,7 +47,7 @@ public class AdvisoeDeailsBottomDialog extends BottomSheetDialogFragment {
 
     SessionAdapter sessionAdapter;
 
-    @SuppressLint("RestrictedApi")
+    @SuppressLint({"RestrictedApi", "WrongConstant"})
     @Override
     public void setupDialog(Dialog dialog, int style) {
         super.setupDialog(dialog, style);
